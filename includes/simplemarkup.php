@@ -82,7 +82,7 @@ function simpleMarkupToHtml($text)
         '/(\\\)\*/',                   //7 - escaped *
 
         '/\s*\n*\s*$/',                //12- delete all empty lines at the end
-        '/\n/e'                        //13- transform any remaining line breaks to <br>
+        '/\n/'                         //13- transform any remaining line breaks to <br>
     );
 
     $replacement = array(
@@ -95,7 +95,7 @@ function simpleMarkupToHtml($text)
         '*',                           //7 - *
 
         '',                            //12- no empty lines at the end
-        "tag('br')"                    //13- replace line breaks by <br>
+        tag('br')                      //13- replace line breaks by <br>
     );
 
     $text = preg_replace($pattern, $replacement, $text);

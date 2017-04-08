@@ -156,25 +156,25 @@ if ($dataset=='' && !$newfilename) {
 
     //expanding single digit day, months and double digit years (in case datepicker is off)
     $datestart[$j] = preg_replace(array(
-                                       '/([\.|\-|\/])(\d)[\.|\-|\/]/e',  //single digit months
-                                        '/([\.|\-|\/])(\d\d)$/e',         //double digit years
-                                        '/^(\d)([\.|\-|\/])/e'            //single digit days
+                                       '/([\.|\-|\/])(\d)[\.|\-|\/]/',   //single digit months
+                                        '/([\.|\-|\/])(\d\d)$/',         //double digit years
+                                        '/^(\d)([\.|\-|\/])/'            //single digit days
                                        ),
                                        array(
-                                       "dpSeperator().'0$2'. dpSeperator()",
-                                       "dpSeperator().'20$2'",
-                                       "'0$1'.dpSeperator()"
+                                       dpSeperator().'0$2'. dpSeperator(),
+                                       dpSeperator().'20$2',
+                                       '0$1'.dpSeperator()
                                        ),
                                        $datestart[$j]);
     $dateend[$j] = preg_replace(array(
-                                        '/([\.|\-|\/])(\d)[\.|\-|\/]/e',  //single digit months
-                                        '/([\.|\-|\/])(\d\d)$/e',         //double digit years
-                                        '/^(\d)([\.|\-|\/])/e'            //single digit days
+                                        '/([\.|\-|\/])(\d)[\.|\-|\/]/',  //single digit months
+                                        '/([\.|\-|\/])(\d\d)$/',         //double digit years
+                                        '/^(\d)([\.|\-|\/])/'            //single digit days
                                        ),
                                        array(
-                                       "dpSeperator().'0$2'. dpSeperator()",
-                                       "dpSeperator().'20$2'",
-                                       "'0$1'.dpSeperator()"
+                                       dpSeperator().'0$2'. dpSeperator(),
+                                       dpSeperator().'20$2',
+                                       '0$1'.dpSeperator()
                                        ),
                                        $dateend[$j]);
     //Checking the date format. Entering ?, ??, -, -- is permitted. Some impossible dates can be given, but don't crash the plugin.
