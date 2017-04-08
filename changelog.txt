@@ -1,0 +1,334 @@
+*******************************************************************************************************
+**                                                                                                   **
+**                                                                                                   **
+**                                 V E R S I O N     H I S T O R Y                                   **
+**                                                                                                   **
+**                                                of                                                 **
+**                                                                                                   **
+**                                    CMSimple Calendar Plugin                                       **
+**                                                                                                   **
+**                                                                                                   **
+*******************************************************************************************************
+
+CMSimple Calendar Plugin started 2005 by Michael Svarrer, modified by Tory, Bob,
+and rewritten by Svasti, Holger, and again Svasti
+
+todo: 
+Auf einer Seite soll die Eventliste dargestellt werden (vollständig mit allen Terminen)
+Wäre es möglich z.B. auf der Startseite eine "verkürzte" Eventliste darzustellen, die z.B. die nächsten 5 Termine anzeigt?
+Damit soll nicht die nextevent Funktion gemeint sein, sondern die Liste.
+
+-- 1.4.6 (Dec 2013) bugfix (2 digit hours got corrupted on saving the event, fix by cmb)
+
+-- 1.4.5 (Nov 2013)
+    - bugfix (by cmb) to make editevents.php work under php4
+    - bugfix sorting events by time on the same day (reported by Stephanie Vetter)
+    - navigation is now limited to previous or next years/months, so that google stops following 20 years back etc
+    - when wrong name for event template is given, default table view will be shown
+    - eventlist templates without ".tpl" are also accepted now
+    - changing an event and clicking "add" will not delete the changes any more
+    - added metaconfig for use in XH 1.6 (including function to get eventlist templates)
+
+
+-- 1.4.4 (August 2013)
+    - bugfix in presets.php which caused blanc screen under php 4 (fix by cmb)
+    - bugfix: remove slashes had been forgotten
+    - annoying alert from ckeditor (on save) eliminated (code from cmb) and save button of ckeditor removed
+
+-- 1.4.3 (July 2013)
+    - bugfix to prevent data loss. On save not the complete eventfile is send to the server, but only
+      the events which was changed, added, deleted or copied. In the backup section a new button to save
+      the eventfile under a new name was added, as the general save button has gone.
+    - version.nfo file added, "native" check version deleted
+
+-- 1.4.2 (September 2012) by svasti
+    - Links to external pdfs and pdfs in subfolders of downloads folder now possible (user demand)
+    - Help file updated
+    - Added a suggestion (eventlist.php) by cmb, to prevent failiure of js routines in calendar-backend,
+      when tinymce is for some reason not working.
+    - Changed the routine to link to pdfs in downloadfolder, so that it will work also in CMSimple 3.4 which
+      has no special setting in config for "downloads" (idea by cmb)
+
+-- 1.4.1 (August 2012) by svasti 
+    - Bugfix "not in marquee" wouldn't save 
+
+-- 1.4 (July 2012) by svasti
+    - Two lines, which had $key=>&$value, which is not implementend in PHP 4, changed with workaround (by cmb)
+    - Fixed bug which prevented correct internal links from secondary languages
+    - Fixed bug which prevented a second internal link with & in heading
+    - Calendar file merging improved
+    - some small fixes in stylesheet.css and editor.css, and bugfix in editorconfig by cmb
+    - Added holiday-config menu
+    - Czech translation updated by oldnema
+
+-- 1.4 rc (May 2012) by svasti
+    - shifting of displayed period in event list to clicked event can be set
+      (This was the default behavior up to v 1.3. Now default behavior is enlargement of period to clicked event)
+    - internal link and event-list page can be selected by options list.
+    - multiple links and multiple link texts are possible
+    - error messages on missing writing permissions
+    - interface simplification + some bug corrections
+    - added simplified function calls for calendars/lists/marquees based on a combination of two event files
+    - added configuration possibility for pop-up location (right, left, down) in big calendar
+    - checking availability of function easter_date and providing an alternative (by cmb) 
+
+-- 1.4 beta (March 2012) by svasti
+
+    Configuration
+    - New direct configuration possibility in Edit Events and Calendar; changes can be seen right after saving.
+    - Grown complexity hidden from first time user. Presets are offered.
+    - User can save his own settings as a preset, could be used in upgrades, presets can be deleted too
+    - Presets and plugin content have configurable filepath
+    - huge set of direct configuration possibilites for big and small calendars
+    - Support for TinyMCE of CMSimple 1.5 added (with some help by cmb) and CKeditor
+
+    Second Calendar
+    - An independent second calendar can be enabled by entering an event file name in config
+    - Automatic enlargement of the backend plugin menu by 3 items (edit2, view list2, view calendar2)
+    - The second calendar has its own event list page. All styling same as standard calendar.
+    - 6 new commands for the 2nd calendar
+
+    Edit Events
+    -  Delete Button function changed: now deletes without right away without again clicking save
+       (saving the user 1 page reloading)
+    -  Checkbox to premark delete, on checking this, entries are crossed out visually, can be unchecked also.
+    -  Master color picker to control the other color pickers. Code specially send by Jan Odvárko
+    -  Main event field and additional dates field can be configured as textareas
+    -  Possibility to mark booked out added
+
+    Event List
+    - additional entry field added (user request), could be used for location
+    - 2 types of yearly events: with or without age calculation (user request)
+    - Editors configured to be able to use standard styles of the site
+    - Soft hyphens can be entered as \-
+    - Weekly events can be entered together with exceptions and additional dates
+    - Exceptions also work with long events
+    - Multiple dates can be assigned to a single event entry (only for 1 day events) .
+    - Combinations of 2 event files can be shown
+    - Template driven event list possible.
+    - Event list templates can be edited in Backup menu
+    - Added checkboxes for "show no past event" and "show past events in grey" and the
+      possibility of such choices through varibles in the function call events()
+    - Booked out (new item) when checked hovers on top of an event entry, which gets striped background color
+    - Dynamic enlargement of displayed event-list period: if you click in a calendar on an event which is outside the shown period of the event-list,
+      the event-list period will be enlarged to the future or past to display the requested event. So even if you show only 1 month
+      in youe event list, still every event can be accessed through clicking on an event day in calendar.
+    - Linking to Pages of CMSimpleRealBog and to Pages of Subsites enabled, Entry must start with ? or /
+
+    New calendar features
+    - Holidaylist can be entered in language file; holiday names are shown in title and pup-up frames
+      complex holiday dates like "easter + 50 days" or "11 days 1 sunday 26.11" can be entered
+    - New function bigcalendar() with extensive config possibilities
+    - bigcalendar with different background images, image file path is configurable
+    - Multiple months can be shown (user request), one under another or in columns, made a little easier through
+      year() and multicalendar(). Headline will annonce the year(s) shown.
+      If months from more than one year are shown, the months display the years also.
+    - Calendar can be shown from other than default file, i.e. archived file
+    - Different events on the same day will be sorted and displayed in the order of the starting time
+    - Combinations of 2 event files can be shown in Calendar, Year, Event-List
+    - 8 levels of visual stacking of events possible and explained in help file
+
+    Marquee
+    - Anniversaries and weekly events now also in marquee function
+    - New direct configuration and marquee in action plus actionless overview
+    - New config possibility to choose which fields shall be displayed in which order, including age field
+    - New plugin main menu item Marquee
+    - Added function stop on mouse over
+      (code by oldnema for standart marquee, code for jQuery adaped by svasti from code by Remy Sharp)
+    - reduced the java script call for marquee (originally by cmb) because it wouldn't work with new function
+    - if javascript is disabled in the browser the first marquee event is shown in marquee window
+
+    Popup in Calendar
+    - Reorganisation of popup display of events: time and holiday name are outdented, the rest indented,
+      horizontal rule separates different events on the same day
+      Popups validate and work even in IE 6
+    - Plugin works without eventlist page, popups show events, without eventlist
+      eventdays aren't clickable any more, simply mouse-over (like tool tip) shows the event information.
+
+    Bug correction
+    - source view table width now adjusted by javascript to fit nicely into screen size
+    - Bug correction by cmb (notice "no event scheduled" didn't show as expected)
+    - Multiday events starting before the period display in the event list, but lasting into the shown period
+      are now shown (internally marked $oldlonglastingevents)
+    - Several other bugs were detected by oldnema and could be corrected
+    - stripslashed now used only when magic_quotes_gpc is on
+
+    Translation
+    - Czech translation by oldnema
+
+    Security
+    - Securitycheck introduced by Holger hat to be modified, since it wasn't compatible with subsite feature of CMSimple 1.5
+    - Security check now on nearly all files as suggested by cmb
+    - Filebrowser of FCKeditor disabled when calling editevents from frontend (done by cmb, thanx)
+
+
+----------------------------------------------------------------------------------------------------------------
+
+-- 1.3 beta 9 by svasti
+    Backend
+    - only one type of input table now, no more narrow, medium, wide input tables. Lots of simplification in the code.
+    - Event list lookalike backend, editing table can be made visible for every event separately
+    - Editor field has to be activated for every field separately. This was done because too many instances of the editor made 
+      loading the page very slow.    
+
+
+-- 1.3 beta 7 by svasti
+    - some bugs corrected
+
+    Calendar
+    - popup text from mouse over colored calender days
+    - visual differentiation between fist, mid and last days of multi day events, single day events and birthdays
+
+    Marquee
+    - jQuery function used (with help of cmb)
+    - improved internal sorting (with help of cmb)
+
+
+-- 1.3 beta 6 (September 2011) by svasti http://svasti.de
+
+    Event List
+    - Past events and icons in the standard event list are automatically displayed in light grey
+    - Choice of different sets of icons for internal or external links and tooltip style info text
+    - Short info text can be entered in the link field and can be shown in tool tip style
+    - Text and images (description field) can be added under every event, with fckeditor support
+
+    Editing Events
+    - Date can again be entered directly, -,--,?,?? are allowed as days (of planned events),
+      simple date-check included, 1.1.11 will automatically become 01.01.2011, (but 31.02.11 still possible)
+    - Automatic link recognition (external, internal, doc(x) or pdf) and detailed error reporting,
+    - Hint pop-up buttons for how to formate and for how to enter links
+    - Copy button for (recurring) events,
+    - Top new-event-button creates new events at the top of the editing table,
+      while bottom the new-event-button creates them at the bottom of the table
+    - Title hints added to new event, copy, delete buttons in editevents table
+    - Some algorithms to catch user input errors (forgotten link text, unnecessary http://)
+    - Chronological sorting of events on save, function written by manu
+    - Saving the event file will produce a user-defined number of backup files, which can be inspected in backup admin
+    - Pop-up of available icon sets
+
+    Formatting
+    - Standard FCKeditor can be used in description field
+    - Custom version of FCKeditor added (necessary if FCKeditor isn't there)
+    - FCKeditor image dialog (of custom FCKeditor) changed, so that class can be selected easily
+    - Custom templates dialog added, adapted to calendar plugin
+    - Simple formatting possibility added using chars: *,_,~,#,+
+      with examples shown via popup button in editevents input table
+
+    Admin
+    - Detailed Backup menu added, where all event files can be inspected in source code or via standard
+      editing events input table, and files can be copied under new names, deleted and merged
+    - Archived event lists (e.g. of events of former years) can be put on normal pages
+    - Credits page with version check
+
+    Next Event Announcement
+    - Marquee-function rewritten, now with possibility to announce more than 1 event
+
+    Code
+    - Event files now start with version nr. so that in future versions the item order can be changed
+    - Lots of code rewritten or reformatted
+    - Width definitions of input fields moved to css, so that display in IE is similar to FF
+    - changed all config input to "1" or "", wich was "true" or "" (preparing for future check box config)
+    - Some bugs from v.1.0 corrected, e.g. switching off fields meant
+      corresponding data got lost. Now data is saved via hidden fields,
+      and fixed colspan setting (from v.1.0) disfigured the event list in IE (Holger found this bug)
+
+----------------------------------------------------------------------------------------------------------------
+
+-- Version 1.2 modified by Holger http://cmsimple.holgerirmler.de
+    - Fixed some PHP 5.3.0 deprecated code (split() ...)
+    - Added xh_debugmode() and a bit security
+    - Removed direct edit of the eventfiles in admin-area
+    - Bugfix: layout crashed on eventspage when a birthday (###) was the first event in a month
+    - Added the DatePicker v5.4 by frequency-decoder.com and made the date inputs readonly
+    - Replaced ";" by " " in users input to prevent a script-crash and to keep the field-structure in the event-files
+    - nextevent() will return now nothing when there is no future event
+    - $plugin_cf['calendar']['date_delimiter']: is ready to use full-stop ".", forward slash "/" and minus/dash "-",
+      a changed delimitter at runtime will be converted by the DatePicker, so no crashed eventfiles anymore
+    - Slightly changed the "narrow" style in the backend
+
+----------------------------------------------------------------------------------------------------------------
+
+-- Version 1.1 (April 2011) modified by svasti http://svasti.de
+    - xh-unicode-compatible
+    - lots of obsolete attributes moved from config to css (otherwise no validation in html5)
+    - elimination of unnecessary attributes
+    - changed obsolete php code ("eregi" is obsolete in php 5.3)
+    - improvement in backend, 3 input styles available (wide, medium narrow)
+    - tooltips in config
+    - extra line in event display giving the period for which the events are listed,
+    - possibility to show past events, new way to show end of events
+    - bug corrections: begin and end display of events lasting several days were mixed up
+    - events from different years would mess up the event-display,
+    - new way to show end of events (date and/or time),
+    - correction of other minor bugs (like birthday in calendar view) plus beautifying the code display a bit... but not too much
+
+----------------------------------------------------------------------------------------------------------------
+
+ -- Version 1.0 By Tory
+  - The function of showing/not showing time, location and link in event view will now work again
+
+----------------------------------------------------------------------------------------------------------------
+
+    Modified by Bob (cmsimple.fr), 02/2008. (this is from CMSimple Flex package)
+
+----------------------------------------------------------------------------------------------------------------
+
+ -- Version 0.9 By Tory
+  - Minor bugs corrected regarding Date-delimiter problem in events in Calendar view.
+  - Event Page is now configured in the language file. You therefore don't need to add Eventpage-name in Calender call in Template or Calendar-page
+  - Singular-Plural text regarding age in birtdays in EventPage are now added to language files.
+  - Parameters added to language files are:
+    $plugin_tx['calendar']['admin_event_page']="Events";  - The Eventpage, in wich Events in Calendar are related to.
+    $plugin_tx['calendar']['age_singular_text']="year"; age text for ages <2 Years
+    $plugin_tx['calendar']['age_plural1_text']="years";
+    age text for ages >1 and <5 years
+    $plugin_tx['calendar']['age_plural2_text']="years"; age text for ages >4 years, used in many east european contries
+
+ -- Version 0.8 By Tory
+    Events can now be added / edited / deleted from a CMSimple page, without the Administrator Rights.
+    Just create a page and add the following line:
+    #CMSimple $output.=editevents();#
+    The page can be behind Memberspage or Register plugin to allow just a single group of members to be Editor of the Event File.
+    Eg.: #CMSimple $output.=access('admin');$output.=editevents();# (Used in combination with register plugin.)
+    Only index.php file in Calender plugin has been changed since Version 0.7
+
+ -- Version 0.7 By Tory based on Svarrers version 0.5 : 20. Sep. 2007
+    Several dates events are now handled so that they can last over several days, weeks, month or years.
+    Begin and End date/time are entered in the eventfile separately. They are only shown in Eventpage with
+    the Begin date and End date. In the Calender it is possible to select whether the between dates should be
+    higlighted or not.
+    In Nextevent and Event-page are automatically written Begin date-time or End date-time to a several dates event.
+
+ -- Version 0.6 Mod by Tory : 16. Sep 2007
+    New Function added: nextevent() will display next coming event compared to current date-time.
+    New way of sorting events that makes it possible to have more events the same day, and have them sorted
+    by date and time.
+    Events are entered in the eventfile this way:
+    Date;Event;Location (### = birthday);Link (int:?InternalPage / ext:www.ExternalPage.com),LinkTxT;Time (eg: 09:45)
+    Date can be: begin-date,end-date,end-time for events over several days e.g: 19-6-2007,27-6-2007,16:30
+
+----------------------------------------------------------------------------------------------------------------
+
+ -- Version 0.5 : 17. mar 2006
+    New feature added external linkage and miltiple dates for same event syntax
+    date delimiter can be /.- for input. For output the event table parameter
+    $plugin_cf['calendar']['date_delimiter'] controls the output
+    New CSS clases added for the event_monthyear, event_heading,event_data
+    Improved way of generating event table implemented
+
+ -- Version 0.4 : 11. sept 2005
+    Title added to link in calendar mode showing event
+    $end_month added in the events function, here you specify the amount
+    of months the events function should show.
+    Prev/Next month button avaliable, set 'prev_next_button' to true to enable
+    Bug when using week_starts_mon = false
+
+ -- Version 0.3 : Third release - 16. jun 2005
+    Parameters added to config
+    $plugin_cf['calendar']['calendar_width']
+    $plugin_cf['calendar']['event_width_date']="20%";
+    $plugin_cf['calendar']['event_width_event']="60%";
+    $plugin_cf['calendar']['event_width_location']="20%";
+
+ -- Version 0.2 : Second release - 15. jun 2005
+    Some Notice: Undefined variable: for different variables

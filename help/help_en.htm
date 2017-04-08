@@ -1,0 +1,708 @@
+<!DOCTYPE HTML>
+<!--Version 1.4.3 -->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Calendar plugin help file
+</title>
+<style type="text/css">
+    body {padding:0 2em; max-width:70em; margin:0 auto; font: 11pt/1.4 verdana, sans-serif;}
+    code {font: bold 12pt consolas, monospace; color: #900; }
+    small code {font: normal 10pt consolas, monospace; color: #800;}
+    p {margin: 0 0 .5em;}
+    h1, h2, h3, h4 {font-family: georgia, times new roman, serif;color:#07c; margin:3em 0 .2em;}
+    h2 {font-style:italic;color:#029;}
+    h4 {font-style:italic;color:#069;}
+    em {font-weight:bold;color #900;}
+    li {margin:.8em 0;}
+    li li {margin: .5em 0;}
+    ul {margin:.5em 0 .5em 2em;}
+    ul h3 {margin: 1em 0 0 -5em;}
+    blockquote {margin:.5em 1.5em;}
+    table {border:none;margin:11px 0; border-collapse: collapse;}
+    fieldset {margin-top:3em;border:3px solid #eee;padding: 0 15px;}
+    legend {font: italic bold 22px georgia, times new roman, serif;color:#029;}
+    table {border:4px solid #aaa;margin:11px 0; border-collapse: collapse;}
+    td, th {border:1px solid #777; padding:7px;}
+    tr th {text-align:center;background:#eee;}
+    ol {float: left;width: 32em;margin:3em 2em 3em 0;padding-left:3em;}
+    ol li {margin:0;line-height:1.8 ;}
+    .xxx {background:#ffb;}
+    .xxx em {color:#800;}
+</style>
+</head>
+<body>
+<h1>Calendar Plugin <small>1.4.5 for CMSimple_XH</small></h1>
+<p><small>Originally developed by Michael Svarrer in 2005, modified by Tory and <a href="http://cmsimple.fr">Bob</a>, revised and enlarged by Svasti and <a href="http://cmsimple.holgerirmler.de">Holger</a> and again by <a href="http://svasti.de">Svasti</a></small></p><br>
+
+<p>Calendar produces calendars with marked event days, which are linked to an event list.</p>
+<p>
+<b>New in Version 1.4.3:</b> Up to version 1.4.2 for saving the complete event list was send to the server. Unfortunately some users reported data loss in long lists. In version 1.4.3 now only the one actually changed event is sent to the server to prevent data loss. Don't edit more than one event before saving, as only one event can be saved at a time.<br>
+<b>Version 1.4.4</b> & <b>1.4.5:</b> Bug fixes</p>
+
+
+<ol>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#basic_usage">Basic Usage</a></li>
+<li><a href="#puttin_on_page">Putting Calendar on your page</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#colors">Coloring the Calendar Days</a></li>
+<li><a href="#enterevents">Entering New Events</a></li>
+<li><a href="#exceptions">Exceptions and Additional Dates</a></li>
+<li><a href="#editors">Editors</a></li>
+<li><a href="#eventlist">Event Page = Page with the Event-List</a></li>
+<li><a href="#eventlist">Event-List Style</a></li>
+<li><a href="#holidays">Holidays</a></li>
+<li><a href="#marquee">Display of Next Coming Event via Marquee</a></li>
+<li><a href="#template">Adjusting Your Page Template</a></li>
+<li><a href="#icons">Icons, background images, birthday symbols</a></li>
+<li><a href="#archive">Creating an Event-Archive</a></li>
+<li><a href="#different">Second Calendar with Different Events</a></li>
+<li><a href="#memberpages">Input of Events in Protected Member Pages</a></li>
+<li><a href="#multilanguage">Calendar on Subsites or Multi Language Sites</a></li>
+<li><a href="#conflicts">Conflicts with other Plugins</a></li>
+<li><a href="#classic">Installing Calendar Plugin in CMSimple 3.4 or CMSimple LE</a></li>
+<li><a href="#commands">List of Function Calls</a></li>
+<!--<li><a href="#limits">Problems and Limitations</a></li>-->
+</ol>
+
+<ul>
+<h3>Updating 1.4.4 –> 1.4.5</h3>
+<li>Exchange: admin.php, additionally version.nfo, changelog.txt, the help folder, readme.txt</li>
+
+<h3>1.4.0 –> 1.4.5</h3>
+<li>Exchange: admin.php, index.php,  the editorconfigs, includes and language folders, additionally  version.nfo, changelog.txt, the help folder, readme.txt</li>
+
+<h3>1.4 beta –> 1.4.5</h3>
+
+ <li>Save old settings through <em>Presets>backup</em> for both Event-list and also Calendar.</li>
+ <li>Keep calendar/content folder + calendar/templates/ folder, and calendar/config/config.php in case you have changed config settings. Replace all other files.</li>
+ <li>Activate your old presets by choosing Presets>backupname for both event-list and calendar. If you have kept your old config file, you need to add the line:<br>
+  <code>$plugin_cf['calendar']['eventlist_start_moves_with_clicked_event']="1";</code>
+</li>
+
+
+<h3>1.1 –> 1.4.5</h3>
+
+ <li>Re-use old content files</li>
+ <li>Old function calls usually still work (except calls which include the event page; the way to enter the event page has been changed).</li>
+ <li>The method of entering links and birthdays has changed.</li>
+</ul>
+
+
+<h3 style="clear:both"><a name="installation">Installation</a></h3>
+<ul>
+    <li>Extract zip-file and put the calendar folder into your CMSimple plugins folder. Websites on shared hosting servers may require writing permissions (646 usually works) for config.php, config2.php, stylesheet.php, templates and content folders with all files, and language file.</li>
+    <li>You can change some paths (but don't have to!):
+        <ul>
+            <li>You may want to put your calendar event data in a subfolder under userfiles. In <em>config > filepath data</em> enter <code>./userfiles/calendar/</code> and move all content files to that folder. </li>
+            <li>You may want to put the calendar background images in a subfolder under images. In <em>config > filepath calendar background images</em> enter <code>../../../images/calendar/</code> and move the provided backgrounds to that folder. </li>
+        </ul>
+    </li>
+    <li>Choose your <em>Date Delimiter</em> before you start entering events. Enter in config if you want <code>"."</code> or <code>"-"</code> or <code>"/"</code>  to deliminate the numerals in dates, i.e. 01.01.2011 or 01-01-2011 or 01/01/2011. If you change this setting later, exceptions, additional days and provisional dates will be erased and your event list will not show anything. After saving the event file, the event list will work again, however the above mentioned date entries will be lost. <br>American style date month/day/year is not possible, only day/month/year is supported.</li>
+
+
+</ul>
+
+<fieldset>
+
+<legend><a name="basic_usage">Basic Usage</a></legend>
+<table>
+ <tr>
+  <th>Function Call</th>
+  <th>Result</th>
+  <th>Used for</th>
+ </tr>
+ <tr>
+  <td><code>editevents()</code></td>
+  <td>event input table</td>
+  <td>password protected pages</td>
+ </tr>
+ <tr>
+  <td><code>calendar()</code></td>
+  <td>one month small calendar</td>
+  <td>template</td>
+ </tr>
+ <tr>
+  <td><code>multicalendar()</code></td>
+  <td>2 or more months calendar</td>
+  <td>template + pages</td>
+ </tr>
+ <tr>
+  <td><code>year()</code></td>
+  <td>year calendar</td>
+  <td>pages</td>
+ </tr>
+ <tr>
+  <td><code>bigcalendar()</code></td>
+  <td>big one month calendar</td>
+  <td>pages</td>
+ </tr>
+ <tr>
+  <td><code>events()</code></td>
+  <td>list of events</td>
+  <td>pages</td>
+ </tr>
+ <tr>
+  <td><code>nextevent()</code></td>
+  <td>marquee of next coming events</td>
+  <td>template + pages</td>
+ </tr>
+</table>
+  
+  
+<p><small><i>P.S. No need to use all functions, one may be sufficient for your site.</i></small></p><br>
+
+<h3><a name="puttin_on_page">Putting calendar on your page</a></h3>
+<ul>
+ <li><code>{{{PLUGIN:bigcalendar();}}}</code><br>puts a big one-month calendar on your page.<br>
+ You can customize the looks of this big calendar in calendar config above the calendar view. Presets are also available.
+ </li><br>
+ <li><code>{{{PLUGIN:multicalendar([number of months],[number of columns next to each other]);}}}</code><br>puts a multi-months calendar with months displayed in columns on your page.
+
+ <ul>
+  <li><code>multicalendar(3,3)</code> will show 3 months, starting from present month, in 3 columns.<br>
+<img src="multicalendar_3-3.jpg" alt="multicalendar_3-3.jpg, 18kB" title="Multicalendar 3 3" border="0" height="194" width="658"></li><br><br>
+
+  <li><code>multicalendar(3)</code> has no value for columns, so no columns are created and no frame line. Months are displayed one under another, first month with weekday names.<br>
+<img src="multicalendar_3.jpg" alt="multicalendar_3.jpg, 15kB" title="Multicalendar 3" border="0" height="453" width="205"></li>
+ </ul>
+ </li>
+ <li><code>{{{PLUGIN:year();}}}</code>produces a year calendar<br>
+ You can specify the year, e.g.: <code>{{{PLUGIN:year(2021);}}}</code><br>
+ and the number of columns, e.g.: <code>{{{PLUGIN:year('',4);}}}</code>. 3 columns is the default value.<br>
+ Here an example with 4 columns:<br>
+<img src="year_-4.jpg" alt="year_-4.jpg, 61kB" title="Year  4" border="0" height="485" width="610"></li><br>
+
+ <li><code>{{{PLUGIN:events();}}}</code> puts the event list on your page.<br>
+ In former versions of calendar you always needed an event list. In this version event information can be shown in calendar pop-ups, so that a separate event list is no must any more. Only when the page with the event list is specified, event days in calendar are linked to the event list.</li>
+</ul>
+
+<h3><a name="configuration">Configuration</a></h3>
+<ul>
+<li>Next to the normal CMSimple plug-in config file Calendar has direct configuration possibilities in "Edit Events", "Calendar" and "Marquee".</li>
+    <li>A click on [+] behind <em>presets</em> let's you select presets. You can save your own settings as presets by entering a name and clicking <em>backup</em>. Presets can be edited and deleted in main plugin menu <em>Backup > Delete</em>.</li>
+    <li>A click on [+] behind <em>Event-list config, Big Calendar, Small Calendar, Pop-up</em>,  opens self-explanatory menus. On saving changes can be seen right away. If you see only partial changes, try reloading the page, or empty your browser cache.</li>
+<li><em>Color fields:</em> click opens small frame with color choices. Alternatively you can enter a standard color name into the field, like: <em>black, blue, gray, green, purple, red, silver, white, yellow,</em> or enter a 3-digit color code like <code>#555</code> or <code>#F00</code>. If you leave the field empty (by deleting the color number) no color will be applied.</li>
+<li>Font selection lets you choose font family, font size and sometimes line height. Possible values are listed in config.</li>
+<li class='xxx'><em>HINT:</em> The configuration utility manipulates the css-file. Usually browsers store this file on the first loading of a page for faster future loading. If you change some css-values and your browser doesn't reloaded the css-file, you won't see the changes. The plugin tries to force the browser to reload the css-file in the configuration-page. However when you go to some page of your site to see the final result, your browser may not reload the css-file. Before thinking the program doesn't work, just reload your page in the browser.</li>
+</ul>
+
+<h3><a name="events">Events</a></h3>
+<ul>
+ <li>Events are organized as: DATE, TIME, ENTRY1, MAIN-ENTRY, ENTRY3, INFO/LINKS, additional DESCRIPTION.</li>
+ <li>You can deselect unwanted fields; minimum selection is DATE and MAIN-ENTRY.</li>
+</ul>
+
+<h3><a name="colors">Coloring the Days in Calendar</a></h3>
+<ul>
+ <li>Coloring of calendar days is organized in 8 consecutive layers:
+ <table style="width:100%;" ><col width="4%"><col width="24%"><col width="24%"><col width="24%"><col width="24%">
+  <tr>
+   <td>1</td>
+   <td>simple day numbers</td>
+   <td>basic color</td>
+   <td>normal weight</td>
+   <td>no background</td>
+  </tr>
+  <tr>
+   <td>2</td>
+   <td>weekends</td>
+   <td><span style="color:blue; font-weight:bold">weekend color</span></td>
+   <td><b>bold</b></td>
+   <td>no background</td>
+  </tr>
+  <tr>
+   <td>3</td>
+   <td>public holidays</td>
+   <td><span style="color:red; font-weight:bold">holiday color</span></td>
+   <td><b>bold</b></td>
+   <td>no background</td>
+  </tr>
+  <tr>
+   <td>4</td>
+   <td>single day events + 1st day of long events</td>
+   <td>color possible <br><small>not recommanded, as it obscures holiday and weekend markings</small></td>
+   <td><b>bold</b> possible <br><small>but not recommanded</small></td>
+   <td style="background:#afa;">event day background</td>
+  </tr>
+  <tr>
+   <td>5</td>
+   <td>specially marked events for border marking</td>
+   <td style="border:3px dotted blue">colored border</td>
+   <td>weight can not be set</td>
+   <td>no background</td>
+  </tr>
+  <tr>
+   <td>6</td>
+   <td>2nd and following days of long events <br><small>(not in big calendar)</small></td>
+   <td style="border-bottom:3px dashed #fa0;">underlining</td>
+   <td>weight can not be set</td>
+   <td>no background</td>
+  </tr>
+  <tr>
+   <td>7</td>
+   <td>birthdays <br><small>(not in big calendar)</small></td>
+   <td>color can not be set</td>
+   <td>weight can not be set</td>
+   <td style="background:url(angle.gif);">partly transparent background image</td>
+  </tr>
+  <tr>
+   <td>8</td>
+   <td>today <br><small>(not in big calendar)</small></td>
+   <td>color possible <br><small>not recommanded, as it obsures events, holidays and weekends</small></td>
+   <td><b>bold</b> possible <br><small>but not recommanded</small></td>
+   <td>background possible</td>
+  </tr>
+ </table></li>
+<li>Not using color or bold for events means that weekends or public holidays are still clearly visible.</li>
+</ul>
+
+<h3><a name="enterevents">Entering New Events</a></h3>
+<ul>
+    <li>
+    <img src="../images/ok.png" alt="save" title="Save" height="16" width="16"> = save this event<br>
+    <img src="../images/add.png" alt="add.png, 733B" title="Add" height="16" width="16"> = create new event<br>
+    <img src="../images/copy.png" alt="copy.png" title="Copy" height="16" width="16"> = copy event<br>
+    <img src="../images/delete.png" alt="delete.png, 715B" title="Delete" height="16" width="16"> = delete event</li>
+    <li><img src="../dp/cal-grey.gif" alt="cal-grey.gif, 170B" title="Cal grey" height="16" width="16"> = opens a datepicker and lets you choose the <em>Date</em> of an event. Dates can also be entered directly. For uncertain events you may enter as day "--","-" (will be sorted at the start of a month) or "?","??" (sorted at the end of a month). Month and year have always to be specified. Events with such uncertain dates will appear in the event list but not in the calendar. You can enter events (e.g. for anniversaries) from the year 100 (yes!) up to the year 999999. Entering only 2 digits makes the datepicker add "20" before your entry.</li>
+
+    <li><em>Time:</em> Enter the start time (hh:mm, 24 hour mode only) in the first field, the ending time in the second. Different events on the same day will be sorted according to start time in the calendar displays. Events without start time will be sorted after events with start time. Instead of time a short text can also be entered there (e.g. "evening"). For events lasting more than a day the first time will be taken as start time on start day and the second time as end time on end day. If your event has the same start and end times every day (e.g. an exposition) check <em>daily times</em>. This will be shown in the calendar and different events on the same day will be sorted accordingly.</li>
+    <li>Entering links:<br>
+        <ul>
+            <li>Choose <em>internal page links</em> via the options list</li>
+            <li><em>External links</em> can be entered in the next line with or without "http://", e.g. <code>www.cmsimple-xh.com</code>. For more than 1 link separate the links by "<code>|</code>"</li>
+            <li>Links can be attached to text. If there is more than 1 link (including the internal link), the texts to the different links are also separated by "<code>|</code>"</li>
+            <li>For links to <em>pdf- or word-files</em> in download-folder: enter the exact file name with spaces and accents (case-sensitive), e.g. <code>my word äöü file.docx</code>, in case you use a subfolder of the downloads folder, enter that foldername also, e.g. <code>subfolder/my pdf äöü file.pdf</code></li>
+            <li>Links to <em>external pdfs</em>: enter the full address, e.g. <code>www.website.xx/xx/.../my pdf äöü file.pdf</code></li>
+
+            <li>Special cases:<ul>
+                <li><em>Additional internal links</em> can be entered as simple page name. e.g.
+                 <code>Start</code> if there is no second page with the same name. Some glyph-combinations may be problematic. In case of problems error messages are returned.<br>
+                 Alternatively enter the pagename starting with <code>?</code> followed by the pagename with all upper level pages, separated by your URI separator (as set in CMS config), e.g.: <code>?Welcome:New here?:Get going!</code></li>
+
+                 <li>For <em>links to CMSimpleRealBlog entries</em> or anchors enter the URL as it appears in the browser address line starting with "?", e.g.
+                 <code>?Start&realblogaction=view&realblogID=1&page=1</code></li>
+
+                <li>For <em>links to subsite pages</em>, enter the URL starting with "/" followed by the subsite code, e.g.
+                 <code>/de/?Willkommen</code></br>
+
+                Example: you want to link to the page <code>Dětské letní tábory 2012</code> on a subsite in Czech. It is sufficient to enter: <code>/cs/?Dětské letní tábory 2012</code> with all accents and spaces. If the page is on a secondary menu level, the higher level page names have to be added like in former Calendar versions. The easiest way is to simply copy the relevant part of the address line as it appears in the browser.
+                </li>
+            </ul>
+            </li>
+        </ul>
+    </li>
+
+    <li>For <em>yearly events</em> like anniversaries check <em>yearly</em> with or without age calculation, enter date of birth or commemoration date in the date field and the name of the person or event in the <code>main event entry</code> field. Some text like "anniversary" or "commemoration" can be entered, etc. in the next  field. If you checked <code>yearly + age cal.</code> Calendar will calculate the age of the person and display it with <em>birthday special color</em> as background. If you checked <u>only yearly, the birthday special color will not be applied.</u></li>
+
+    <li>For <em>weekly events</em> enter the date of the first of these events and check <em>weekly</em>. The last planned event can also be entered. If no last event is specified a period of 10 years is supposed. All longer periods will be cut to 10 years maximum. </li>
+    <li><em>Formatting:</em><br>
+    Text of main event entries can be formatted via a simple markup method</em>.
+        <ul>
+        <li><em>Soft hyphen:</em> Enter <code>\-</code> at the place where you wish to have a soft hyphen. Long words can mess up narrow fields in the event table and in big calendar. Usage of "<code>\-</code>" is strongly recommended to enable hyphenation of long words.</li>
+        <li><code>* _  ~  #  +  =</code> provide further markup, details are shown in <img src="../images/help_icon.png" height="16" width="16"><em>formatting</em> at the top of the input table. Examples: *text* results in <i>italic text</i>, **text** results in <b>bold text</b>,  ++text++ in <span style="color:red;">red text</span>, ==text== in <big>big text</big>, _text_ in <u>underlined text</u>, __text__ in <small>small text</small>. Combinations are possible.</li>
+        </ul>
+    </li>
+<li><em>Larger entry fields:</em> The size of several entry fields is set in config: without entry the fields will be 1 line entry fields, by entering a height value, e.g. <code>2.6em</code>, a field will become a textarea with that height, entering "1" will produce the default height.</li>
+<li><em>Extra field:</em> Entry1 has the option in config <code>input-field entry1 show in input always</code>. Thus, even when not used in event list, the field is still available and could be used for marquee for instance.</li>
+</ul>
+
+<h3><a name="exceptions">Exceptions and Additonal Dates</a></h3>
+<ul>
+    <li>Long events and weekly event can have exceptions, where no event takes place. Enter exceptions to these weekly events as comma separated dates. (Same delimiter as your other dates, year will be converted to 2 digits even if you enter 4 digits.)</li>
+    <li>Weekly events can have additional dates (e.g. if an event gets shifted, use an exception and an addition).</li>
+    <li>Events (lasting not longer than a day) can be given additional dates, so that repetitions of an event require only one entry. (This feature is not implemented for long events.)</li>
+</ul>
+
+<h3><a name="editors">Editors</a></h3>
+<ul>
+<li>For the field "additional description" Calendar automatically selects either Tinymce or CKeditor as set in your CMS.  For CMSimple versions prior to 1.5 FCKeditor will be chosen.<br>
+In plugin config under <em>editor</em> you can enter <code>html</code> (for plain html) or <code>fckeditor</code>. If you don't use FCKeditor, you can delete the folder <em>calendar/fckeditor</em> (1.4 MB).</li>
+
+<li>The height of the editor field is set in px under <code>editor height</code> (only a number, not px). The editors come with a special list of styles (= css classes), i.e. <code> left, left2, right</code> for images, so that you can set images to the left or right with fitting margins to the text, and <code>Big, Small, Red</code> to get the same text formatting as in simple markup in the other fields.</li>
+
+<li>While entering images it is generally faster, easier and gets you better looking results, if you use style-classes and not the other possibilities offered in the image entering dialog.
+<br>
+<br>
+The included FCKeditor has been modified so that you can select the image style class right away:<br>
+(Unfortunately this is not so easy in the other non modified editors)<br><br>
+<img src="fckeditor_image_insert.jpg" alt="fckeditor_image_insert.jpg, 38kB" title="Fckeditor image insert" border="0" height="385" width="433"><br>
+<br>
+
+In TinyMCE you can select a style class after selecting appearance<br><br>
+<img src="tinymce_image_class.jpg" alt="tinymce_image_class.jpg, 56kB" title="Tinymce image class" border="0" height="449" width="488"><br><br>
+
+However it is easier in TinyMCE and CKeditor to first enter the image <u>without any styling</u>, and to click on the image in a second step and select a fitting css-style:<br><br>
+<img src="tinymce_image_style.jpg" alt="tinymce_image_style.jpg, 41kB" title="Tinymce image style" border="0" height="433" width="609">
+
+</li></ul>
+
+
+
+</fieldset>
+
+
+<h2>Further Settings</h2>
+
+
+<h3><a name="eventlist">Event Page = Page with the Event-List</a></h3>
+<ul>
+ <li>If you have selected this page in the event-list config, clicking on any event-day in the calendar will lead to this page. The page should contain the function call <code>{{{PLUGIN:events();}}}</code> to show the event-list. If you don't want an event-list, select <code>no event-list page</code> in event-list config.</li>
+    <li>The time period for events to be shown in the event list is set in event-list config. Present month is minimum. Past events can also be shown, either normal or in gray. You can choose that no past events, not even from the present month, will be shown. If <em>past events in gray</em> is selected, the "additional descriptions" of past event will also not be shown (this is a setting of the css-file and could easily be changed).</li>
+ <li>Clicking on an event-day which is not in the present month, may have some effect to the period of shown events in the list:
+ <ul>
+ <li>In default setting the event-list displays the standard period of events, which will be enlarged to the future or past if the clicked event is outside the standard period</li>
+ <li>Entering "1" in the config field <code>eventlist start moves with clicked event</code> makes the shown period shift to the month of the clicked event instead of getting enlarged. The advantage is that the clicked event is usually at the beginning of the list. A link to reset the event list is added at the beginning. (As the list may also shift to the past, settings "show no past events" and "past events in gray" are overridden in the shifted list.) </li>
+ </ul></li>
+ <li>The event-list page can also directly be entered in the plugin language settings under <code>event page</code>. You can enter just the name of the event page or the relative URL-address starting with "?" or the relative URL-address of a page of a subsite starting with "./". </li>
+</ul>
+
+
+<h3><a name="eventlist">Event-List Style: Spreadsheet or Template?</a></a></h3>
+<ul>
+ <li>The event list shows your events in chronological order, either in spreadsheet table style or in template driven style. Spreadsheet table style is preset. Effect of templates can be tested in <em>Event List</em>.</li>
+ <li>If you enter in <em>Plugin Config</em> under <code>eventlist template</code> the name of the template file, this template will be used as standard in your event-list. </li>
+ <li>Templates can be edited via <em>Backup > Presets</em>. They are written in HTML with placeholders between %…% in place of variables. The templates contain 12 output cases, separated by "===". If cases are empty, there will be no output for that case.</li>
+ <table>
+  <tr>
+   <th>case</th>
+   <th colspan = '6'>variables</th>
+  </tr>
+  <tr>
+   <td>1 - headline announcing the time period shown</td>
+   <td colspan = '6'>%period% %start% %till% %end%</td>
+  </tr>
+  <tr>
+   <td>2 - headline weekly section</td>
+   <td colspan = '6'>%weekly%</td>
+  </tr>
+  <tr>
+   <td>3 - weekday header</td>
+   <td colspan = '6'>%longweekday% %shortweekday%</td>
+  </tr>
+  <tr>
+   <td>4 - weekly events</td>
+   <td colspan = '6'>%bookedout% %longweekday% %shortweekday% %time% %date% %field1% %mainfield% %field3% %infolink% %description%</td>
+  </tr>
+  <tr>
+   <td>5 - past weekly events</td>
+   <td colspan = '6'>%ended% %longweekday% %shortweekday% %time% %date% %field1% %mainfield% %field3% %infolink% %description%</td>
+  </tr>
+  <tr>
+   <td>6 - headline single events section</td>
+   <td colspan = '6'>%single%</td>
+  </tr>
+  <tr>
+   <td>7 - month header</td>
+   <td colspan = '6'>%month% %year%</td>
+  </tr>
+  <tr>
+   <td>8 - yearly events with age calculation</td>
+   <td colspan = '6'>%bookedout% %date% %time% %field1% %mainfield% %age% %field3% %infolink% %description%</td>
+  </tr>
+  <tr>
+   <td>9 - yearly events</td>
+   <td colspan = '6'>%bookedout% %date% %time% %field1% %mainfield% %field3% %infolink% %description%</td>
+  </tr>
+  <tr>
+   <td>10 - past yearly events</td>
+   <td colspan = '6'>%ended% %date% %time% %field1% %mainfield% %field3% %infolink% %description%</td>
+  </tr>
+  <tr>
+   <td>11 - single events</td>
+   <td colspan = '6'>%bookedout% %date% %time% %field1% %mainfield% %field3% %infolink% %description%</td>
+  </tr>
+  <tr>
+   <td>12 - past single events</td>
+   <td colspan = '6'>%ended% %date% %time% %field1% %mainfield% %field3% %infolink% %description%</td>
+  </tr>
+ </table>
+ <li>All variables are simple unstyled texts, except %description%, which is fully formatted html-text (by the editor). So don't use <code>&lt;p&gt;%description%&lt;/p&gt;</code>, but rather <code>&lt;div&gt;%description%&lt;/div&gt;</code>.</li>
+ <li>The desired template of an event list can also directly be set in the event list function call, making differently styled event lists on the same site possible:<br>
+    <code>{{{PLUGIN:events('','','','','','','Name of the template file');}}}</code><br>
+(Template file name = 7th place in the function call. If you put <code>1</code> instead of a file name the spreadsheet table style is used, without value the standard as set in config is used.)</li>
+  </li>
+</ul>
+
+
+<h3><a name="holidays">Holidays</a></h3>
+<ul>
+    <li>Set holidays via the Holiday menu. Holidays are saved in the language file. Each holiday entry consist of date description and holiday-name. You can enter <em>fixed holidays</em> as <code>day.month</code>, movable <em>holidays depending on the Easter date</em> as <code>easter +/- x day</code> (x = number of days before or after Easter) and movable <em>holidays occuring on a fixed weekday</em> following or preceding a fixed date as <code>n days m Weekday day.month</code>, meaning n days before or after the mth weekday before or after the fixed date. Weekday names must be entered in English, the words "day" or "days" work both, negative numbers mean "before".</li>
+</ul>
+
+
+<h3><a name="marquee">Display of Next Coming Event via Marquee</a></h3>
+<ul>
+    <li>Marquee is run either by the jQuery plugin or uses the Microsoft marquee function <u>and does not validate</u>.</li>
+    <li>To display next coming event inside a page enter:  <code>{{{PLUGIN:nextevent();}}}</code></li>
+    <li>To display next coming event via the template use: <code>&lt;?php echo nextevent();?&gt;</code>.</li>
+    <li>If you want the marquee in the template to be activated on certain pages only, use: <code>&lt;?php echo calendar(); if ($nextevent) echo nextevent(); ?&gt;</code>. The marquee will be shown under the calendar. To activate the marquee, write into the page <code>#CMSimple $nextevent="show";#</code>.</li>
+</ul>
+
+
+<h3><a name="template">Adjusting Your Page Template</a></h3>
+<ul>
+ <li>Often it is practical to have the event list more space than for usual text. You may use for this page a special template. The backend has the possibility to select different templates just for backend testing.</li>
+</ul>
+
+
+<h3><a name="icons">Icons, Background Images, Birthday Symbols</a></h3>
+<ul>
+    <li>Available icons for links and "info" are shown on mouse over <img src="../images/help_icon.png" alt="help_icon.png, 899B" title="Help icon" border="0" height="16" width="16"> in front of the icon setting options. You can add your own icons (gif or png) and put them in a new folder under <code>plugins>calendar>images></code>. The icon sets go in pairs; the set for past events is in another folder with the same name and "past" added. Added sets will automatically be listed in the setting options.</li>
+    <li>Background images for big month calendar are jpg-images in the folder given in <em>config > filepath calendar background images</em>, which in the delivery state of the plugin is <em>../backgroundimages</em>. All jpg-images of that folder are selectable in the option list for calendar background images. </li>
+    <li>The same folder also contains the gif-symbols used for marking birthdays in small calendars. You can freely add your own symbols. All gif-images of that folder are selectable in the small calendar birthday option list.</li>
+</ul>
+
+
+<h3><a name="archive">Creating an Event-Archive</a></h3>
+<ul>
+ <li>In <code>Backup</code> you can copy your event list under a new name, e.g. the name "archive". If you delete afterwards in your normal event file some event entries, they will still be there in your "archive". You can add to this archived list from time to time your standard list with the merge function (which has automatic duplicate avoidance), thus building up a list of past events. </li>
+ <li>This archived list can be shown on a page with the function call: <code>{{{PLUGIN:events('starting month','starting year','duration in months','0','name of archive file','','',1);}}}</code><br>
+ (The last "1" prevents that past events will be shown in gray).</li>
+</ul>
+
+
+<h3><a name="different">Second Calendar with Different Events</a></h3>
+<ul>
+ <li>You can use two independent calendars! To activate a second calendar enter a name as filename (i.e. "extracalendar") for the events of this second calendar in config under <code>second-calendar filename</code> (no spaces, only english letters). If the file doesn't exist, the plugin will create it. This second calendar can have its own event page. Enter the pagename where you put this list under <code>second-calendar_eventpage</code>. (Either just the pagename or starting with ?</li>
+<li>If you have thus activated a second Calendar, the backend menu gets enlarged (after clicking on a menu item) with new items for editing and viewing this second calendar, and the following additional function calls will become available:<br>
+
+<table>
+ <tr>
+  <th>Function Call</th>
+  <th>Result</th>
+  <th>Used for</th>
+ </tr>
+ <tr>
+  <td><code>editevents2()</code></td>
+  <td>event input table for second calendar</td>
+  <td>password protected pages</td>
+ </tr>
+ <tr>
+  <td><code>calendar2()</code></td>
+  <td>one month small second calendar</td>
+  <td>template</td>
+ </tr>
+ <tr>
+  <td><code>calendar12()</code></td>
+  <td>one month small combined calendar of standard and second calendar</td>
+  <td>"</td>
+ </tr>
+ <tr>
+  <td><code>multicalendar2()</code></td>
+  <td>2 or more months second calendar</td>
+  <td>template + pages</td>
+ </tr>
+ <tr>
+  <td><code>multicalendar12()</code></td>
+  <td>2 or more months combined calendar of standard and second calendar</td>
+  <td>"</td>
+ </tr>
+ <tr>
+  <td><code>year2()</code></td>
+  <td>year view of second calendar</td>
+  <td>pages</td>
+ </tr>
+ <tr>
+  <td><code>year12()</code></td>
+  <td>year view of combined calendar of standard and second calendar</td>
+  <td>"</td>
+ </tr>
+ <tr>
+  <td><code>bigcalendar2()</code></td>
+  <td>big one month of second calendar</td>
+  <td>pages</td>
+ </tr>
+ <tr>
+  <td><code>bigcalendar12()</code></td>
+  <td>big one month of combined calendar of standard and second calendar</td>
+  <td>"</td>
+ </tr>
+ <tr>
+  <td><code>events2()</code></td>
+  <td>list of events of second calendar</td>
+  <td>pages</td>
+ </tr>
+ <tr>
+  <td><code>events12()</code></td>
+  <td>list of events of combined calendar of standard and second calendar</td>
+  <td>"</td>
+ </tr>
+ <tr>
+  <td><code>nextevent12()</code></td>
+  <td>marquee of next coming events based on the standard and second calendar</td>
+  <td>template</td>
+ </tr>
+</table>
+<ul>
+<li>In these function calls the same variables (mostly) can be added as in the standard function calls (e.g. <code>{{{PLUGIN:multicalendar2(3,4);}}}</code> etc.)</li>
+<li>All calendars based on the second calendar will <em>link to the second event-page</em> set in plugin config.</li>
+<li>All combined calendars however will <em>link to the standard event-page</em> set in event-list config. When using a combined calendar it is recommanded to use a combined event-list on the standard event-list page.</li>
+<li>More complex setups are possible, e.g. two different calendars with separate event-lists plus a combined calendar with combined event-list. However to force the calendar to link to a different list than the standard list, you have to take advantage of the full function call. Calls like <code>calendar12()</code> are only shortcuts based on the full calls.</li>
+</ul>
+
+</li>
+</ul>
+
+
+<h3><a name="memberpages">Input of Events in Protected Member Pages</a></h3>
+<ul>
+    <li>You may want to offer selected visitors to your site the possibility to enter events. Just put <code>{{{PLUGIN:editevents();}}}</code> on the page. For security reasons the filebrowser is disabled so that visitors are prevented from deleting or uploading files.<br>
+
+If you want only a special event file to be edited by visitors, use the function call:<br>
+    <code>{{{PLUGIN:editevents('extraevents');}}}</code><br>
+If you want your secondary calendar to be edited by visitors, the function call would be:<br><code>{{{PLUGIN:editevents2();}}}</code>
+    </li>
+</ul>
+
+<h3><a name="multilanguage">Calendar on Subsites or Multi Language Sites</a></a></h3>
+<ul>
+    <li>A different calendar for each language or subsite is the standard setting. If you want to have the same calendar for different languages or subsites, you can enable <code>same-event-calendar_for_all_subsites</code>.</li>
+    <li>With this setting calendar will not use language-related event files, e.g. <em>eventcalendar_en.txt</em>, but create new eventfiles without a language suffix, namely <em>eventcalendar.txt</em>. (You can change file names in Backup menu.)</li>
+    <li>As relative links have different paths from subsites than from the main site, you should enter images in this case only from your main site. Calendar adjusts the image path when viewed from a subsite, but not otherwise. If images are entered from the subsite, they will not show on the main site.</li>
+    <li>Internal Links only work, when entered from the main site, and they can only direct to pages of the main site.</li>
+    <li>If you want to use calendar2 with links to an event list in subsites, create an event list page with the same name as the secondary event list page in the main page.</li>
+</ul>
+
+
+<h3><a name="conflicts">Conflicts with other Plugins</a></h3>
+<ul>
+<li>Other Plugins may lay their pop-ups on top of calendar's pop-ups. This can be prevented by giving calendar a higher <code>z-index</code> value in <em>config</em>. You have to experiment to find a fitting value. There seems to be no upper limit to z-index, so you may start with 10 and if this doesn't give the wanted result, try 100, 1000, 10000.</li>
+<li>If you don't need it, don't use z-index.</li>
+
+<li>There can be a small problem with year or months in columns and using z-index. In the case of pop-ups, which extend to the <em>right</em> above the next month to the right, the event days of that month shine through the pop-up. This happens because the following month is created later and if z-index is used this month is strangely automatically regarded as being on top of the preceding month. By programming one could give a lower z-index to that month on the right, but then a similar problem would occur with pop-ups to the left, because then the month to the left will have a higher z-index, which makes its event days shine through. The easy solution is to set in <em>config > calendar popup class </em> to <code>left</code> so that pop-ups always open to the left side.</li>
+</ul>
+
+
+<h3><a name="classic">Installing Calendar Plugin in CMSimple 3.4</a></h3>
+<ul>
+    <li>Install a Plugin Loader.</li>
+    <li>Be sure to have no index.htm in your image folder, as this prevents image selection with Fckeditor.</li>
+    <li>Use for function calls (inside pages) the old method <code>#CMSimple $output.=[function call];#</code> instead of {{{…}}}.</li>
+    <li>Switch off jQuery in marquee if you use marquee.</li>
+</ul>
+
+
+<h2><a name="commands">List of Function Calls</a></h2>
+<small>[ ] means some entry specified in the brackets. The square brackets are not to be entered.</small>
+<ul><ul>
+    <li>Template calls: <code>&lt;?php echo [function call];?&gt;</code></li>
+    <li>Old method to call a function inside a page:      <code>#CMSimple $output.=[function call];#</code></li>
+    <li>New method to call a function inside a page:      <code>{{{PLUGIN:[function call];}}}</code></li><br>
+</ul>
+    <li><code>editevents(["filename"])</code>
+    creates the event editing table<br>
+    (without filename => standard event file is taken)</li>
+    <li><code>editevents2()</code> the same for the 2nd calendar.</li><br>
+
+    <li><code>calendar ([year],[month],["special_eventpage"],["size"].[number],[columns],<br>
+    ["file"],["additional_file"],[use_eventpage_of_calendar2])</code><br>
+    creates the calendar<br>
+    <ul>
+    <li>without <em>year/month</em> => present year/month is used</li>
+    <li>without <em>special eventpage</em>   => eventpage as set in language file is used<br>
+    The "special eventpage" can be entered as
+    <ul>
+    <li>simple pagename (must not occur more than once!) exactly as the pagename is, e.g.: <code>Dětské letní tábory 2012</code></li>
+    <li>urlencoded pagename with all pagenames of superior level separated by your URI-separator (set in CMS-config), preceeded by "?", with all spaces replace by "_", e.g.: <code>?Start:Latest_News:Hot</code> or <code>?Anfang:Neu_hier%3F</code></li>
+    <li>using urlencoded pagenames you can even link to a page on a subsite. Than start with <code>./</code> followed by the subsite abbreviation, e.g.: <code>./de/?Willkomen:Neu_hier%3F:Weiter</code></li>
+    </ul> </li>
+    <li><em>size</em> can be set to "big" and creates a big calendar</li>
+    <li><em>number</em> gives the number of months to be displayed, preset to 1</li>
+    <li><em>columns</em> give the number of columns to display</li>
+    <li><em>file</em> name of the eventfile which you want to show in the calendar, if not set, the standard file will be used</li>
+    <li><em>additional file</em> name of an additional event file to be used</li>
+    <li><em>use eventpage of calendar2</em>, value 1 or 0, this setting is used for the second calendar</li>
+    </ul>
+    </li>
+    <li><code>calendar2 ([year],[month],["special_eventpage"],["size"].[number],[columns])</code><br>
+    The same for the 2nd calendar.</li>
+    <li><code>calendar12 ([year],[month],["special_eventpage"],["size"].[number],[columns])</code><br>
+    The same for the  combination of standard and 2nd calendar.</li><br>
+
+    <li><code>multicalendar([number],[columns],["file"],["additional_file"])</code><br>
+    creates calendars with several months.<br>
+    This is a shortcut function to avoid complicated entries in calendar()<br>
+    <li><code>function multicalendar2([number],[columns])</code><br>
+    The same for the 2nd calendar.</li>
+    <li><code>function multicalendar12([number],[columns])</code><br>
+    The same for the  combination of standard and 2nd calendar.</li><br>
+
+    <li><code>year([year],[columns],["file"],["special_eventpage"])</code><br>
+    Another shortcut to avoid complicated entries in calendar()<br>
+    <ul>
+
+    <li>In <em>year</em> you can enter the year which you want to show. Left empty the present year is shown.</li>
+    <li><em>columns</em> left empty will produce a 3 column layout.</li>
+    <li><em>file</em> takes the name of the eventfile which you want to show in the calendar, if empty, the standard eventfile will be used.</li>
+    <li><em>special eventpage</em> is useful, if you want a different eventpage from the standard event page.</li>
+    </ul>
+    </li>
+    <li><code>year2([year],[columns])</code><br>
+    The same for the 2nd calendar.</li>
+    <li><code>year12([year],[columns])</code><br>
+    The same for the combination of standard and 2nd calendar.</li><br>
+
+    <li><code>bigcalendar()</code><br>
+    creates a big monthly calendar useful for a whole page<br>
+    Also a short cut for complicated entries in calendar()
+    </li>
+    <li><code>bigcalendar2()</code><br>
+    The same for the 2nd calendar.</li>
+    <li><code>bigcalendar12()</code><br>
+    The same for the combination of standard and 2nd calendar.</li><br>
+
+    <li><code>events([month],[year],[future_months],[past_months],["filename"],["additional_file"],[style],[past_events])</code><br>
+    creates the event list<br>
+    <ul>
+     <li>    without month/year => present month/year used</li>
+     <li>    without future/past month => setting taken from event-list config</li>
+     <li>    without filename => standard event file is used</li>
+   
+    <li><em>additional file</em> name of an additional event file to be used</li>
+    <li><em>style</em> takes 3 settings:<br>
+    empty or 0 -> style as set in config,<br>
+    1 -> spreadsheet table style,<br>
+    filename -> template driven style with this file</li>
+    <li><em>past events</em> decides how to handle past events:<br>
+    empty or<br>
+    0 -> standard treatment of past events as set in event-list config,<br>
+    1 -> past events are neither marked nor shown in gray,<br>
+    2 -> past events are shown in gray,<br>
+    3 -> no past events are shown</li>
+    </ul>
+    </li>
+    <li><code>events2([month],[year],[future_months],[past_months])</code><br>
+    The same for the 2nd calendar.</li>
+    <li><code>events12([month],[year],[future_months],[past_months])</code><br>
+    The same for the  combination of standard and 2nd calendar.</li><br>
+
+    <li><code>nextevent([number],["file"],["additional_file"])</code><br>
+    creates marquee of next coming event<br>
+    ([number] = number of events to be announced,<br>
+    without number, number is taken from config)<br>
+    <em>file</em> –> name of the eventfile which you want to use as source, if not set, the standard event-file will be used<br>
+    <em>additional file</em> –> name of an additional event file to be used as source</li>
+    </li>
+    <li><code>nextevent12()</code><br>
+    creates marquee of next coming event(s) based on the combination of standard and 2nd calendar<br>
+    </li>
+</ul>
+
+
+<h3><a name="limits">Limitations</a></h3>
+<ul>
+ <li>The marquee element doesn't validate</li>
+ <li>Birthdays can last only one day.</li>
+ <li>Multiple events can (at present) only be single day events each</li>
+ <li>Long events are limited to 90 days.</li>
+ <li>Weekly events are limited to 10 years.</li>
+</ul>
+
+
+<p><br><br><small>Written by Svasti Nov 2011 - June 2013</small></p>
+
+</body>
+</head>

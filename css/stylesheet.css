@@ -1,0 +1,1080 @@
+/******************************************/
+/*                                        */
+/*           Display of Calendar          */
+/*                                        */
+/******************************************/
+/*Codes like "c27" let the config utility
+find the values to be changed. So don't
+separate these values from their css-variables.
+You may however change the css-values by hand
+and move the variable together with the code. */
+
+.calendar_main,
+.bigcalendar_main {
+    text-align: center;
+    border-collapse: collapse;
+    width:100%;
+    table-layout: fixed;
+}
+.calendar_main td  {
+    line-height:/*sc1*/2.2;
+    font-family:/*sc2*/inherit;
+    font-size:/*sc3*/8pt;
+    width:14%;
+}
+.calendar_main td a,
+.bigcalendar_main td a {
+    text-decoration: none;
+    display: block;
+}
+.calendar_main td a:hover,
+.bigcalendar_main td a:hover {
+    background-color: red !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+/*Calendar headline of month and year*/
+/* =================================== */
+.calendar_monthyear {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+/* smallcalfontsize */
+    font-size:/*sc3*/8pt;
+    white-space: nowrap;
+}
+/*previous and next month button*/
+.calendar_monthyear a {
+    text-decoration: none;
+    color: red;
+    display: inline !important;
+}
+/*Calendar subheading with daynames*/
+.calendar_daynames {
+    color: #888;
+    font-weight: bold;
+}
+/* columns? */
+.months_in_columns {
+    vertical-align: top;
+    border:1px solid silver;
+}
+.calendarheadline  {
+    text-align: center;
+}
+.calendarheadline a {
+    text-decoration: none;
+}
+
+/* ============================================ */
+/* Special settings for  B I G  C A L E N D A R */
+/* ============================================ */
+
+/* General settings */
+/*==================*/
+.bigcalendar_main {
+    background-color:/*c2*/;
+    background-image:/*c3*/;
+    border-color:/*c4*/black;
+    border-width:/*c5*/0px;
+    border-style: solid;
+    border-collapse:/*c37*/collapse;
+    border-spacing:/*c6*/0px;
+}
+.bigcalendar_main td  {
+    width:14%;
+}
+/*  Headline of big calendar  */
+/*============================*/
+.bigcalendar_monthyear {
+    white-space: nowrap;
+    margin-top:/*c14*/;
+}
+.bigcalendar_monthyear a {
+    display: inline !important;
+    color:red;
+}
+.bigcalendar_monthyear span {
+/*these values are entered via config-program*/
+/*c31*/
+
+}
+.bigcalendar_monthyear_color {
+    color:/*c1*/;
+}
+.bigcalendar_monthyear span a,
+.bigcalendar_monthyear span a:hover{
+    font-weight: normal !important;
+}
+/*  weekday names big calendar  */
+/*==============================*/
+.bigcalendar_main tr.weekdaynames td {
+    padding-top:/*c10*/;
+    padding-bottom:/*c11*/1em;
+}
+.bigcalendar_main .calendar_daynames {
+    text-align:center;
+    font-size: 12px;
+    color:/*c18*/;
+}
+/*weekday names additional css*/
+.bigcalendar_main .calendar_daynames span {
+/*these values are entered via config program*/
+/*c32*/
+
+}
+/*today's weekday name in subhead big calendar*/
+.bigcalendar_main .calendar_daynames span.today {
+/*these values are entered via config program*/
+/*c33*/
+/*values for today‘s weekday*/
+}
+
+/*   Day fields big calendar   */
+/*=============================*/
+.bigcalendar_main tr.calendardays  {
+    font-family:/*c34*/inherit;
+    font-size:/*c35*/8pt;
+}
+span.no_event {
+    padding-left: 3px;
+}
+.bigcalendar_main .eventday a {
+    border-radius:/*c20*/;
+    padding-left: 3px;
+}
+.bigcalendar_main td.calendar_weekend,
+.bigcalendar_main td.calendar_workday {
+    border:/*c36*/1px solid #000000;
+    height:/*c13*/8em;
+    vertical-align: top;
+    text-align: left;
+    line-height: 1.3;
+    background:#fff;
+    opacity:/*c22*/1;
+    border-radius:/*c20*/;
+    box-shadow:/*c21*/;
+}
+.bigcalendar_main td.eventday {
+    opacity:1 !important;
+}
+
+/* Contents of big calendar day fields */
+/* =================================== */
+.big_holidayname  {
+    white-space: nowrap;
+    overflow:hidden;
+    font-weight:normal;
+    color:#444;
+    font-size:80%
+}
+.big_entry  {
+    white-space:/*c7*/normal;
+    overflow:hidden;
+    padding-left:/*c38*/1px;
+    padding-bottom:/*c38*/1px;
+}
+.big_time  {
+    font-weight:normal;
+    font-style: italic;
+    color:#04f;
+}
+.big_entry1  { 
+    font-weight:normal;
+    font-style: italic;
+    color:#048;
+}
+.big_event  {
+    font-weight:normal;
+    font-style: normal;
+    color:#620;
+}
+.bigcalendar_main .anniversary  {
+    font-weight:normal;
+    font-style: normal;
+    color:#d20;
+}
+div.anniversary  {
+    /* border-top:2px solid #bbb;
+    border-bottom:2px solid #bbb; */
+    background-color:/*c19*/#F5EDFF !important;
+    /* padding-bottom:2px;
+    margin: 2px 0 1px; */
+    overflow: hidden;
+}
+
+p.hint_under_bigcalendar  {
+    text-align:center;
+    margin-top:0;
+}
+
+/* Styling of calendar days */
+/* ======================== */
+.calendar_noday {
+/*empty fields in the beginning 
+and end of month day numbers*/
+}
+
+/*normal day*/
+.calendar_workday,
+.calendar_workday a {
+    color:/*a1*/#055;
+    font-weight: normal;
+}
+/*weekends*/
+.calendar_weekend,
+.calendar_weekend a {
+    color:/*a2*/#0033FF;
+    font-weight: bold;
+}
+/*holidays*/
+.calendar_holiday a {
+    color:/*a3*/#FF0000;
+    font-weight: bold;
+}
+
+.calendar_shortevent a,
+.calendar_startevent a,
+.calendar_startevent2 a,
+.bigcalendar_main .calendar_midevent a,
+.bigcalendar_main .calendar_endevent a,
+.bigcalendar_main .calendar_startevent a,
+.calendar_midevent2 a,
+.calendar_endevent2 a {
+    color:/*a4*/;
+    background-color:/*a5*/#E3FFE4 !important;
+    font-weight:/*a10*/;
+}
+
+.calendar_shortevent3 {
+    border-color:/*a8*/#3029FF;
+    border-style:dotted;
+    border-width:/*a9*/1px;
+}
+.calendar_startevent3 {
+    border-left-color:/*a8*/#3029FF;
+    border-left-style:dotted;
+    border-left-width:/*a9*/1px;
+    border-bottom-color:/*a8*/#3029FF;
+    border-bottom-style:dotted;
+    border-bottom-width:/*a9*/1px;
+    border-top-color:/*a8*/#3029FF;
+    border-top-style:dotted;
+    border-top-width:/*a9*/1px;
+}
+.calendar_midevent3 {
+    border-bottom-color:/*a8*/#3029FF;
+    border-bottom-style:dotted;
+    border-bottom-width:/*a9*/1px;
+    border-top-color:/*a8*/#3029FF;
+    border-top-style:dotted;
+    border-top-width:/*a9*/1px;
+}
+.calendar_endevent3 {
+    border-bottom-color:/*a8*/#3029FF;
+    border-bottom-style:dotted;
+    border-bottom-width:/*a9*/1px;
+    border-top-color:/*a8*/#3029FF;
+    border-top-style:dotted;
+    border-top-width:/*a9*/1px;
+    border-right-color:/*a8*/#3029FF;
+    border-right-style:dotted;
+    border-right-width:/*a9*/1px;
+}
+
+.calendar_startevent {
+    border-left-color:/*a6*/#43E85F;
+    border-left-style:dotted;
+    border-left-width:/*a7*/2px;
+    border-bottom-style:dotted;
+    border-bottom-color:/*a6*/#43E85F;
+    border-bottom-width:/*a7*/2px;
+}
+.calendar_midevent {
+    border-bottom-style:dotted;
+    border-bottom-color:/*a6*/#43E85F;
+    border-bottom-width:/*a7*/2px;
+}
+.calendar_endevent {
+    border-bottom-style:dotted;
+    border-bottom-color:/*a6*/#43E85F;
+    border-bottom-width:/*a7*/2px;
+    border-right-color:/*a6*/#43E85F;
+    border-right-style:dotted;
+    border-right-width:/*a7*/2px;
+}
+.bigcalendar_main .calendar_shortevent3 a,
+.bigcalendar_main .calendar_startevent3 a,
+.bigcalendar_main .calendar_midevent3 a,
+.bigcalendar_main .calendar_endevent3 a {
+    border-bottom-color:/*a8*/#3029FF;
+    border-bottom-style:dotted;
+    border-bottom-width:/*a9*/1px;
+}
+
+.calendar_today, .calendar_today a {
+    background-color:/*sc6*/#DAD9FF !important;
+    color:/*sc5*/;
+    font-weight:/*sc7*/;
+}
+
+.calendar_main .calendar_birthday a {
+    background-image:/*sc4*/ url(../backgroundimages/yellow_lozange.gif) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+
+/* ==================================== */
+/* ======== Calendar-Popups =========== */
+/* ==================================== */
+.calendar_main a.info_pop-up:hover span,
+.bigcalendar_main a.info_pop-up:hover span {
+    text-align:left;
+    font-weight:normal;
+    font-family:/*p4*/Verdana, Sans-Serif;
+    font-size:/*p5*/8.5pt;
+}
+.holiday_name, .cal_separator  {
+    padding-bottom:2px !important;
+    margin-bottom:3px !important;
+    border-bottom: 1px solid #999 !important;
+    display:block !important;
+}
+.time_popup {
+    color: #03a !important;
+    font-style: italic;
+    letter-spacing: 1px;
+    display:block !important;
+}
+.endtime_popup {
+    color: #037;
+    font-style: italic;
+    letter-spacing: 1px;
+    padding-left:32px;
+    display:block !important;
+}
+.date_popup, .entry1_popup {
+    padding-left:32px !important;
+    display:block !important;
+}
+.entry1_popup {
+    font-style:italic;
+    color:#037 !important;
+}
+.event_popup {
+    font-weight:bold !important;
+    padding-left:32px !important;
+    color:black;
+    display:block !important;
+}
+.entry3_popup {
+    color: #940 !important;
+    padding-left:32px !important;
+    display:block !important;
+}
+span.anniversary  {
+    background-color:/*c19*/#F5EDFF !important;
+}
+span.anniversary .big {
+    background-color:/*c19*/#F5EDFF !important;
+}
+.calendar_main a.info_pop-up:hover span .anniversary,
+.bigcalendar_main a.info_pop-up:hover span .anniversary {
+    border:none;
+}
+
+.bigcalendar_main a.info_pop-up,
+.calendar_main a.info_pop-up  {
+    cursor: pointer;
+}
+/*location of the pop-up frames*/
+/*there are different possibilites*/
+.calendar_main a.info_pop-up:hover span.right {
+    top:1em;
+    left:200px;
+}
+a.info_pop-up:hover span.down0 {
+    top:3em;
+    left:160px;
+}
+a.info_pop-up:hover span.down1 {
+    top:3em;
+    left:150px;
+}
+a.info_pop-up:hover span.down2 {
+    top:3em;
+    left:140px;
+}
+a.info_pop-up:hover span.down3 {
+    top:3em;
+    left:90px;
+}
+a.info_pop-up:hover span.down4 {
+    top:3em;
+    left:40px;
+}
+a.info_pop-up:hover span.down5 {
+    top:3em;
+    left:30px;
+}
+a.info_pop-up:hover span.down6 {
+    top:3em;
+    left:20px;
+}
+.bigcalendar_main a.info_pop-up:hover span  {
+    top:4.5em;
+}
+.bigcalendar_main a.info_pop-up:hover span.left  {
+    left:3em;
+}
+.bigcalendar_main a.info_pop-up:hover span.right  {
+    left:200px;
+}
+
+
+/******************************************/
+/*                                        */
+/*         Display of event list          */
+/*                                        */
+/******************************************/
+
+table.eventlist,
+table.crossout  {
+    width:100%;
+}
+table.crossout .event_data_row td,
+table.crossout .birthday_data_row td,
+table.crossout .event_description {
+    background:url(crossout.gif);
+}
+.eventfull td {
+    background-image:url(stripes.gif);
+}
+.bookedout {
+    position:absolute;
+    margin:0 0 0 5em;
+    color:#fbb;
+    font-weight:normal;
+    font-size:180%;
+    letter-spacing:.7em;
+    line-height:.5;
+    /* opacity:.7; */
+}
+.event_data {
+    font-family:/*b15*/inherit;
+}
+
+/* announcing text in event list */
+.period_of_events {
+    font-size: 110%;
+    font-variant: small-caps;
+    margin-bottom: .5em;
+}
+.period_of_events span {
+    font-size: 91%;
+    font-weight: bold;
+    font-variant: normal;
+}
+
+/*Heading with month and year*/
+.event_monthyear {
+    font-weight: bold !important;
+    font-size:/*b18*/110%;
+    padding-top: 1.5em !important;
+    padding-bottom: .2em;
+}
+/*sub heading*/
+.event_heading_row td {
+    background-color: #eee;
+    line-height:1.25;
+    color: #777 !important;
+    font-weight: bold;
+    font-style: italic;
+    font-size:/*b17*/70%;
+}
+.event_heading {
+    height:12px;
+    padding-left:1px;
+}
+
+.event_data_row td,
+.birthday_data_row td  {
+/*definition here take precedence
+ over definitions in fields*/
+   /* color:black;*/
+    font-size:/*b16*/95%;
+    line-height:1.5;
+    padding:.4em .15em;
+}
+
+/*different background-color for birthdays*/
+.birthday_data_row td {
+    background:/*b11*/#FFE8BF;
+}
+
+/*================================*/
+/*show past events in grey*/
+/*================================*/
+.past_event td, .past_event a,
+.past_event i, .past_event li,
+.past_event u  {
+    background: transparent;
+    color:#999 !important;
+}
+.past_event span.big {
+    color:#999 !important;
+}
+.past_event b, .past_event td b  {
+    color:#aaa !important;
+}
+.past_event a.info_pop-up:hover span  {
+    background: white;
+    border:2px solid #ddd;
+}
+/*no description in past events*/
+.past_event td.event_description  {
+    display: none;
+}
+/*================================*/
+
+
+/*this is for ALL data fields*/
+.event_data {
+    vertical-align: middle;
+}
+
+.event_date   {
+    width:/*b1*/15%;
+    background:/*b9*/#FFFBF0;
+}
+.event_time   {
+    width:/*b2*/11%;
+    background:/*b10*/#E6FFE8;
+}
+.event_entry1   {
+    width:/*b13*/14%;
+    background:/*b14*/#EBFFFC;
+}
+.event_main_entry   {
+    width:/*b3*/17%;
+    background:/*b4*/#EDEBFF;
+    font-weight:/*b12*/normal;
+}
+.event_entry3   {
+    width:/*b5*/17%;
+    background:/*b6*/#FFF0FB;
+}
+.event_link   {
+    width:/*b7*/8.5%;
+    background:/*b8*/#eee;
+    text-align:center;
+}
+/*description field*/
+td.event_description {
+    padding:0;
+}
+.event_description   {
+    padding-bottom:2em !important;
+}
+
+
+/*====================================*/
+/*settings for some reduced formatting in
+fields, mainly additional description field*/
+
+
+td.event_description span.big,
+td.event_description big,
+td.event_data span.big,
+td.event_data big,
+a.info_pop-up:hover span span.big,
+a.info_pop-up:hover span big  {
+    font-size:120%;
+    font-weight:bold;
+    color: #337;
+}
+td.event_data small,
+td.event_description small,
+a.info_pop-up:hover span small  {
+    color:#444;
+}
+td.event_data i,
+td.event_data em,
+td.event_description i,
+td.event_description em,
+a.info_pop-up:hover span i,
+a.info_pop-up:hover span em  {
+    letter-spacing: 0.05em;
+    color:#006;
+}
+
+td.event_description p span.red,
+td.event_description span.red,
+td.event_data .red,
+a.info_pop-up:hover span .red,
+.bigcalendar_main .red  {
+    color:red;
+}
+
+.eventlist img.left,
+.crossout img.left  {
+    float:left;
+    margin:0 10px 2px 0;
+}
+.eventlist img.left_under,
+.crossout img.left_under  {
+    clear:left;
+    float:left;
+    margin:0 10px 2px 0;
+}
+.eventlist img.left2,
+.crossout img.left2  {
+    float:left;
+    margin:0 40px 2px 0;
+}
+.eventlist img.right,
+.crossout img.right  {
+    float:right;
+    margin:0 0 2px 10px;
+}
+.eventlist img.right_under,
+.crossout img.right_under  {
+    clear:right;
+    float:right;
+    margin:0 0 2px 10px;
+}
+
+
+
+/*********************************************/
+/*   pop-up with mouse over the info icon    */
+/*********************************************/
+td.event_link a img, a.info_pop-up img {
+    border:none;
+}
+a.info_pop-up:hover img { /*IE8 Hack*/
+    vertical-align:text-bottom\9;
+}
+a.info_pop-up {
+    position:relative;
+    cursor: help;
+    text-decoration: none;
+    background: transparent;
+}
+a.info_pop-up:hover  {
+    background:#ffffff;
+    text-decoration:none;
+    z-index: 1;
+}
+a.info_pop-up span {
+    display: none;
+}
+a.info_pop-up:hover span {
+    font-family:/*p4*/Verdana, Sans-Serif;
+    font-size:/*p5*/8.5pt;
+    line-height:1.4;
+    display:inline;
+    position:absolute;
+    top:-3em;
+    left:-2em;
+    width:15em;
+    border-width:/*p2*/2px;
+    border-style: solid;
+    border-color:/*p1*/#f00;
+    padding: 4px 5px;
+    margin-left: -160px;
+    width: 160px;
+    background:/*p3*/#dfd;
+    color:black;
+    text-align:left;
+}
+a.info_pop-up.wider:hover span {
+    width:35em;
+    left:-25em;
+}
+a.info_pop-up:hover span span {
+    position: static;
+    width:auto;
+    border:none;
+    padding:0;
+    margin:0;
+}
+a.info_pop-up span table td  {
+    font-family:/*p4*/Verdana, Sans-Serif;
+    font-size:/*p5*/8.5pt;
+}
+
+
+/*********************************************/
+/*  marquee style announcement of next event */
+/*********************************************/
+
+.calendar_marquee  {
+    width: 100%;
+    /*height set in config!*/
+    color: #777;
+    margin: 10px 0;
+    padding:0;
+    border: 1px solid #aaf;
+
+}
+.calendar_marquee div  {
+    width: 100%;
+
+}
+.nextevent_dateline  {
+    width: 100%;
+    color: #555;
+    letter-spacing: 0.15em;
+    font-size: 85%;
+    font-weight: bold;
+    text-align: center;
+    padding:0 0 2px;
+    margin:0;
+    /*height set in config!*/
+    background: #def;
+}
+.color1 {
+    background:#efe;
+}
+.color2 {
+    background:#fee;
+}
+.color3 {
+    background:#eff;
+}
+.color4 {
+    background:#fef;
+}
+.color5 {
+    background:#ffe;
+}
+.color6 {
+    background:#eef;
+}
+.color7 {
+    background:#dee;
+}
+.color8 {
+    background:#edf;
+}
+.color9 {
+    background:#ede;
+}
+.nextevent_1stline {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: .1em;
+    margin:0;
+    text-align: center;
+}
+.nextevent_2ndline {
+    font-size: 13px;
+    font-style: italic;
+    margin:0;
+    text-align: center;
+}
+
+
+/*========================================*/
+/*========================================*/
+/*                                        */
+/*             B A C K E N D              */
+/*                                        */
+/*========================================*/
+/*========================================*/
+/*               Admin menu               */
+/******************************************/
+.calendar_admin_menu a {
+    font-size:80%;
+}
+.calendar_admin_menu a.selected{
+    border-bottom: 2px solid red;
+    text-decoration: none;
+}
+
+/******************************************/
+/*             backend input              */
+/******************************************/
+.nowrap  {
+    white-space: nowrap;
+}
+
+/* =============  config ================ */
+.eventlistconfig div  {
+    width:9em;
+    float:left;
+}
+.eventlistconfig {
+    line-height: 1.8;
+    font-size: 12px;
+    font-family: tahoma, verdana,arial, sans-serif;
+}
+.eventlistconfig input {
+    vertical-align: baseline;
+}
+.calendar_config div div {
+    float:left;
+    height:2.3em;
+    white-space: nowrap;
+    margin-right:1em;
+    font: normal normal 12px tahoma, verdana,arial, sans-serif;
+}
+.config_text, .config_text form {
+    font: normal normal 12px tahoma, verdana,arial, sans-serif;
+    margin:0;
+    padding:0;
+}
+.calendar_config .cal_separator  {
+    clear:both;
+    width:100%;
+    border-top:1px solid #999;
+    border-bottom-style: none !important;
+    height:4px;
+    margin:2px 0 0 0;
+    padding:0;
+}
+#eventlistconfig .cal_separator  {
+    padding-top:3px;
+    margin-bottom:8px;
+}
+.calendar_config textarea  {
+    clear:both;
+    padding:0;
+    margin:0;
+    font: normal normal 12px/1.4 verdana;
+    background:white;
+    color:black;
+}
+#headlineconfig, #daynameconfig  {
+    clear:both;
+    display:none;
+    height:10em;
+    width:25em;
+}
+
+.title  {
+    border-bottom:1px dashed #888;
+}
+.color, #master-picker  {
+    width:5em;
+}
+#eventlistconfig input  {
+    font-size:12px;
+}
+.config_button  {
+    width:1.5em;
+    padding:0;
+    border-style:outset;
+    background:#ccc;
+}
+.config_button_pressed  {
+    width:1.5em;
+    padding:0;
+    border-style:inset;
+    background:#eee;
+}
+/* ===========  input table  ============= */
+.error  {
+    color:red;
+    font-weight: bold;
+}
+.success  {
+    color:green;
+    font-weight: bold;
+}
+.calendar_input td.eventfile_notice  {
+    font: normal normal 10pt/1.3 Arial, sans-serif;
+    color:black;
+}
+.calendar_input {
+    border: 2px solid #777;
+    padding:0 3px 3px;
+    background: #eee;
+    width:100%;
+    margin-bottom: .5em;
+    /*table-layout: fixed;*/
+}
+.calendar_input .column1 {
+    min-width:86px;
+}
+.calendar_input .column2 {
+    min-width:40px;
+}
+.calendar_input .column3 {
+    min-width:40px;
+}
+.calendar_input .column4 {
+    min-width:86px;
+}
+
+.calendar_input td  {
+    font-family: arial, sans-serif;
+    margin:0;
+    padding:0;
+}
+
+.calendar_input input,
+.calendar_input textarea,
+.calendar_input select  {
+    font-family: tahoma, verdana, arial, sans-serif;
+    font-size:8.5pt;
+    text-indent:0;
+    vertical-align: middle;
+}
+.calendar_input textarea  {
+    padding:0;
+    margin:0;
+    background:white;
+}
+.calendar_input textarea.calendar_input_event  {
+    height:5em;
+}
+
+.calendar_input textarea.description  {
+    font: normal normal 12px/1.4 Consolas,monospace;
+    width:100%;
+}
+.calendar_input_caption,
+.calendar_input_caption td {
+    vertical-align: bottom;
+    font-size: 11px;
+    line-height:1.3;
+    color:black;
+}
+.calendar_input_caption_rightaligned,
+.calendar_input_caption_leftaligned {
+    text-align: right;
+    font-size: 11px;
+    line-height:1.3;
+    padding-right:3px;
+    vertical-align: middle;
+    color:black;
+}
+.calendar_input_caption_leftaligned {
+    text-align: left;
+    color:black;
+}
+
+.calendar_input_date  {
+    width:60px;
+}
+.calendar_input_time  {
+    width:34px;
+}
+.moredates  {
+    width:100%;
+}
+.calendar_input_event  {
+/*controls main_entry and entry3*/
+    min-width:200px;
+    width: 100%;
+}
+input.calendar_input_links  {
+    font-family:consolas,'Courier New', 'Andale Mono',monospace !important;
+}
+.input_highlighting  {
+    color:#c00;
+}
+.calendar_edit_off,
+.calendar_edit_on  {
+    width:16px;
+    margin-left:-16px;
+    background:white;
+    border:1px solid grey;
+    color:black;
+}
+.calendar_edit_off:hover,
+.calendar_edit_on:hover  {
+    border:1px solid red;
+    color:red;
+}
+.toggle  {
+    width:16px;
+    background:white;
+    border:1px solid grey;
+    color:black;
+}
+.toggle:hover  {
+    border:1px solid red;
+    color:red;
+}
+
+
+/******************************************/
+/* backup admininistration and file view  */
+/******************************************/
+table.source_view  {
+    border: 2px solid #777;
+    padding:0 3px 3px;
+    background: #eee;
+    margin-bottom: 2em;
+    position: absolute;
+    width:900px;
+    margin-left:-450px;
+    left: 50%;
+}
+.source_view input.submit {
+    min-width: 100px;
+    letter-spacing: .2em;
+    font-weight: bold;
+}
+table.source_view textarea  {
+    height:30em;
+    padding:0;
+    margin:0;
+    background:white;
+    font: normal normal 13px/1.4 Consolas, monospace;
+}
+table.source_view td.filestructure  {
+    font: bold normal 11px/1.5 Consolas, monospace;
+    letter-spacing: 0.01em;
+    color:black;
+}
+table.source_view input  {
+    width: 15em;
+}
+table.source_view td.filestructure span.comma  {
+    color: red;
+    font-weight:bold;
+    font-size: 140%;
+    line-height: 60%;
+    background:#bfb;
+}
+#hidden_merge_menu,
+#hidden_delete_menu,
+#hidden_source_view_links,
+#hidden_preset_links {
+    display: none;
+}
+
+.filelist td{
+    margin:0;
+    font-family:verdana;
+    font-size:12px;
+    line-height:1.4;
+    color:black;
+}
+
+.filename  {
+    font-size:15px !important;
+    font-family: Consolas,monospace !important;
+    height:3ex !important;
+    width:14em;
+}
+.calendar_button  {
+    color:black;
+    border-style:outset;
+    background: #dedede;
+    letter-spacing: 1px;
+    padding:1px 0;
+}
+.calendar_button_pressed  {
+    color: #a00;
+    border-style:inset;
+    background:#eee;
+    letter-spacing: 1px;
+    padding:1px 0;
+}
+

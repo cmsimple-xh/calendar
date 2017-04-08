@@ -1,0 +1,183 @@
+/******************************************/
+/*                                        
+    These css-value serve just to send some
+    dummy values to the browser, so that the
+    the browser cache will be overwritten.
+    This is necessary, because if the changed
+    css-file has some empty values, the browser
+    will take old values from the cache. This
+    is prevented through this dummy values.
+*/
+/******************************************/
+.calendar_main td  {
+/*sc1*/line-height:inherit;
+/*sc2*/font-family:inherit;
+/*sc3*/font-size:inherit;
+}
+.calendar_monthyear {
+/* smallcalfontsize */
+/*sc3*/font-size:inherit;
+}
+.bigcalendar_main {
+/*c2*/background-color:transparent;
+/*c3*/background-image: none;
+/*c4*/border-color:transparent;
+/*c5*/border-width:0;
+/*c37*/border-collapse:inherit;
+/*c6*/border-spacing:3px;
+}
+.bigcalendar_monthyear {
+/*c14*/margin-top:0;
+}
+.bigcalendar_main tr.weekdaynames td {
+/*c10*/padding-top:0;
+/*c11*/padding-bottom:0;
+}
+
+.bigcalendar_monthyear_color {
+/*c1*/color:;
+}
+.bigcalendar_monthyear span {
+/*all set by config*/
+/*c31*/
+    border:none;
+    background:none transparent;
+    border-radius:0;
+    padding:0;
+    margin:0;
+    box-shadow:0 0 0 transparent;
+    opacity:1;
+    font-size:100%;
+    text-transform:none;
+    word-spacing: 0;
+    letter-spacing: 0;
+}
+/*daynames big calendar set via program*/
+.bigcalendar_main .calendar_daynames span {
+    border:none;
+    background:transparent;
+    border-radius:0 0 0 0;
+    padding:0;
+    box-shadow:0 0 0 transparent;
+    opacity:1;
+    font-size:inherit;
+    text-transform:none;
+    word-spacing: 0;
+    letter-spacing: 0;
+}
+.bigcalendar_main .calendar_daynames span.today {
+/*c33*/
+/*values for today‘s weekday*/
+    background:transparent;
+    opacity:inherit;
+}
+.bigcalendar_main tr.calendardays  {
+/*c34*/font-family:inherit;
+/*c35*/font-size:inherit;
+}
+.bigcalendar_main .eventday a {
+/*c20*/border-radius:0 0 0 0;
+}
+.bigcalendar_main td.calendar_weekend,
+.bigcalendar_main td.calendar_workday {
+/*c36*/border:none;
+/*c13*/height:inherit;
+    vertical-align: top;
+    text-align: left;
+    line-height: 1.3;
+    background:#fff;
+/*c22*/opacity:1;
+/*c20*/border-radius:0 0 0 0;
+/*c21*/box-shadow:0 0 0 white;
+}
+.calendar_today {
+/*c8*/background:transparent;
+}
+.calendar_shortevent3 {
+    border-color:/*a8*/inherit;
+    border-style:dotted;
+    border-width:/*a9*/0;
+}
+.calendar_startevent3 {
+    border-left-color:/*a8*/inherit;
+    border-left-style:none;
+    border-left-width:/*a9*/o;
+    border-bottom-color:/*a8*/inherit;
+    border-bottom-style:none;
+    border-bottom-width:/*a9*/0;
+    border-top-color:/*a8*/inherit;
+    border-top-style:none;
+    border-top-width:/*a9*/0;
+}
+.calendar_midevent3 {
+    border-bottom-color:/*a8*/inherit;
+    border-bottom-style:none;
+    border-bottom-width:/*a9*/0;
+    border-top-color:/*a8*/inherit;
+    border-top-style:none;
+    border-top-width:/*a9*/0;
+}
+.calendar_endevent3 {
+    border-bottom-color:/*a8*/inherit;
+    border-bottom-style:none;
+    border-bottom-width:/*a9*/0;
+    border-top-color:/*a8*/inheritv;
+    border-top-style:none;
+    border-top-width:/*a9*/0;
+    border-right-color:/*a8*/inherit;
+    border-right-style:none;
+    border-right-width:/*a9*/0;
+}
+
+.calendar_startevent {
+    border-left-color:/*a6*/inherit;
+    border-left-style:none;
+    border-left-width:/*a7*/0;
+    border-bottom-style:none;
+    border-bottom-color:/*a6*/inherit;
+    border-bottom-width:/*a7*/0;
+}
+.calendar_midevent {
+    border-bottom-style:none;
+    border-bottom-color:/*a6*/inherit;
+    border-bottom-width:/*a7*/0;
+}
+.calendar_endevent {
+    border-bottom-style:none;
+    border-bottom-color:/*a6*/inherit;
+    border-bottom-width:/*a7*/0;
+    border-right-color:/*a6*/inherit;
+    border-right-style:none;
+    border-right-width:/*a7*/0;
+}
+.bigcalendar_main .calendar_shortevent3 a,
+.bigcalendar_main .calendar_startevent3 a,
+.bigcalendar_main .calendar_midevent3 a,
+.bigcalendar_main .calendar_endevent3 a {
+    border-bottom-color:/*a8*/inherit;
+    border-bottom-style:none;
+    border-bottom-width:/*a9*/inherit;
+}
+.calendar_today, .calendar_today a {
+/*sc6*/background-color:inherit;
+/*sc5*/color:inherit;
+/*sc7*/font-weight:inherit;
+}
+
+.calendar_main .calendar_birthday a {
+/*sc4*/background-image:none;
+background-position: inherit;
+background-repeat:inherit;
+}
+.anniversary  {
+/*c19*/background-color:inherit;
+}
+span.anniversary .big {
+/*c19*/background-color:inherit;
+}
+
+/*different background-color for birthdays*/
+.birthday_data_row td {
+/*b11*/background-color:;
+}
+

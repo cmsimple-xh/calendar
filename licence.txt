@@ -1,0 +1,20 @@
+Licence for Calendar_XH for CMSimple_XH
+
+No licence conditions were found from the programmers of the old Calendar for CMSimple plugin, which inspired this work.
+The code has been completely rewritten by svasti (Frank Ziesing) and Holger (Holger Irmler).
+Although the original idea is still followed and the old function calls and content files still work, no code lines from the old plugin remain.
+
+In line with the work of the former authors the present code is released under a creative commons Attribution-Share Alike 3.0 Unported license (http://creativecommons.org/licenses/by-sa/3.0/)
+
+You must credit Calendar_XH in any derivative work. You are not allowed to delete or ommit the changelog file nor this licence file. You may however state your own contribution in these files.
+
+You are free:
+
+* to Share — to copy, distribute and transmit the work
+* to Remix — to adapt the work
+
+Under the following conditions:
+
+* Attribution — You must attribute the work in the manner specified by the authors (but not in any way that suggests that they endorse you or your use of the work).
+* Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same, similar or a compatible licence.
+

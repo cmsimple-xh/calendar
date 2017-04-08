@@ -1,0 +1,48 @@
+#fullscreen {
+    width:600px;
+    margin:5px auto;
+}
+body {
+    margin:0;
+}
+p,li {
+}
+
+i, em {
+    color:#006;
+    letter-spacing:0.05em;
+}
+.big,
+big {
+    font-weight:bold;
+    font-size:120%;
+    color:#447
+}
+small {
+    color:#444;
+}
+img.left  {
+    float:left;
+    margin:0 10px 2px 0;
+}
+img.left_under  {
+    clear:left;
+    float:left;
+    margin:0 10px 2px 0;
+}
+img.left2  {
+    float:left;
+    margin:0 40px 2px 0;
+}
+img.right  {
+    float:right;
+    margin:0 0 2px 10px;
+}
+img.right_under  {
+    clear:right;
+    float:right;
+    margin:0 0 2px 10px;
+}
+.red  {
+    color:red;
+}

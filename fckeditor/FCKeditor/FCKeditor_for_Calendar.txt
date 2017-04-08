@@ -1,0 +1,11 @@
+Simplyfied FCKeditor for Calendar-Plugin based on
+normal FCKeditor from CMSimple_XH v 1.4.
+
+The standard FCKeditor from CMSimple v1.4 works also, 
+except \plugins\calendar\fckeditor\FCKeditor\editor\plugins\sitelink\sitelink.php, 
+where some slight adjustments are required (for details see in the file).
+
+Copyright:
+FCKeditor-Integration for CMSimple, FCKeditor4CMSimple
+©2007-2009 Connie Müller-Gödecke, Holger Irmler
+This work is licensed under GNU General Public License Version 2 or later (GPL)
