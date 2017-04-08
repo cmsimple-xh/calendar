@@ -25,7 +25,8 @@ if(function_exists('xh_debugmode')){
 }
 
 initvar('calendar');
-if($calendar){
+if(function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministration('calendar')
+   || $calendar){
     $plugin = basename(dirname(__FILE__),"/");
 
     //Helper-functions
