@@ -887,7 +887,7 @@ while ($extramonths < $number) {
               )
             {
                 //producing variables ($shortevent, $startevent, $midevent, $endevent. $holiday) that can be filled with a date
-                $$event_type_array[$keys]=$i;
+                ${$event_type_array[$keys]}=$i;
                 // extracting the holiday name
                 $day_name = $holiday_array[$keys];
 

@@ -157,12 +157,12 @@ if(is_file($eventfile))
                     $age_txt_2    = $calendar_cf['marquee_age']=='2'   ? $age_txt:'';
 
                     array_push($event_sorting_array, strtotime("$event_month/$event_day/$anniversary 23:59"));
-                    array_push($event_1stline_array, $$calendar_cf['marquee_1stline'] . $age_txt_1);
+                    array_push($event_1stline_array, ${$calendar_cf['marquee_1stline']} . $age_txt_1);
                     array_push($event_headline_array, $event_day . dpSeperator() . $event_month . dpSeperator() . $anniversary . $age_txt_date);
                     if($yearly) {
-                        array_push($event_2ndline_array, $$calendar_cf['marquee_2ndline'] . ' ' . $age_txt_2);
+                        array_push($event_2ndline_array, ${$calendar_cf['marquee_2ndline']} . ' ' . $age_txt_2);
                     } else {
-                        array_push($event_2ndline_array, $$calendar_cf['marquee_2ndline']);
+                        array_push($event_2ndline_array, ${$calendar_cf['marquee_2ndline']});
                     }
                     $anniversary++;
                     $age++;
@@ -192,9 +192,9 @@ if(is_file($eventfile))
                             if($eventtime) {$headline .= " &mdash; " . $eventtime;}
 
                             array_push($event_sorting_array, $weekly_event);
-                            array_push($event_1stline_array, $$calendar_cf['marquee_1stline']);
+                            array_push($event_1stline_array, ${$calendar_cf['marquee_1stline']});
                             array_push($event_headline_array, $headline);
-                            array_push($event_2ndline_array, $$calendar_cf['marquee_2ndline']);
+                            array_push($event_2ndline_array, ${$calendar_cf['marquee_2ndline']});
                         }
                         $weekly_event = strtotime("+1 week", $weekly_event);
                     }
@@ -204,9 +204,9 @@ if(is_file($eventfile))
                             if($eventtime) {$headline .= " &mdash; " . $eventtime;}
 
                             array_push($event_sorting_array, $value);
-                            array_push($event_1stline_array, $$calendar_cf['marquee_1stline']);
+                            array_push($event_1stline_array, ${$calendar_cf['marquee_1stline']});
                             array_push($event_headline_array, $headline);
-                            array_push($event_2ndline_array, $$calendar_cf['marquee_2ndline']);
+                            array_push($event_2ndline_array, ${$calendar_cf['marquee_2ndline']});
                         }
                     }
                 }
@@ -231,9 +231,9 @@ if(is_file($eventfile))
                 } else {
                     array_push($event_sorting_array, $start);
                 }
-                array_push($event_1stline_array, $$calendar_cf['marquee_1stline']);
+                array_push($event_1stline_array, ${$calendar_cf['marquee_1stline']});
                 array_push($event_headline_array, /*'<b>normal</b>' .*/ $txt);
-                array_push($event_2ndline_array, $$calendar_cf['marquee_2ndline']);
+                array_push($event_2ndline_array, ${$calendar_cf['marquee_2ndline']});
 
                 if($additional) {
                     foreach ($additionaldatesarray as $value) {
@@ -241,9 +241,9 @@ if(is_file($eventfile))
                         if($eventtime) {$headline .= " &mdash; " . $eventtime;}
 
                         array_push($event_sorting_array, $value);
-                        array_push($event_1stline_array, $$calendar_cf['marquee_1stline']);
+                        array_push($event_1stline_array, ${$calendar_cf['marquee_1stline']});
                         array_push($event_headline_array, $headline);
-                        array_push($event_2ndline_array, $$calendar_cf['marquee_2ndline']);
+                        array_push($event_2ndline_array, ${$calendar_cf['marquee_2ndline']});
                     }
                 }
 
