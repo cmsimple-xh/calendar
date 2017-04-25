@@ -14,7 +14,7 @@ CMSimple - Calendar Plugin Admin
  - originally by Michael Svarrer (versions up to 0.5).
 */
 
-define('CALENDAR_VERSION', '1.4.7');
+define('CALENDAR_VERSION', '1.4.8');
 
 if ((!function_exists('sv')) || preg_match('!admin.php!i', sv('PHP_SELF')))die('Access denied');
 
