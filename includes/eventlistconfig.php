@@ -68,7 +68,7 @@ $subheadfontsize = isset($_POST['subheadfontsize']) ? $_POST['subheadfontsize'] 
 $monthfontsize   = isset($_POST['monthfontsize'])   ? $_POST['monthfontsize']   : $monthfontsize;
 $eventfontweight = isset($_POST['eventfontweight']) ? $_POST['eventfontweight'] : $eventfontweight;
 
-if(get_magic_quotes_gpc()) $eventlistpage = stripslashes($eventlistpage);
+if(function_exists("get_magic_quotes_gpc") && get_magic_quotes_gpc()) $eventlistpage = stripslashes($eventlistpage);
 
 if ($config == "config"){
 

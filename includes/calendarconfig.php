@@ -132,7 +132,7 @@ if ($calendarconfig == "calendarconfig"){
     // css-values
     //=============
     $nowrapdata         = $nowrap? 'nowrap' : 'normal';
-    if(get_magic_quotes_gpc()) {
+    if(function_exists("get_magic_quotes_gpc") && get_magic_quotes_gpc()) {
         $headlineconfig     = "\n" . trim(stripslashes($headlineconfig))  . "\n";
         $daynameconfig      = "\n" . trim(stripslashes($daynameconfig))   . "\n";
         $todaynameconfig    = "\n" . trim(stripslashes($todaynameconfig)) . "\n";

@@ -864,7 +864,7 @@ function sourceView($file,$template=0)
     $action = isset($_POST['action']) ? $_POST['action']  : '';
     $savedfile = isset($_POST['file']) ? $_POST['file']  : '';
     $data = isset($_POST['data']) ? $_POST['data']  : '';
-    if(get_magic_quotes_gpc()) $data = stripslashes($data);
+    if(function_exists("get_magic_quotes_gpc") && get_magic_quotes_gpc()) $data = stripslashes($data);
     $data = str_replace('¬','­',$data);
 
     // check if the new filename has unwanted characters
