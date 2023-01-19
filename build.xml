@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Calendar" default="help">
+
+    <target name="help" description="lists available targets">
+        <exec command="phing -l" outputProperty="help"/>
+        <echo>${help}</echo>
+    </target>
+
+    <target name="build" description="builds distributable ZIP archive">
+        <fail unless="version" message="version is not defined!"/>
+        <exec command="git archive -o export.zip HEAD" checkreturn="true"/>
+        <unzip file="export.zip" todir="export"/>
+        <delete file="export.zip"/>
+        <move todir="dist">
+            <fileset dir="export">
+                <exclude name="content/.gitignore"/>
+                <exclude name="build.xml"/>
+                <exclude name="composer.*"/>
+            </fileset>
+        </move>
+        <delete dir="export"/>
+        <copy file="dist/config/config.php"
+              tofile="dist/config/defaultconfig.php"/>
+        <zip destfile="calendar_XH-${version}.zip" basedir="dist"
+             prefix="calendar/"/>
+        <delete dir="dist"/>
+    </target>
+
+    <target name="build-patch" description="builds a distributable update package">
+        <fail unless="patchee" message="patchee is not defined!"/>
+        <fail unless="version" message="version is not defined!"/>
+        <unzip file="calendar_XH-${version}.zip" todir="current"/>
+        <unzip file="${patchee}" todir="patchee"/>
+        <copy todir="dist">
+            <fileset dir="current">
+                <different targetdir="patchee" ignoreFileTimes="true"/>
+            </fileset>
+        </copy>
+        <delete>
+            <fileset dir="dist/calendar">
+                <include name="config/config.php"/>
+                <include name="languages/??.php"/>
+                <include name="css/stylesheet.css"/>
+            </fileset>
+        </delete>
+        <zip destfile="calendar_XH_${version}_PATCH.zip" basedir="dist"
+             includeemptydirs="false"/>
+        <delete dir="patchee" quiet="true"/>
+        <delete dir="current" quiet="true"/>
+        <delete dir="dist" quiet="true"/>
+    </target>
+
+</project>
