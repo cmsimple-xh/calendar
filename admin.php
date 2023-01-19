@@ -25,7 +25,7 @@ if(function_exists('xh_debugmode')){
 }
 
 if(function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministration('calendar')
-   || $calendar){
+   || isset($calendar) && $calendar === "true"){
     $plugin = basename(dirname(__FILE__),"/");
 
     //Helper-functions
