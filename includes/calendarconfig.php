@@ -6,7 +6,7 @@
 //                                                      //
 //======================================================//
 // Security check
-if ((!function_exists('sv')) || preg_match('!calendar'.DIRECTORY_SEPARATOR.'include'.DIRECTORY_SEPARATOR.'calendarconfig.php!i', sv('PHP_SELF')))die('Access denied');
+if ((!function_exists('sv')) || preg_match('!calendar/include/calendarconfig.php!i', sv('PHP_SELF')))die('Access denied');
 
 
 global  $pth,$plugin,$plugin_tx,$calendar_cf,$plugin_cf,$cf,$tx,$sl,$hjs;

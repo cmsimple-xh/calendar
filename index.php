@@ -3,7 +3,7 @@
 
 
 // Security check
-if ((!function_exists('sv')) || preg_match('!calendar'.DIRECTORY_SEPARATOR.'index.php!i', sv('PHP_SELF')))die('Access denied');
+if ((!function_exists('sv')) || preg_match('!calendar/index.php!i', sv('PHP_SELF')))die('Access denied');
 
 // checking if alternative filepath is wanted
 if (!$plugin_cf['calendar']['filepath_data']){$datapath = $pth['folder']['plugins'].$plugin."/content/";}
