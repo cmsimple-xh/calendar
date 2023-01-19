@@ -84,24 +84,24 @@ if(function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministrati
     $credits_on =     $admxx=='credits'?           ' class="selected"':'';
 
     $o .= '<p class="calendar_admin_menu">'
-       .  '<a'.$plugin_main_on.' href="?&amp;' . $plugin . '&amp;admxx=plugin_main" />' .$plugin_tx['calendar']['menu_main'].'</a>&nbsp; '
-       .  '<a'.$eventlist_on  .' href="?&amp;' . $plugin . '&amp;admxx=eventlist" />' .$plugin_tx['calendar']['menu_test_event_list'].'</a>&nbsp; '
-       .  '<a'.$calendar_on   .' href="?&amp;' . $plugin . '&amp;admxx=calendar" />' .$plugin_tx['calendar']['menu_show_calendar'].'</a>&nbsp; ';
+       .  '<a'.$plugin_main_on.' href="?&amp;' . $plugin . '&amp;admxx=plugin_main">' .$plugin_tx['calendar']['menu_main'].'</a>&nbsp; '
+       .  '<a'.$eventlist_on  .' href="?&amp;' . $plugin . '&amp;admxx=eventlist">' .$plugin_tx['calendar']['menu_test_event_list'].'</a>&nbsp; '
+       .  '<a'.$calendar_on   .' href="?&amp;' . $plugin . '&amp;admxx=calendar">' .$plugin_tx['calendar']['menu_show_calendar'].'</a>&nbsp; ';
 
     if ($plugin_cf['calendar']['second-calendar_filename']) {
-    $o .= '<a'.$editevents2_on.' href="?&amp;' . $plugin . '&amp;admxx=editevents2" />2. ' .$plugin_tx['calendar']['menu_main'].'</a>&nbsp; '
-       .  '<a'.$eventlist2_on .' href="?&amp;' . $plugin . '&amp;admxx=eventlist2" />2. ' .$plugin_tx['calendar']['menu_test_event_list'].'</a>&nbsp; '
-       .  '<a'.$calendar2_on  .' href="?&amp;' . $plugin . '&amp;admxx=calendar2" />2. ' .$plugin_tx['calendar']['menu_show_calendar'].'</a>&nbsp; ';
+    $o .= '<a'.$editevents2_on.' href="?&amp;' . $plugin . '&amp;admxx=editevents2">2. ' .$plugin_tx['calendar']['menu_main'].'</a>&nbsp; '
+       .  '<a'.$eventlist2_on .' href="?&amp;' . $plugin . '&amp;admxx=eventlist2">2. ' .$plugin_tx['calendar']['menu_test_event_list'].'</a>&nbsp; '
+       .  '<a'.$calendar2_on  .' href="?&amp;' . $plugin . '&amp;admxx=calendar2">2. ' .$plugin_tx['calendar']['menu_show_calendar'].'</a>&nbsp; ';
     }
 
-    $o .= '<a'.$marquee_on    .' href="?&amp;' . $plugin . '&amp;admxx=marquee" />' .$plugin_tx['calendar']['menu_marquee'].'</a>&nbsp; '
-       .  '<a'.$holidays_on   .' href="?&amp;' . $plugin . '&amp;admxx=holidays" />' .$plugin_tx['calendar']['menu_holidays'].'</a>&nbsp; '
-       .  '<a'.$backup_on     .' href="?&amp;' . $plugin . '&amp;admxx=backup" />' .$plugin_tx['calendar']['menu_backup'].'</a>&nbsp; '
-       .  '<a'.$config_on     .' href="?&amp;' . $plugin . '&amp;admin=plugin_config&action=plugin_edit" />' .$plugin_tx['calendar']['menu_config'].'</a>&nbsp; '
-       .  '<a'.$stylesheet_on .' href="?&amp;' . $plugin . '&amp;admin=plugin_stylesheet&action=plugin_text" />' .$plugin_tx['calendar']['menu_css'].'</a>&nbsp; '
-       .  '<a'.$language_on   .' href="?&amp;' . $plugin . '&amp;admin=plugin_language&action=plugin_edit" />' .$plugin_tx['calendar']['menu_language'].'</a>&nbsp; '
-       .  '<a                    href="'.        $pth['file']['plugin_help'] . '" target="_blank" />' .$plugin_tx['calendar']['menu_help'].'</a>&nbsp; '
-       .  '<a'.$credits_on    .' href="?&amp;' . $plugin . '&amp;admxx=credits" />' .$plugin_tx['calendar']['menu_credits'].'</a></p>' . "\n";
+    $o .= '<a'.$marquee_on    .' href="?&amp;' . $plugin . '&amp;admxx=marquee">' .$plugin_tx['calendar']['menu_marquee'].'</a>&nbsp; '
+       .  '<a'.$holidays_on   .' href="?&amp;' . $plugin . '&amp;admxx=holidays">' .$plugin_tx['calendar']['menu_holidays'].'</a>&nbsp; '
+       .  '<a'.$backup_on     .' href="?&amp;' . $plugin . '&amp;admxx=backup">' .$plugin_tx['calendar']['menu_backup'].'</a>&nbsp; '
+       .  '<a'.$config_on     .' href="?&amp;' . $plugin . '&amp;admin=plugin_config&action=plugin_edit">' .$plugin_tx['calendar']['menu_config'].'</a>&nbsp; '
+       .  '<a'.$stylesheet_on .' href="?&amp;' . $plugin . '&amp;admin=plugin_stylesheet&action=plugin_text">' .$plugin_tx['calendar']['menu_css'].'</a>&nbsp; '
+       .  '<a'.$language_on   .' href="?&amp;' . $plugin . '&amp;admin=plugin_language&action=plugin_edit">' .$plugin_tx['calendar']['menu_language'].'</a>&nbsp; '
+       .  '<a                    href="'.        $pth['file']['plugin_help'] . '" target="_blank">' .$plugin_tx['calendar']['menu_help'].'</a>&nbsp; '
+       .  '<a'.$credits_on    .' href="?&amp;' . $plugin . '&amp;admxx=credits">' .$plugin_tx['calendar']['menu_credits'].'</a></p>' . "\n";
 
 
     // enabling navigation to stylesheet, config, language
