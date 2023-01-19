@@ -274,7 +274,7 @@ function nextevent12() {
 //================================================================================================//
 
 
-function eventForm($events,$saving_notice='',$file='',$standardmode,$calendar2='')
+function eventForm($events,$saving_notice='',$file='',$standardmode=1,$calendar2='')
 {
     global $pth; include_once ($pth['folder']['plugins'].'calendar/includes/eventform.php');
     return $o;
