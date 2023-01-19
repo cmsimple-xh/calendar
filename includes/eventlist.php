@@ -79,8 +79,10 @@ $showlinktopresentmonth = FALSE;
 if(!$file) {
     $month_input  = isset($_GET['month'])  ? htmlspecialchars($_GET['month'])  : '';
     $month_input .= isset($_POST['month']) ? htmlspecialchars($_POST['month']) : '';
+    $month_input = (int) $month_input;
     $year_input   = isset($_GET['year'])   ? htmlspecialchars($_GET['year'])   : '';
     $year_input  .= isset($_POST['year'])  ? htmlspecialchars($_POST['year'])  : '';
+    $year_input = (int) $year_input;
     $date_input   = $year_input * 100 + $month_input;
 
     if (   $plugin_cf['calendar']['eventlist_start_moves_with_clicked_event']
