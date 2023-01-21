@@ -277,5 +277,3 @@ $plugin_tx['calendar']['help_config_presets']="Předvolby obsahují některé ho
 $plugin_tx['calendar']['help_config_topmargin']="Zadej číslo + jednotky pro nastavení, např. 50px nebo 10em, pro více místa nad titulkem na pozadí obrázku.";
 $plugin_tx['calendar']['help_config_padweekdaynames']="Zadej číslo + jednotky pro definování prostoru nad a pod názvem dnů.";
 $plugin_tx['calendar']['help_holiday_date_calculation']="<ul>\r\n<li>Pevné svátky => <b>day.month</b> (Můžete použít tečku nebo lomítko, pokud podle nvašeho nastavení data.)</li>\r\n<li>Pohyblivé svátky v závislosti na datu Velikonoc => <b>velikonoce + x dní</b> nebo <b>- x dní</b> např. Velký pátek: <b>velikonoce - 2 dny</b></li>\r\n<li>Pohyblivé svátky závislé na víkendech:\r\n     <ul>\r\n      <li>První pondělí v květnu: <b>pondělí 1.5</b></li>\r\n      <li>Poslední pondělí v květnu (= Pondělí do 1. června): <b>-1 pondělí 1.6</b></li>\r\n      <li>11 dnů před 1. nedělí po 26.11: <b>-11 dní 1 neděle 26.11</b></li>\r\n      <li>4. neděle po 26.11: <b>4 neděle 26.11</b></li>\r\n     </ul>\r\n</li>\r\n</ul>";
-
-?>

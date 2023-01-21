@@ -318,5 +318,4 @@
       <li>4th sunday after 26.11: <b>4 sunday 26.11</b></li>
      </ul>
 </li>
-</ul>"
-?>
+</ul>";

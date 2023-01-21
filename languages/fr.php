@@ -37,5 +37,3 @@ $plugin_tx['calendar']['notice_file_not_yet_saved']="Changes not yet saved";
 $plugin_tx['calendar']['notice_number_of_events_saved_in_file']="event entries saved in";
 $plugin_tx['calendar']['notice_telling_period_of_events']="Evènements de la période";
 $plugin_tx['calendar']['notice_no_next_event_scheduled']="Ā présent pas d'evènements en préparation";
-
-?>

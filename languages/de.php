@@ -281,5 +281,3 @@ $plugin_tx['calendar']['notice_copied']="1 Event kopiert, ";
 $plugin_tx['calendar']['notice_changed']="1 Event gesichert/geändert, ";
 $plugin_tx['calendar']['notice_added']="1 Leer-Event zugefügt, ";
 $plugin_tx['calendar']['notice_deleted']="1 Event gelöscht, ";
-
-?>

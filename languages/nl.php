@@ -35,5 +35,3 @@ $plugin_tx['calendar']['names_of_months']="Januari,Februari,Maart,April,Mei,Juni
 $plugin_tx['calendar']['names_of_days_longform']="Zondags,Maandags,Diensdags,Woensdags,Donderdags,Vrijdags,Zaterdags";
 $plugin_tx['calendar']['notice_event_entries']="evenementen";
 $plugin_tx['calendar']['notice_telling_period_of_events']="Evenementen in de periode van";
-
-?>

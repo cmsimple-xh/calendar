@@ -32,6 +32,3 @@ $plugin_tx['calendar']['names_of_months']="Gennaio,Febbraio,Marzo,Aprile,Maggio,
 
 $plugin_tx['calendar']['notice_event_entries']="eventi";
 $plugin_tx['calendar']['notice_telling_period_of_events']="Eventi nel periodo da";
-
-
-?>

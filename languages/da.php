@@ -59,5 +59,3 @@ $plugin_tx['calendar']['names_of_months']="Januar,Februar,Marts,April,Maj,Juni,J
 $plugin_tx['calendar']['notice_event_entries']="aktiviteter";
 $plugin_tx['calendar']['notice_number_of_events_saved_in_file']="event entries saved in";
 $plugin_tx['calendar']['notice_telling_period_of_events']="Aktiviteter i perioden fra";
-
-?>
