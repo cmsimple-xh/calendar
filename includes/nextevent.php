@@ -89,7 +89,7 @@ if(is_file($eventfile))
                     $trimmeddates = trim($value);
                     list($d,$m,$y) = explode(dpSeperator(),$trimmeddates);
                     $y = rtrim($y,'*');
-                    $timestamp = mktime(null,null,null,$m,$d,$y);
+                    $timestamp = mktime(0,0,0,$m,$d,$y);
                     $additionaldatesarray[] = $timestamp;
                 }
                 // eliminating additional dates from $event
@@ -131,7 +131,7 @@ if(is_file($eventfile))
                 foreach ($dates as $value) {
                     $trimmed_dates = trim($value);
                     list($d,$m,$y) = explode(dpSeperator(),$trimmed_dates);
-                    $timestamp = mktime(null,null,null,$m,$d,$y);
+                    $timestamp = mktime(0,0,0,$m,$d,$y);
                     $exceptionsarray[] = $timestamp;
                 }
                 // eliminating exception dates from entry3

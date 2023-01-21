@@ -58,7 +58,7 @@ if(isset($_GET['year']))  $year  = htmlspecialchars($_GET['year']);
 
 
 // determine period on display to prevent useless calculation of events outside this period
-$calendarstart = mktime(NULL,NULL,NULL,$month,1,$year);
+$calendarstart = mktime(0,0,0,$month,1,$year);
 $calendarend   = strtotime("+$number months -1 day",$calendarstart);
 
 // if months of different years are to be shown holiday list has to be looped twice
@@ -230,7 +230,7 @@ if(is_file($eventfile))
                     $trimmeddates = trim($value);
                     list($d,$m,$y) = explode(dpSeperator(),$trimmeddates);
                     $y = rtrim($y,'*');
-                    $timestamp = mktime(null,null,null,$m,$d,$y);
+                    $timestamp = mktime(0,0,0,$m,$d,$y);
                     $additionaldatesarray[] = $timestamp;
                 }
                 // eliminating additional dates from $event
@@ -242,7 +242,7 @@ if(is_file($eventfile))
                 foreach ($dates as $value) {
                     $trimmeddates = trim($value);
                     list($d,$m,$y) = explode(dpSeperator(),$trimmeddates);
-                    $timestamp = mktime(null,null,null,$m,$d,$y);
+                    $timestamp = mktime(0,0,0,$m,$d,$y);
                     $exceptionsarray[] = $timestamp;
                 }
                 // eliminating exception dates from entry3

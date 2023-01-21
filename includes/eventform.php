@@ -343,7 +343,7 @@ foreach($events as $entry) {
 
     //finding day of the week and month of an event
     if($entry['datestart']) list($event_day,$event_month,$event_year) = explode( dpSeperator(), $entry['datestart']);
-    $timestamp = mktime(null,null,null,(int)$event_month,(int)$event_day,(int)$event_year);
+    $timestamp = mktime(0,0,0,(int)$event_month,(int)$event_day,(int)$event_year);
     $longdayname_array = explode(",", $plugin_tx['calendar']['names_of_days_longform']);
     $longdayname[$i] = $longdayname_array[date('w',$timestamp)];
     $shortdayname_array = explode(",", $plugin_tx['calendar']['names_of_days']);

@@ -189,7 +189,7 @@ if ($dataset=='' && !$newfilename) {
         foreach ($dates as $key => $value) {
             $dates[$key] = trim($value);
             list($day,$month,$year) = explode(dpSeperator(),$dates[$key]);
-            $timestamp = mktime(null,null,null,$month,$day,$year);
+            $timestamp = mktime(0,0,0,$month,$day,$year);
             //exceptions must be later than the event start
             if($timestamp > $event_start_timestamp) {
                 $dates[$key] = date('d' .dpSeperator(). 'm' .dpSeperator() . 'y', $timestamp) ;
@@ -212,7 +212,7 @@ if ($dataset=='' && !$newfilename) {
                 $addeventfull = '*';
                 $year = trim($year,'*');
             }
-            $timestamp = mktime(null,null,null,$month,$day,$year);
+            $timestamp = mktime(0,0,0,$month,$day,$year);
             //exceptions must be later than the event start
             if($timestamp > $event_start_timestamp) {
                 $dates[$key] = date('d' .dpSeperator(). 'm' .dpSeperator() . 'y', $timestamp).$addeventfull ;
@@ -345,7 +345,7 @@ if ($dataset=='' && !$newfilename) {
         if (!isset($events[$j]['yearly2']))      $events[$j]['yearly2']      = '';
 
         @list($day,$month,$year) = explode( dpSeperator(), $events[$j]['datestart']);
-        $event_start_timestamp = mktime(null,null,null,(int)$month,(int)$day,(int)$year);
+        $event_start_timestamp = mktime(0,0,0,(int)$month,(int)$day,(int)$year);
         if ($events[$j]['weekly']) {
             $events[$j]['weekday'] = date('w',$event_start_timestamp);
             //sort first weekly events on sundays

@@ -342,7 +342,7 @@ if(is_file($eventfile)){
             if ($event_info_icon) $event_info_txt = substr($event_info_txt,1);
 
             // for sorting algorithm that puts weekly events orderd by weekday first
-            $event_time_stamp = mktime(null,null,null,(int)$event_month,(int)$event_day,(int)$event_year);
+            $event_time_stamp = mktime(0,0,0,(int)$event_month,(int)$event_day,(int)$event_year);
             if($weekly) $weekday = 1 + date('w',$event_time_stamp); else $weekday = '';
             // 1 was added to avoid "0"
 
