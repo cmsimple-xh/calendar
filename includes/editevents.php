@@ -230,7 +230,7 @@ if ($dataset=='' && !$newfilename) {
     if ($datestart[$j]==$dateend[$j]) $dateend[$j] = "";
 
     //events are limited to 10 years in order to make a stop somewhere
-    if ((substr($dateend[$j],-4,4) - substr($datestart[$j],-4,4))>10) $dateend[$j] = '';
+    if (((int) substr($dateend[$j],-4,4) - (int) substr($datestart[$j],-4,4))>10) $dateend[$j] = '';
 
     //if weekly and yearly are both checked, one has to be unchecked
     if ($weekly[$j] && ($yearly[$j] || $yearly2[$j]) && $dateend[$j]) {$yearly[$j] = FALSE; $yearly2[$j] = FALSE;}
