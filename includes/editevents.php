@@ -9,8 +9,10 @@
 //********************************
 
 // Security check
-if ((!function_exists('sv')))die('Access denied');
-
+if (!defined("CMSIMPLE_XH_VERSION")) {
+    header("HTTP/1.1 403 Forbidden");
+    exit;
+}
 
 global $plugin_cf,$plugin_tx,$pth,$sl,$plugin,$tx,$lang;
 $o = '';

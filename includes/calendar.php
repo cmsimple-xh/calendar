@@ -8,7 +8,10 @@
 //=================================================
 
 // Security check
-if ((!function_exists('sv')) || preg_match('!calendar/include/calendar.php!i', sv('PHP_SELF')))die('Access denied');
+if (!defined("CMSIMPLE_XH_VERSION")) {
+    header("HTTP/1.1 403 Forbidden");
+    exit;
+}
 
 global $plugin_cf,$calendar_cf,$plugin_tx,$sl,$sn,$su,$admxx,$lang,$datapath;
 $o = '';

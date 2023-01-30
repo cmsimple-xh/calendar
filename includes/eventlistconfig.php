@@ -10,7 +10,10 @@ global  $cf,$cl,$l,$u,$pth,$plugin,$plugin_tx,$plugin_cf,$calendar_cf,$tx,$sl,$h
 $o = '';
 
 // Security check
-if ((!function_exists('sv')))die('Access denied');
+if (!defined("CMSIMPLE_XH_VERSION")) {
+   header("HTTP/1.1 403 Forbidden");
+   exit;
+}
 
 //get the button-images
 $imageFolder = $pth['folder']['plugins'] . $plugin . "/images";

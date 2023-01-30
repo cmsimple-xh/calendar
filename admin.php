@@ -16,7 +16,10 @@ CMSimple - Calendar Plugin Admin
 
 define('CALENDAR_VERSION', '1.4.10');
 
-if ((!function_exists('sv')) || preg_match('!admin.php!i', sv('PHP_SELF')))die('Access denied');
+if (!defined("CMSIMPLE_XH_VERSION")) {
+    header("HTTP/1.1 403 Forbidden");
+    exit;
+}
 
 ini_set('display_errors', 0);
 error_reporting(0);

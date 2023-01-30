@@ -3,7 +3,10 @@
 
 
 // Security check
-if ((!function_exists('sv')) || preg_match('!calendar/index.php!i', sv('PHP_SELF')))die('Access denied');
+if (!defined("CMSIMPLE_XH_VERSION")) {
+    header("HTTP/1.1 403 Forbidden");
+    exit;
+}
 
 // checking if alternative filepath is wanted
 if (!$plugin_cf['calendar']['filepath_data']){$datapath = $pth['folder']['plugins'].$plugin."/content/";}

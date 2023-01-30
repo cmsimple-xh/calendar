@@ -13,7 +13,11 @@
 global $plugin_cf,$calendar_cf,$cf,$plugin_tx,$sl,$h,$l,$u,$s,$lang,$datapath;
 
 // Security check
-if ((!function_exists('sv')))die('Access denied');
+if (!defined("CMSIMPLE_XH_VERSION")) {
+    header("HTTP/1.1 403 Forbidden");
+    exit;
+}
+
 $o = "\n\n<!-- CALENDAR EVENT LIST -->\n\n";
 $today = date("Ymd");
 $day = substr($today, 6);

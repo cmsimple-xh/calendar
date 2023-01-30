@@ -12,7 +12,10 @@ $o = $notice = $error = '';
 $css_ok = $lang_ok = $config_ok = FALSE;
 
 // Security check
-if ((!function_exists('sv')))die('Access denied');
+if (!defined("CMSIMPLE_XH_VERSION")) {
+    header("HTTP/1.1 403 Forbidden");
+    exit;
+}
 
 $preset       = isset($_POST['preset'])       ? $_POST['preset']       : '';
 $backup       = isset($_POST['backup'])       ? $_POST['backup']       : '';

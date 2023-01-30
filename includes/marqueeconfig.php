@@ -6,8 +6,10 @@
 //
 //=====================================================
 // Security check
-if ((!function_exists('sv')))die('Access denied');
-
+if (!defined("CMSIMPLE_XH_VERSION")) {
+   header("HTTP/1.1 403 Forbidden");
+   exit;
+}
 
 global  $pth,$plugin,$plugin_tx,$calendar_cf,$cf,$tx,$sl,$hjs;
 $o      = '';
