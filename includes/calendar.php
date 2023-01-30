@@ -780,7 +780,7 @@ while ($extramonths < $number) {
     } else $zindex = '';
 
     if($columns) $o .= '<td class="months_in_columns">'."\n";
-    $o .= "<table class='${size}calendar_main'$zindex>\n";
+    $o .= "<table class='{$size}calendar_main'$zindex>\n";
 
     // 1st row: headline with month and year (year only if needed)
     //============================================================
@@ -950,7 +950,7 @@ while ($extramonths < $number) {
 
         $x = $calendar_cf['dont_underline_longevents']? '2':'';
 
-        $showtoday   =  $i == $today       ?  " ${size}calendar_today"        : '';
+        $showtoday   =  $i == $today       ?  " {$size}calendar_today"        : '';
         $shortevent  =  $i == $shortevent  ?  " calendar_shortevent"          : '';
         $startevent  =  $i == $startevent  ?  " calendar_startevent$x"        : '';
         $midevent    =  $i == $midevent    ?  " calendar_midevent$x"          : '';
@@ -959,7 +959,7 @@ while ($extramonths < $number) {
         $startevent3 =  $i == $startevent3 ?  " calendar_startevent3"         : '';
         $midevent3   =  $i == $midevent3   ?  " calendar_midevent3"           : '';
         $endevent3   =  $i == $endevent3   ?  " calendar_endevent3"           : '';
-        $birthday    =  $i == $birthday    ?  " ${size}calendar_birthday"     : '';
+        $birthday    =  $i == $birthday    ?  " {$size}calendar_birthday"     : '';
         $holiday     =  $i == $holiday     ?  " calendar_holiday"      : '';
 
 

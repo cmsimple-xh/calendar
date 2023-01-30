@@ -508,7 +508,7 @@ $spacingvalues_select = '';
 for ($i = 0;$i <=50 ;$i++ ) {
 	$selected = '';
 	if($i.'px' == $dayspacing) {$selected = ' selected'; $j = 1;}
-	$spacingvalues_select .= "<option value='${i}px' $selected>${i}px</option>\n";
+	$spacingvalues_select .= "<option value='{$i}px' $selected>{$i}px</option>\n";
 }
 $preselect = $j? '' : '<option value="'.$dayspacing.'" selected>' . $dayspacing . '</option>';
 if($bordercollapse=='collapse' || !$dayspacing) $preselect = "<option value='0px' selected>0px</option>\n";
