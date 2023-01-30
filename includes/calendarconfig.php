@@ -127,8 +127,6 @@ if ($calendarconfig == "calendarconfig"){
     $lang_ok = file_put_contents($pth['folder']['plugins'] . $plugin . "/languages/$sl.php",$languagefile);
     $error .= $lang_ok? '' : $plugin_tx['calendar']['error_could_not_change_language_file'].', ';
 
-    include ($pth['folder']['plugins'] . $plugin ."/languages/$sl.php");
-
     // css-values
     //=============
     $nowrapdata         = $nowrap? 'nowrap' : 'normal';
@@ -210,6 +208,8 @@ if ($calendarconfig == "calendarconfig"){
         $notice .= '<p class="error" style="clear:both">' . $plugin_tx['calendar']['error_occured'] . ': ' . $error . "</p>\n";
     }
 
+    header("Location: " . CMSIMPLE_URL . "?&calendar&admxx=calendar");
+    exit;
 }
 
 $nowrapchecked           = $nowrap                                 ?              'checked="checked"' : '';
