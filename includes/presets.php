@@ -105,8 +105,6 @@ if ($preset){
     $lang_ok = file_put_contents($pth['folder']['plugins'] . $plugin . "/languages/$sl.php",$languagefile);
     $error .= $lang_ok? '' : $plugin_tx['calendar']['error_could_not_change_language_file'].', ';
 
-    include ($pth['folder']['plugins'] . $plugin ."/languages/$sl.php");
-
     //get the css-data
     //================
     $cssfile = file_get_contents($pth['folder']['plugins'] . $plugin . '/css/stylesheet.css');
@@ -209,6 +207,8 @@ if ($preset){
     } else {
         $notice .= '<p class="error" style="clear:both">' . $plugin_tx['calendar']['error_occured'] . ': ' . $error . "</p>\n";
     }
+    header("Location: " . CMSIMPLE_URL . "?&calendar&admxx=plugin_main");
+    exit;
 }
 
 

@@ -49,7 +49,8 @@ if ($holidaylist){
     $languagefile = preg_replace($pattern,$replacement,$languagefile);
 
     file_put_contents($pth['folder']['plugins'] . $plugin . "/languages/$sl.php",$languagefile);
-    include ($pth['folder']['plugins'] . $plugin ."/languages/$sl.php");
+    header("Location: " . CMSIMPLE_URL . "?&calendar&admxx=holidays");
+    exit;
 
 }
 

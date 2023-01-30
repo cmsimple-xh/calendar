@@ -123,7 +123,6 @@ if ($config == "config"){
             ),
         $languagefile,2);
     file_put_contents($pth['folder']['plugins'] . $plugin . "/languages/$sl.php",$languagefile);
-    include ($pth['folder']['plugins'] . $plugin ."/languages/$sl.php");
 
     //prepare some css values
     $csseventfontweight = $eventfontweight? 'bold':'normal';
@@ -155,6 +154,8 @@ if ($config == "config"){
         file_put_contents($pth['folder']['plugins'] . '/calendar/css/stylesheet.css',$cssfile);
         $hjs .= '<link rel="stylesheet" href="'.$pth['folder']['plugins'].'/calendar/css/stylesheet.css" type="text/css">'."\n";
     }
+    header("Location: " . CMSIMPLE_URL . "?&calendar&admxx=plugin_main");
+    exit;
 }
 
 // change the template
