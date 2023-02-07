@@ -623,6 +623,10 @@ foreach($events as $entry) {
     //===================================
     $o .= '<td class="column6" style="text-align:right;vertical-align:middle">'
        .  tag('input type="hidden" value="'.$i.'" name="dataset"') . "\n"
+       .  tag('input type="image" src="'
+       .  $imageFolder
+       .  '/ok.png" style="width:16;height:16" name="change[0]" title="'
+       .  $plugin_tx['calendar']['hint_icon_ok'] . '"') . "\n"
        .  tag('input type="image" src="' .  $imageFolder
        .  '/delete.png" style="width:16;height:16;" name="delete[0]" title="'
        .  $plugin_tx['calendar']['hint_icon_delete'] . '"'). "\n"
@@ -634,10 +638,6 @@ foreach($events as $entry) {
        .  tag('input type="image" src="'.$imageFolder
        .  '/add.png" style="width:16;height:16;" name="add[0]" title="'
        .  $plugin_tx['calendar']['hint_icon_add'] . '"') . "\n"
-       .  tag('input type="image" src="'
-       .  $imageFolder
-       .  '/ok.png" style="width:16;height:16" name="change[0]" title="'
-       .  $plugin_tx['calendar']['hint_icon_ok'] . '"') . "\n"
        . "</td>\n"
        .  "</tr>\n";
 
