@@ -14,7 +14,7 @@ CMSimple - Calendar Plugin Admin
  - originally by Michael Svarrer (versions up to 0.5).
 */
 
-define('CALENDAR_VERSION', '1.4.10');
+define('CALENDAR_VERSION', '1.4.11');
 
 if (!defined("CMSIMPLE_XH_VERSION")) {
     header("HTTP/1.1 403 Forbidden");

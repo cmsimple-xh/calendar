@@ -18,6 +18,8 @@ Auf einer Seite soll die Eventliste dargestellt werden (vollständig mit allen T
 Wäre es möglich z.B. auf der Startseite eine "verkürzte" Eventliste darzustellen, die z.B. die nächsten 5 Termine anzeigt?
 Damit soll nicht die nextevent Funktion gemeint sein, sondern die Liste.
 
+-- 1.4.11 (Feb 2023) see <https://github.com/cmsimple-xh/calendar/milestone/5?closed=1>
+
 -- 1.4.10 (Jan 2023) see <https://github.com/cmsimple-xh/calendar/milestone/4?closed=1>
 
 -- 1.4.9 (Jan 2023) see <https://github.com/cmsimple-xh/calendar/milestone/3?closed=1>
