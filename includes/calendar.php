@@ -823,7 +823,7 @@ while ($extramonths < $number) {
 
     } else {
         // adding an empty line when months are displayed one under another without columns
-        $calhead = (!$columns && $extramonths)? tag('br').$monthyear:$monthyear;
+        $calhead = (!$columns && $extramonths)? '<br>'.$monthyear:$monthyear;
     }
 
     if($size && $j=$calendar_cf['bigcalendar_month_year_headline_style']) {
@@ -931,7 +931,7 @@ while ($extramonths < $number) {
         //sorting the events of the day according to time
         array_multisort($timesorting,$event_titles,$bigcal_txts,$event_popups);
         $event_title = implode(' &nbsp;|&nbsp; ',$event_titles);
-        $bigcal_separator = $calendar_cf['bigcalendar_line_between_entries']? tag('hr') : '';
+        $bigcal_separator = $calendar_cf['bigcalendar_line_between_entries']? '<hr>' : '';
         $bigcal_txt = implode($bigcal_separator,$bigcal_txts);
         $event_popup = implode('<span class="cal_separator"></span>',$event_popups);
 

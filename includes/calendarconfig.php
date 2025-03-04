@@ -269,7 +269,7 @@ function openedit(button,hidearea,clicktext,reclicktext,displaytype,antihidearea
 $o .= $notice;
 
 $o .= "<form class='calendar_config' style='margin:0' method='POST' action=''>\n";
-$o .= tag('input type="hidden" value="calendarconfig" name="calendarconfig"') . "\n";
+$o .= '<input type="hidden" value="calendarconfig" name="calendarconfig">' . "\n";
 
 
 
@@ -326,8 +326,8 @@ $o .= '<div>'
    .  "\n" . '<option value="">' . $plugin_tx['calendar']['config_no_image'] . '</option>'
    .  "\n" . $images_select
    .  '</select>'
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $backgroundcolor . '" name="backgroundcolor"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $backgroundcolor . '" name="backgroundcolor">'
    .  $plugin_tx['calendar']['config_background_or_color']
    .  "</div>\n";
 
@@ -345,8 +345,8 @@ for ($i = 0;$i <=15 ;$i++ ) {
 $preselect = $j? '' : '<option value="'.$borderwidth.'" selected>' . $borderwidth . '</option>';
 
 $o .= '<div>'
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $bordercolor . '" name="bordercolor"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $bordercolor . '" name="bordercolor">'
    .  '<select name="borderwidth">'
    .  $preselect . $values_select
    .  '</select>'
@@ -370,8 +370,8 @@ $preselect = '';
 if(!$j) $preselect .= '<option value="'.$headline.'" selected>' . $headline . '</option>';
 if($headline) $preselect .= '<option value=""></option>';
 $o .= '<div>'
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $headlinecolor . '" name="headlinecolor"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $headlinecolor . '" name="headlinecolor">'
    .  '<select name="headline">'
    .  "\n" . $preselect . $values_select
    .  '</select>'
@@ -380,8 +380,8 @@ $o .= '<div>'
 
 // margin top
 $o .= '<div>'
-   .  tag('input type="text"  value="'
-   .  $topmargin . '" name="topmargin" style="width:4em"')
+   .  '<input type="text"  value="'
+   .  $topmargin . '" name="topmargin" style="width:4em">'
    .  '<span class="title" title="'.$plugin_tx['calendar']['help_config_topmargin'].'">'
    .  $plugin_tx['calendar']['config_margin-top']
    .  '</span>'
@@ -390,8 +390,8 @@ $o .= '<div>'
 // more headline css
 $o .= '<div>'
    .  $plugin_tx['calendar']['config_headline_more_css'];
-$o .=  tag('input type="button" value="+" class="calendar_edit_off" id="headlineconfig_button" style="margin-left:0;"
-                   onclick=\'openedit("headlineconfig_button","headlineconfig","&ndash;","+","block");\'');
+$o .=  '<input type="button" value="+" class="calendar_edit_off" id="headlineconfig_button" style="margin-left:0;"
+                   onclick=\'openedit("headlineconfig_button","headlineconfig","&ndash;","+","block");\'>';
 $o .= "</div>\n";
 
 $o .= '<div id="headlineconfig" >';
@@ -407,17 +407,17 @@ $o .= '<div class="cal_separator"></div>';
 
 //color of weekday names
 $o .= '<div>'
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $daynames . '" name="daynames"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $daynames . '" name="daynames">'
    .  $plugin_tx['calendar']['config_day_name_color']
    .  "</div>\n";
 
 //padding around weekend names
 $o .= '<div>'
-   .  tag('input type="text"  value="'
-   .  $daynamespadtop . '" name="daynamespadtop" style="width:3em"')
-   .  tag('input type="text"  value="'
-   .  $daynamespadbot . '" name="daynamespadbot" style="width:3em"')
+   .  '<input type="text"  value="'
+   .  $daynamespadtop . '" name="daynamespadtop" style="width:3em">'
+   .  '<input type="text"  value="'
+   .  $daynamespadbot . '" name="daynamespadbot" style="width:3em">'
    .  '<span class="title" title="'.$plugin_tx['calendar']['help_config_padweekdaynames'].'">'
    .  $plugin_tx['calendar']['config_weekdaynames_padding']
    .  '</span>'
@@ -427,8 +427,8 @@ $o .= '<div>'
 // more weekday names css
 $o .= '<div>'
    .  $plugin_tx['calendar']['config_day_names_more_css'];
-$o .=  tag('input type="button" value="+" class="calendar_edit_off" id="daynameconfig_button" style="margin-left:0;"
-                   onclick=\'openedit("daynameconfig_button","daynameconfig","&ndash;","+","block");\'');
+$o .=  '<input type="button" value="+" class="calendar_edit_off" id="daynameconfig_button" style="margin-left:0;"
+                   onclick=\'openedit("daynameconfig_button","daynameconfig","&ndash;","+","block");\'>';
 $o .=   "</div>\n";
 
 $o .= '<div id="daynameconfig" >';
@@ -447,8 +447,8 @@ $o .= '<div class="cal_separator"></div>';
 
 // day box height
 $o .= '<div>'
-   .  tag('input type="text"  value="'
-   .  $dayheight . '" name="dayheight" style="width:4em"')
+   .  '<input type="text"  value="'
+   .  $dayheight . '" name="dayheight" style="width:4em">'
    .  $plugin_tx['calendar']['config_day_field_height']
    .  "</div>\n" ;
 
@@ -480,8 +480,8 @@ $o .=  '<select name="dfbstyle">'
    .   "<option value='dashed'$dashedselect>dashed</option>\n"
    .   "<option value='solid'$solidselect>solid</option>\n";
 
-$o .=  tag('input type="text" class="color" value="'
-   .  $dfbcolor . '" name="dfbcolor"')
+$o .=  '<input type="text" class="color" value="'
+   .  $dfbcolor . '" name="dfbcolor">'
 
    .  $plugin_tx['calendar']['config_dayfield_border']
    .  '</span>'
@@ -524,15 +524,15 @@ $o .= '<div>'
 
 //round corners of day boxes
 $o .= '<div>'
-   .  tag('input type="text"  value="'
-   .  $roundcorners . '" name="roundcorners" style="width:8em"')
+   .  '<input type="text"  value="'
+   .  $roundcorners . '" name="roundcorners" style="width:8em">'
    .  '<span class="title" title="'.$plugin_tx['calendar']['help_config_roundcorners'].'">'.$plugin_tx['calendar']['config_roundcorners'] .'</span>'
    .  "</div>\n";
 
 //shadow of day boxes
 $o .= '<div>'
-   .  tag('input type="text"  value="'
-   .  $shadow . '" name="shadow" style="width:10em"')
+   .  '<input type="text"  value="'
+   .  $shadow . '" name="shadow" style="width:10em">'
    .  '<span class="title" title="'.$plugin_tx['calendar']['help_config_shadow'].'">'.$plugin_tx['calendar']['config_shadow'] .'</span>'
    .  "</div>\n";
 
@@ -557,8 +557,8 @@ $o .= '<div>'
 
 //birthday background
 $o .= '<div>'
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $birthdayfield . '" name="birthdayfield"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $birthdayfield . '" name="birthdayfield">'
    .  $plugin_tx['calendar']['config_birthday_in_dayfield']
    .  "</div>\n";
 
@@ -570,18 +570,18 @@ $o .= '<div class="cal_separator"></div>';
 
 // nowrap of event entry text in date fields
 $o .= '<div>'
-   .  tag('input type="checkbox" '.$nowrapchecked.' value="1" name="nowrap"')
+   .  '<input type="checkbox" '.$nowrapchecked.' value="1" name="nowrap">'
    .  $plugin_tx['calendar']['config_one_line_per_entry']
    .  "</div>\n";
 
 // details to be displayed in the calendar
 $o .= '<div>'
-   .  tag('input type="checkbox" '.$linebetweenchecked.' value="1" name="linebetween"')
+   .  '<input type="checkbox" '.$linebetweenchecked.' value="1" name="linebetween">'
    .  $plugin_tx['calendar']['config_line_between_events_in_bigcalendar']
    .  "</div>\n";
 
 $o .= '<div>'
-   .  tag('input type="checkbox" '.$writetimechecked.' value="1" name="writetime"')
+   .  '<input type="checkbox" '.$writetimechecked.' value="1" name="writetime">'
    .  $plugin_tx['calendar']['event_time']
    .  "</div>\n";
 
@@ -602,27 +602,27 @@ $o .= '<div>'
 
 
 $o .= '<div>'
-   .  tag('input type="checkbox" '.$writeentry1checked.' value="1" name="writeentry1"')
+   .  '<input type="checkbox" '.$writeentry1checked.' value="1" name="writeentry1">'
    .  $plugin_tx['calendar']['event_entry1']
    .  "</div>\n";
 
 $o .= '<div>'
-   .  tag('input type="checkbox" '.$writeeventchecked.' value="1" name="writeevent"')
+   .  '<input type="checkbox" '.$writeeventchecked.' value="1" name="writeevent">'
    .  $plugin_tx['calendar']['event_main_entry']
    .  "</div>\n";
 
 $o .= '<div>'
-   .  tag('input type="checkbox" '.$writeentry3checked.' value="1" name="writeentry3"')
+   .  '<input type="checkbox" '.$writeentry3checked.' value="1" name="writeentry3">'
    .  $plugin_tx['calendar']['event_entry3']
    .  "</div>\n";
 
 $o .= '<div>'
-   .  tag('input type="checkbox" '.$birthdayentry3checked.' value="1" name="birthdayentry3"')
+   .  '<input type="checkbox" '.$birthdayentry3checked.' value="1" name="birthdayentry3">'
    .  $plugin_tx['calendar']['event_entry3'] . ' ('. $plugin_tx['calendar']['config_birthday'] . ')'
    .  "</div>\n";
 
 $o .= '<div>'
-   .  tag('input type="checkbox" '.$birthdayagechecked.' value="1" name="birthdayage"')
+   .  '<input type="checkbox" '.$birthdayagechecked.' value="1" name="birthdayage">'
    .  $plugin_tx['calendar']['config_birthday_age']
    .  "</div>\n";
 
@@ -632,8 +632,8 @@ $o .= '<div>'.selectFont('bigcalfont',$bigcalfont,'bigcalfontsize',$bigcalfontsi
 // mouse over hint
 $o .= '<div>'
    .  $plugin_tx['calendar']['config_hint'] . ':&nbsp;'
-   .  tag('input type="text"  value="'
-   .  $plugin_tx['calendar']['hint_mouseover_in_calendar'] . '" name="hintmouseover" style="width:28em"')
+   .  '<input type="text"  value="'
+   .  $plugin_tx['calendar']['hint_mouseover_in_calendar'] . '" name="hintmouseover" style="width:28em">'
    .  "</div>\n";
 
 $o .= '</div>';
@@ -662,35 +662,35 @@ $o .= '<div>'.selectFont('smallcalfont',$smallcalfont,'smallcalfontsize',$smallc
 
 // normal day
 $o .= '<div style="clear:left;">1) '
-   .  tag('input type="text" class="color  {pickerPosition:\'left\'}" value="'
-   .  $normaldaycolor . '" name="normaldaycolor"')
+   .  '<input type="text" class="color  {pickerPosition:\'left\'}" value="'
+   .  $normaldaycolor . '" name="normaldaycolor">'
    .  $plugin_tx['calendar']['config_normalday'] 
    .  "</div>\n";
 
 // weekend
 $o .= '<div>2) '
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $weekendcolor . '" name="weekendcolor"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $weekendcolor . '" name="weekendcolor">'
    .  $plugin_tx['calendar']['config_weekend']
    .  "</div>\n";
 
 // holiday
 $o .= '<div>3) '
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $holidaycolor . '" name="holidaycolor"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $holidaycolor . '" name="holidaycolor">'
    .  $plugin_tx['calendar']['config_holiday']
    .  "</div>\n";
 
 
 // event day
 $o .= '<div>4) '
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $eventdaycolor . '" name="eventdaycolor"')
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $eventdaybgcolor . '" name="eventdaybgcolor"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $eventdaycolor . '" name="eventdaycolor">'
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $eventdaybgcolor . '" name="eventdaybgcolor">'
    .  $plugin_tx['calendar']['config_eventday']
    .  ' '
-   .  tag('input type="checkbox" '.$eventdayboldchecked.' value="1" name="eventdaybold"')
+   .  '<input type="checkbox" '.$eventdayboldchecked.' value="1" name="eventdaybold">'
    .  $plugin_tx['calendar']['config_bold'] . ' '
    .  "</div>\n";
 
@@ -707,13 +707,13 @@ for ($i = 0;$i <=4 ;$i++ ) {
 $preselect = $j? '' : '<option value="'.$underlongwidth.'" selected>' . $underlongwidth . '</option>';
 
 $o .= '<div>6) '
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $underlongcolor . '" name="underlongcolor"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $underlongcolor . '" name="underlongcolor">'
    .  '<select name="underlongwidth">'
    .  $preselect . $values_select
    .  '</select>'
    .  sprintf($plugin_tx['calendar']['config_underline_longevent']
-   ,  tag('input type="checkbox" '.$underlongeventchecked.' value="1" name="underlongevent"'))
+   ,  '<input type="checkbox" '.$underlongeventchecked.' value="1" name="underlongevent">')
    .  "</div>\n";
 
 
@@ -729,8 +729,8 @@ for ($i = 0;$i <=4 ;$i++ ) {
 $preselect = $j? '' : '<option value="'.$mark2width.'" selected>' . $mark2width . '</option>';
 
 $o .= '<div>5) '
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $mark2color . '" name="mark2color"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $mark2color . '" name="mark2color">'
    .  '<select name="mark2width">'
    .  $preselect . $values_select
    .  '</select>'
@@ -766,13 +766,13 @@ $o .= '<div>7) '
 
 // today
 $o .= '<div>8) '
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $todaycolor . '" name="todaycolor"')
-   .  tag('input type="text" class="color {pickerPosition:\'left\'}" value="'
-   .  $todaybgcolor . '" name="todaybgcolor"')
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $todaycolor . '" name="todaycolor">'
+   .  '<input type="text" class="color {pickerPosition:\'left\'}" value="'
+   .  $todaybgcolor . '" name="todaybgcolor">'
    .  $plugin_tx['calendar']['config_today_background']
    .  ' '
-   .  tag('input type="checkbox" '.$todayboldchecked.' value="1" name="todaybold"')
+   .  '<input type="checkbox" '.$todayboldchecked.' value="1" name="todaybold">'
    .  $plugin_tx['calendar']['config_bold'] . ' '
    .  "</div>\n";
 
@@ -809,8 +809,8 @@ $o .= '<div>'.selectFont('popupfont',$popupfont,'popupfontsize',$popupfontsize).
 //bordercolor
 $o .= '<div>'
    .  $plugin_tx['calendar']['config_border_color'] . ': '
-   .  tag('input type="text" class="color" value="'
-   .  $popupbordercolor . '" name="popupbordercolor"')
+   .  '<input type="text" class="color" value="'
+   .  $popupbordercolor . '" name="popupbordercolor">'
    .  "</div>\n";
 
 //borderwidth
@@ -834,8 +834,8 @@ $o .= '<div>'
 //backgroundcolor
 $o .= '<div>'
    .  $plugin_tx['calendar']['config_background_color'] . ': '
-   .  tag('input type="text" class="color" value="'
-   .  $popupbackground . '" name="popupbackground"')
+   .  '<input type="text" class="color" value="'
+   .  $popupbackground . '" name="popupbackground">'
    .  "</div>\n";
 
 
@@ -843,14 +843,14 @@ $o .= '<div>'
 
 //popup in small calendar
 $o .= '<div>'
-   .  tag('input type="checkbox" '.$smallcalpopupchecked.' value="1" name="smallcalpopup"')
+   .  '<input type="checkbox" '.$smallcalpopupchecked.' value="1" name="smallcalpopup">'
    .  $plugin_tx['calendar']['config_popup_in_small_calendar']
    .  "</div>\n";
 
 // entry3 in title attribute popup or not?
 $o .= '<div>'
    .  $plugin_tx['calendar']['config_in_title_label']
-   .  tag('input type="checkbox" '.$entry3popupchecked.' value="1" name="entry3popup"')
+   .  '<input type="checkbox" '.$entry3popupchecked.' value="1" name="entry3popup">'
    .  $plugin_tx['calendar']['event_entry3']
    .  "</div>\n";
 
@@ -866,7 +866,7 @@ $o .= '</div>';
 //==============
 if($calendar_cf['show_popup_config'] || $calendar_cf['show_smallcalendar_config'] || $calendar_cf['show_bigcalendar_config']) {
     $o .= '<div style="float:right; margin-bottom:.5em;">'
-       .  tag('input type="submit"   value="'.$plugin_tx['calendar']['menu_save_config'].'"')
+       .  '<input type="submit"   value="'.$plugin_tx['calendar']['menu_save_config'].'">'
        .  "</div>\n";
 }
 

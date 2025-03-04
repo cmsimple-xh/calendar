@@ -195,7 +195,7 @@ $hjs .=  '<script type="text/javascript" src="'.$pth['folder']['plugins'].'calen
 
 $o .= "\n\n<!-- Start Calendar Event List Config -->\n\n";
 $o .= "<form method='POST' action=''>\n";
-$o .= tag('input type="hidden" value="config" name="config"') . "\n";
+$o .= '<input type="hidden" value="config" name="config">' . "\n";
 
 
 
@@ -218,9 +218,9 @@ foreach($iconfolders as $folder){
 $o .= '<div class="eventlistconfig" style="line-height:1.8">';
 
 $o .= '<a  class="info_pop-up" href="#">'
-   .  tag('input type="image" src="'
+   .  '<input type="image" src="'
    .  $imageFolder
-   .  '/help_icon.png" style="width:16;height:16;" alt="Help"')
+   .  '/help_icon.png" style="width:16;height:16;" alt="Help">'
    .  '<span>'.showIcons().'</span></a> Icon set n&ordm;: ';
 
 $o .=  "<select name='iconset'>"
@@ -279,52 +279,52 @@ $o .= '<div class="eventlistconfig"><div>'
    .  $plugin_tx['calendar']['config_date']
    .  '</div>'
    .  $plugin_tx['calendar']['config_name'] . ': '
-   .  tag('input type="text"  value="'
-   .  $plugin_tx['calendar']['event_date'] . '" name="datename" style="width:9em"')
+   .  '<input type="text"  value="'
+   .  $plugin_tx['calendar']['event_date'] . '" name="datename" style="width:9em">'
    .  ' '
    .  $plugin_tx['calendar']['config_width'] . ': '
-   .  tag('input type="text"  value="'
-   .  $datewidth . '" name="datewidth" style="width:4em"')
+   .  '<input type="text"  value="'
+   .  $datewidth . '" name="datewidth" style="width:4em">'
    .  ' '
    .  $plugin_tx['calendar']['config_color'] . ': '
-   .  tag('input type="text" class="color" id="date" value="'
-   .  $datecolor . '" name="datecolor" id="datecolor"')
+   .  '<input type="text" class="color" id="date" value="'
+   .  $datecolor . '" name="datecolor" id="datecolor">'
    .  "</div>\n";
 
 // time
 $o .= '<div class="eventlistconfig"><div>'
    .  $plugin_tx['calendar']['config_time_on'] . ' '
-   .  tag('input type="checkbox" '.$timechecked.' value="1" name="time"')
+   .  '<input type="checkbox" '.$timechecked.' value="1" name="time">'
    .  '</div>'
    .  $plugin_tx['calendar']['config_name'] . ': '
-   .  tag('input type="text"  value="'
-   .  $plugin_tx['calendar']['event_time'] . '" name="timename" style="width:9em"')
+   .  '<input type="text"  value="'
+   .  $plugin_tx['calendar']['event_time'] . '" name="timename" style="width:9em">'
    .  ' '
    .  $plugin_tx['calendar']['config_width'] . ': '
-   .  tag('input type="text"  value="'
-   .  $timewidth . '" name="timewidth" style="width:4em"')
+   .  '<input type="text"  value="'
+   .  $timewidth . '" name="timewidth" style="width:4em">'
    .  ' '
    .  $plugin_tx['calendar']['config_color'] . ': '
-   .  tag('input type="text" class="color" id="time" value="'
-   .  $timecolor . '" name="timecolor" id="timecolor"')
+   .  '<input type="text" class="color" id="time" value="'
+   .  $timecolor . '" name="timecolor" id="timecolor">'
    .  "</div>\n";
 
 // entry 1
 $o .= '<div class="eventlistconfig"><div>'
    .  $plugin_tx['calendar']['config_on'] . ' '
-   .  tag('input type="checkbox" '.$entry1checked.' value="1" name="entry1"')
+   .  '<input type="checkbox" '.$entry1checked.' value="1" name="entry1">'
    .  '</div>'
    .  $plugin_tx['calendar']['config_name'] . ': '
-   .  tag('input type="text"  value="'
-   .  $plugin_tx['calendar']['event_entry1'] . '" name="entry1name" style="width:9em"')
+   .  '<input type="text"  value="'
+   .  $plugin_tx['calendar']['event_entry1'] . '" name="entry1name" style="width:9em">'
    .  ' '
    .  $plugin_tx['calendar']['config_width'] . ': '
-   .  tag('input type="text"  value="'
-   .  $entry1width . '" name="entry1width" style="width:4em"')
+   .  '<input type="text"  value="'
+   .  $entry1width . '" name="entry1width" style="width:4em">'
    .  ' '
    .  $plugin_tx['calendar']['config_color'] . ': '
-   .  tag('input type="text" class="color" id="entry1" value="'
-   .  $entry1color . '" name="entry1color" id="entry1color"')
+   .  '<input type="text" class="color" id="entry1" value="'
+   .  $entry1color . '" name="entry1color" id="entry1color">'
    .  "</div>\n";
 
 // main event entry
@@ -332,18 +332,18 @@ $o .= '<div class="eventlistconfig"><div>'
    .  $plugin_tx['calendar']['config_event']
    .  '</div>'
    .  $plugin_tx['calendar']['config_name'] . ': '
-   .  tag('input type="text"  value="'
-   .  $plugin_tx['calendar']['event_main_entry'] . '" name="eventname" style="width:9em"')
+   .  '<input type="text"  value="'
+   .  $plugin_tx['calendar']['event_main_entry'] . '" name="eventname" style="width:9em">'
    .  ' '
    .  $plugin_tx['calendar']['config_width'] . ': '
-   .  tag('input type="text"  value="'
-   .  $eventwidth . '" name="eventwidth" style="width:4em"')
+   .  '<input type="text"  value="'
+   .  $eventwidth . '" name="eventwidth" style="width:4em">'
    .  ' '
    .  $plugin_tx['calendar']['config_color'] . ': '
-   .  tag('input type="text" class="color" id="mainentry" value="'
-   .  $eventcolor . '" name="eventcolor" id="eventcolor"')
+   .  '<input type="text" class="color" id="mainentry" value="'
+   .  $eventcolor . '" name="eventcolor" id="eventcolor">'
    .  ' '
-   .  tag('input type="checkbox" '.$eventfontweightchecked.' value="1" name="eventfontweight"')
+   .  '<input type="checkbox" '.$eventfontweightchecked.' value="1" name="eventfontweight">'
    .  $plugin_tx['calendar']['config_bold'] . ' '
 
    .  "</div>\n";
@@ -351,37 +351,37 @@ $o .= '<div class="eventlistconfig"><div>'
 // entry 3
 $o .= '<div class="eventlistconfig"><div>'
    .  $plugin_tx['calendar']['config_on'] . ' '
-   .  tag('input type="checkbox" '.$entry3checked.' value="1" name="entry3"')
+   .  '<input type="checkbox" '.$entry3checked.' value="1" name="entry3">'
    .  '</div>'
    .  $plugin_tx['calendar']['config_name'] . ': '
-   .  tag('input type="text"  value="'
-   .  $plugin_tx['calendar']['event_entry3'] . '" name="entry3name" style="width:9em"')
+   .  '<input type="text"  value="'
+   .  $plugin_tx['calendar']['event_entry3'] . '" name="entry3name" style="width:9em">'
    .  ' '
    .  $plugin_tx['calendar']['config_width'] . ': '
-   .  tag('input type="text"  value="'
-   .  $entry3width . '" name="entry3width" style="width:4em"')
+   .  '<input type="text"  value="'
+   .  $entry3width . '" name="entry3width" style="width:4em">'
    .  ' '
    .  $plugin_tx['calendar']['config_color'] . ': '
-   .  tag('input type="text" class="color" id="entry3" value="'
-   .  $entry3color . '" name="entry3color" id="entry3color"')
+   .  '<input type="text" class="color" id="entry3" value="'
+   .  $entry3color . '" name="entry3color" id="entry3color">'
    .  "</div>\n";
 
 // link etc
 $o .= '<div class="eventlistconfig"><div>'
    .  $plugin_tx['calendar']['config_on'] . ' '
-   .  tag('input type="checkbox" '.$linkchecked.' value="1" name="link"')
+   .  '<input type="checkbox" '.$linkchecked.' value="1" name="link">'
    .  '</div>'
    .  $plugin_tx['calendar']['config_name'] . ': '
-   .  tag('input type="text"  value="'
-   .  $plugin_tx['calendar']['event_link_etc'] . '" name="linkname" style="width:9em"')
+   .  '<input type="text"  value="'
+   .  $plugin_tx['calendar']['event_link_etc'] . '" name="linkname" style="width:9em">'
    .  ' '
    .  $plugin_tx['calendar']['config_width'] . ': '
-   .  tag('input type="text"  value="'
-   .  $linkwidth . '" name="linkwidth" style="width:4em"')
+   .  '<input type="text"  value="'
+   .  $linkwidth . '" name="linkwidth" style="width:4em">'
    .  ' '
    .  $plugin_tx['calendar']['config_color'] . ': '
-   .  tag('input type="text" class="color" id="link" value="'
-   .  $linkcolor . '" name="linkcolor" id="linkcolor"')
+   .  '<input type="text" class="color" id="link" value="'
+   .  $linkcolor . '" name="linkcolor" id="linkcolor">'
    .  "</div>\n";
 
 // additional description
@@ -395,7 +395,7 @@ for ($i = 0;$i <=3 ;$i++ ) {
 
 $o .= '<div class="eventlistconfig"><div>'
    .  $plugin_tx['calendar']['config_on'] . ' '
-   .  tag('input type="checkbox" '.$descriptionchecked.' value="1" name="description"')
+   .  '<input type="checkbox" '.$descriptionchecked.' value="1" name="description">'
    .  '</div>'
    .  '"' .  $plugin_tx['calendar']['event_description']  . '"'
    . '&nbsp; &nbsp; '
@@ -415,8 +415,8 @@ $o .= '<div class="eventlistconfig">'
    .  '&nbsp;</div>'
    .  $plugin_tx['calendar']['config_birthday_color']
    .  ': '
-   .  tag('input type="text" class="color" value="'
-   .  $birthdaycolor . '" name="birthdaycolor"');
+   .  '<input type="text" class="color" value="'
+   .  $birthdaycolor . '" name="birthdaycolor">';
 $o .= "</div>\n";
 
 
@@ -427,7 +427,7 @@ $o .= '<div class="eventlistconfig">'
    .  '&nbsp;</div>'
    .  $plugin_tx['calendar']['config_all_same_color']
    .  ': '
-   .  tag('input id="master-picker" value="'.$mastercolor.'" name="mastercolor" ')
+   .  '<input id="master-picker" value="'.$mastercolor.'" name="mastercolor" >'
    .  '<script type="text/javascript">
        var masterPicker = new jscolor.color(
           document.getElementById("master-picker"),
@@ -470,13 +470,13 @@ $o .= '<div class="cal_separator"></div>';
 // number of future and past months in event list and treatment of past events
 $o .= '<div class="eventlistconfig">'
    .  sprintf($plugin_tx['calendar']['config_event_list_period']
-   ,  tag('input type="checkbox" '.$showperiodchecked.' value="1" name="showperiod"')
-   ,  tag('input type="text"  value="'
-   .  $calendar_cf['show_future_months'] . '" name="futuremonths" style="width:1.5em"')
-   ,  tag('input type="text"  value="'
-   .  $calendar_cf['show_past_months'] . '" name="pastmonths" style="width:1.5em"')
-   ,  tag('input type="checkbox" '.$greypasteventschecked.' value="1" name="greypastevents"')
-   ,  tag('input type="checkbox" '.$nopasteventchecked.' value="1" name="nopastevent"'))
+   ,  '<input type="checkbox" '.$showperiodchecked.' value="1" name="showperiod">'
+   ,  '<input type="text"  value="'
+   .  $calendar_cf['show_future_months'] . '" name="futuremonths" style="width:1.5em">'
+   ,  '<input type="text"  value="'
+   .  $calendar_cf['show_past_months'] . '" name="pastmonths" style="width:1.5em">'
+   ,  '<input type="checkbox" '.$greypasteventschecked.' value="1" name="greypastevents">'
+   ,  '<input type="checkbox" '.$nopasteventchecked.' value="1" name="nopastevent">')
    .  "</div>\n";
 
 
@@ -486,32 +486,32 @@ $o .= '<div class="cal_separator"></div>';
 // input fields
 $o .= '<div class="eventlistconfig" style="margin-top:.5em;">'
    .  '<u>'.$plugin_tx['calendar']['config_input_fields'] . '</u>: &nbsp;'
-   .  tag('input type="checkbox" '.$showmark2checked.' value="1" name="showmark2"')
+   .  '<input type="checkbox" '.$showmark2checked.' value="1" name="showmark2">'
    .  $plugin_tx['calendar']['event_mark2']
    .  ' &nbsp; '
-   .  tag('input type="checkbox" '.$nomarqueechecked.' value="1" name="nomarquee"')
+   .  '<input type="checkbox" '.$nomarqueechecked.' value="1" name="nomarquee">'
    .  $plugin_tx['calendar']['event_not_on_marquee']
    .  ' &nbsp; <span class="nowrap">'
-   .  tag('input type="checkbox" '.$showbookedoutchecked.' value="1" name="showbookedout"')
+   .  '<input type="checkbox" '.$showbookedoutchecked.' value="1" name="showbookedout">'
    .  $plugin_tx['calendar']['event_booked_out'] . '</span>'
    .  ' &nbsp; <span class="nowrap">'
-   .  tag('input type="checkbox" '.$showdailytimeschecked.' value="1" name="showdailytimes"')
+   .  '<input type="checkbox" '.$showdailytimeschecked.' value="1" name="showdailytimes">'
    .  $plugin_tx['calendar']['event_times_are_daily'] . '</span>'
    .  ' &nbsp; <span class="nowrap">'
-   .  tag('input type="checkbox" '.$showweeklychecked.' value="1" name="showweekly"')
+   .  '<input type="checkbox" '.$showweeklychecked.' value="1" name="showweekly">'
    .  $plugin_tx['calendar']['event_weekly'] . '</span>'
    .  ' &nbsp; <span class="nowrap">'
-   .  tag('input type="checkbox" '.$showyearlychecked.' value="1" name="showyearly"')
+   .  '<input type="checkbox" '.$showyearlychecked.' value="1" name="showyearly">'
    .  $plugin_tx['calendar']['event_yearly'] . '</span>'
    .  ' &nbsp; <span class="nowrap">'
-   .  tag('input type="checkbox" '.$showexceptionschecked.' value="1" name="showexceptions"')
+   .  '<input type="checkbox" '.$showexceptionschecked.' value="1" name="showexceptions">'
    .  $plugin_tx['calendar']['config_exceptions'] . '</span>'
    .  ' &nbsp; <span class="nowrap">'
-   .  tag('input type="checkbox" '.$showmultieventchecked.' value="1" name="showmultievent"')
+   .  '<input type="checkbox" '.$showmultieventchecked.' value="1" name="showmultievent">'
    .  $plugin_tx['calendar']['config_additional'] . '</span>'
 //   .  ' &nbsp; '
 //   .  '<span style="white-space:nowrap;">"' . $plugin_tx['calendar']['event_entry3'] . '"= '
-//   .  tag('input type="checkbox" '.$entry3areachecked.' value="1" name="entry3area"')
+//   .  '<input type="checkbox" '.$entry3areachecked.' value="1" name="entry3area">'
 //   .  $plugin_tx['calendar']['config_textarea'] . '</span>'
    .  "</div>\n";
 
@@ -546,7 +546,7 @@ $o .= templateSelect($calendar_cf['test_event_list_template'],'listtemplate')
 
 // save basic config
 $o .= '<div style="text-align:right; margin-bottom:.5em;">'
-   .  tag('input type="submit"   value="'.$plugin_tx['calendar']['menu_save_config'].'"')
+   .  '<input type="submit"   value="'.$plugin_tx['calendar']['menu_save_config'].'">'
    .  "</div>\n";
 
 $o .=  "</form>";

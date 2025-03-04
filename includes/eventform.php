@@ -76,7 +76,7 @@ $hjs .= '
 // calling the date picker, if set in config
 if ($plugin_cf['calendar']['date_picker']){
     $hjs .= '<script type="text/javascript" src="' . $pth['folder']['plugins'] . $plugin . '/dp/datepicker.js">{ "lang":"'.$sl.'" }</script>'."\n";
-    $hjs .= tag('link rel="stylesheet" type="text/css" href="' . $pth['folder']['plugins'] . $plugin . '/dp/datepicker.css"')."\n";
+    $hjs .= '<link rel="stylesheet" type="text/css" href="' . $pth['folder']['plugins'] . $plugin . '/dp/datepicker.css">'."\n";
 }
 
 // getting the button-images
@@ -96,20 +96,20 @@ $number_of_events = $saving_notice? '' : count($events) . ' ' .$plugin_tx['calen
 // Informing the user in which fields simple markup works
 $formatfields = "<span style='color:#a00;text-decoration:underline'>\n"
               . $plugin_tx['calendar']['hint_formattable_fields']
-              . "</span>\n". tag('br')
+              . "</span>\n". '<br>'
               . $plugin_tx['calendar']['event_entry1']      . ', '
               . $plugin_tx['calendar']['event_main_entry']  . ', '
               . $plugin_tx['calendar']['event_entry3']      . ', '
               . $plugin_tx['calendar']['event_info_text']   . ', '
-              . $plugin_tx['calendar']['event_link_text']   . tag('br') . tag('br') ;
+              . $plugin_tx['calendar']['event_link_text']   . '<br>' . '<br>' ;
 
 //writing this informtion using a pop-up icon
 $formatting_help_button = " &nbsp; "
                         . $plugin_tx['calendar']['hint_event_formatting']
                         . "<a class='info_pop-up' href='#'>"
-                        . tag('img src="'
+                        . '<img src="'
                         . $imageFolder
-                        . '/help_icon.png" width="16" height="16" alt="Help"') . "<span>\n"
+                        . '/help_icon.png" width="16" height="16" alt="Help">' . "<span>\n"
                         . $formatfields . $formatting_hints . "</span></a>\n";
 
 // instructions on how to enter links
@@ -118,29 +118,29 @@ if($standardmode){
     $link_help = "<span style='color:#a00;text-decoration:underline'>\n"
                . $plugin_tx['calendar']['hint_how_to_enter_links']
                . '</span>'
-               . tag('br') . tag('br')
+               . '<br>' . '<br>'
                . $plugin_tx['calendar']['hint_internal_links']
-               . tag('br') . tag('br')
-               . $plugin_tx['calendar']['hint_external_links']. tag('br')
+               . '<br>' . '<br>'
+               . $plugin_tx['calendar']['hint_external_links']. '<br>'
                . icon('ext') . ' www.cmsimple-xh.com'
-               . tag('br') . tag('br')
-               . $plugin_tx['calendar']['hint_blog_links']. tag('br')
+               . '<br>' . '<br>'
+               . $plugin_tx['calendar']['hint_blog_links']. '<br>'
                . icon('int') . ' ?Start&action=view'
-               . tag('br') . tag('br')
-               . $plugin_tx['calendar']['hint_subsite_links']. tag('br')
+               . '<br>' . '<br>'
+               . $plugin_tx['calendar']['hint_subsite_links']. '<br>'
                . icon('int') . ' /nl/?Start:Page ... etc.'
-               . tag('br') . tag('br')
-               . $plugin_tx['calendar']['hint_file_links']. tag('br')
-               . icon('pdf'). ' &nbsp; Abcdefg.pdf'. tag('br')
-               . icon('doc'). ' &nbsp; Abcdefg.doc(x)'. tag('br'). tag('br')
+               . '<br>' . '<br>'
+               . $plugin_tx['calendar']['hint_file_links']. '<br>'
+               . icon('pdf'). ' &nbsp; Abcdefg.pdf'. '<br>'
+               . icon('doc'). ' &nbsp; Abcdefg.doc(x)'. '<br>'. '<br>'
                . $plugin_tx['calendar']['hint_external_pdf_links'];
 
     $link_help_button = ' &nbsp; '
                       . $plugin_tx['calendar']['hint_links']
                       . '<a class="info_pop-up" href="#">'
-                      . tag('input type="image" src="'
+                      . '<input type="image" src="'
                       . $imageFolder
-                      . '/help_icon.png" style="width:16;height:16;vertical-align:baseline;" alt="Help"') . "<span>\n"
+                      . '/help_icon.png" style="width:16;height:16;vertical-align:baseline;" alt="Help">' . "<span>\n"
                       . $link_help
                       . "</span></a>\n";
 }
@@ -207,11 +207,11 @@ $o .= "<table class='calendar_input'>\n<tr>\n";
 if (!$standardmode) {
     $o .=  '<td>'
        .  '<form method="POST" action="">'
-       .  tag('input type="text" class="filename" value="'.$file.'" name="file"')
-       .  tag('input type="image" src="'
+       .  '<input type="text" class="filename" value="'.$file.'" name="file">'
+       .  '<input type="image" src="'
        .  $imageFolder
        .  '/ok.png" style="width:16;height:16" name="newfilename[0]" title="'
-       .  $plugin_tx['calendar']['hint_icon_save_new_name'] . '"')
+       .  $plugin_tx['calendar']['hint_icon_save_new_name'] . '">'
        .  '</form>'
        .  '</td><td>'
        .  '</td>'
@@ -224,10 +224,10 @@ $o .= '<td style="text-align:right;vertical-align:middle">'
 // FORM: add new event on top of list
 //=====================================
    .  '<form method="POST" action="">'."\n"
-   .  tag('input type="image" src="'.$imageFolder
+   .  '<input type="image" src="'.$imageFolder
    .  '/add.png" style="width:16;height:16;" name="add[0]" title="'
-   .  $plugin_tx['calendar']['hint_icon_add'] . '"') . "\n"
-   .  tag('input type="hidden" value="0" name="dataset"') . "\n"
+   .  $plugin_tx['calendar']['hint_icon_add'] . '">' . "\n"
+   .  '<input type="hidden" value="0" name="dataset">' . "\n"
    .  '</form>'
 // end form
 //================
@@ -622,22 +622,22 @@ foreach($events as $entry) {
     //delete, copy, add and save buttons
     //===================================
     $o .= '<td class="column6" style="text-align:right;vertical-align:middle">'
-       .  tag('input type="hidden" value="'.$i.'" name="dataset"') . "\n"
-       .  tag('input type="image" src="'
+       .  '<input type="hidden" value="'.$i.'" name="dataset">' . "\n"
+       .  '<input type="image" src="'
        .  $imageFolder
        .  '/ok.png" style="width:16;height:16" name="change[0]" title="'
-       .  $plugin_tx['calendar']['hint_icon_ok'] . '"') . "\n"
-       .  tag('input type="image" src="' .  $imageFolder
+       .  $plugin_tx['calendar']['hint_icon_ok'] . '">' . "\n"
+       .  '<input type="image" src="' .  $imageFolder
        .  '/delete.png" style="width:16;height:16;" name="delete[0]" title="'
-       .  $plugin_tx['calendar']['hint_icon_delete'] . '"'). "\n"
+       .  $plugin_tx['calendar']['hint_icon_delete'] . '">'. "\n"
 
-       .  tag('input type="image" src="'
+       .  '<input type="image" src="'
        .  $imageFolder
        .  '/copy.png" style="width:16;height:16" name="copy[0]" title="'
-       .  $plugin_tx['calendar']['hint_icon_copy'] . '"') . "\n"
-       .  tag('input type="image" src="'.$imageFolder
+       .  $plugin_tx['calendar']['hint_icon_copy'] . '">' . "\n"
+       .  '<input type="image" src="'.$imageFolder
        .  '/add.png" style="width:16;height:16;" name="add[0]" title="'
-       .  $plugin_tx['calendar']['hint_icon_add'] . '"') . "\n"
+       .  $plugin_tx['calendar']['hint_icon_add'] . '">' . "\n"
        . "</td>\n"
        .  "</tr>\n";
 
@@ -646,30 +646,30 @@ foreach($events as $entry) {
     //column 1
     $o .= "<tr>\n"
        .  '<td>'
-       .  tag('input type="text" class="calendar_input_date" maxlength="12" value="'
-       .  $entry['datestart'] . '" name="datestart['.$i.']" id="datestart'.$i.'"')
+       .  '<input type="text" class="calendar_input_date" maxlength="12" value="'
+       .  $entry['datestart'] . '" name="datestart['.$i.']" id="datestart'.$i.'">'
        .  "</td>\n" ;
 
     //column 2+3
     if ($calendar_cf['show_event_time']){
         $o .= '<td>'
-           .  tag('input type="text" class="calendar_input_time"  value="'
-           .  $entry['starttime'] . '" name="starttime['.$i.']"')
+           .  '<input type="text" class="calendar_input_time"  value="'
+           .  $entry['starttime'] . '" name="starttime['.$i.']">'
            .  "</td>\n<td>"
-           .  tag('input type="text" class="calendar_input_time"  value="'
-           .  $entry['endtime']   . '" name="endtime['.$i.']"')
+           .  '<input type="text" class="calendar_input_time"  value="'
+           .  $entry['endtime']   . '" name="endtime['.$i.']">'
            .  "</td>\n";
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['starttime'].'"')
+        $o .= '<input type="hidden" value="'.$entry['starttime'].'">'
            .  '<td style="width:0"></td>'
-           .  tag('input type="hidden" value="'.$entry['endtime'].'"')
+           .  '<input type="hidden" value="'.$entry['endtime'].'">'
            .  '<td style="width:0"></td>';
     }
 
     //column 4
     $o .= '<td>'
-       .  tag('input type="text" class="calendar_input_date" maxlength="12" value="'
-       .  $entry['dateend']   . '" name="dateend['.$i.']" id="dateend'.$i.'"');
+       .  '<input type="text" class="calendar_input_date" maxlength="12" value="'
+       .  $entry['dateend']   . '" name="dateend['.$i.']" id="dateend'.$i.'">';
 
     if ($plugin_cf['calendar']['date_picker']){
         $o .=  '<script type="text/javascript">
@@ -709,8 +709,8 @@ foreach($events as $entry) {
         $o .= "<tr><td colspan='4'>&nbsp;</td></tr>\n";
 
     } else {
-        $o .= '<td colspan="2">' . tag('input class="calendar_input_event input_highlighting" type="text"  value="'
-           .  $entry['event'] . '" name="event['.$i.']"') ."</td>\n</tr>\n";
+        $o .= '<td colspan="2">' . '<input class="calendar_input_event input_highlighting" type="text"  value="'
+           .  $entry['event'] . '" name="event['.$i.']">' ."</td>\n</tr>\n";
     }
 
 
@@ -729,102 +729,102 @@ foreach($events as $entry) {
 
     // checkbox "mark2"
     if ($calendar_cf['show_field_mark2']) {
-        $o .= tag('input type="checkbox" '.$mark2checked.' value="1" name="mark2['.$i.']"')
+        $o .= '<input type="checkbox" '.$mark2checked.' value="1" name="mark2['.$i.']">'
            .  $plugin_tx['calendar']['event_border_marked']
-           .  tag('br');
+           .  '<br>';
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['mark2'].'" name="mark2['.$i.']"');
+        $o .= '<input type="hidden" value="'.$entry['mark2'].'" name="mark2['.$i.']">';
     }
 
     // checkbox "no marquee"
     if ($calendar_cf['show_field_no_marquee']) {
-        $o .= tag('input type="checkbox" '.$no_marqueechecked.' value="1" name="no_marquee['.$i.']"')
+        $o .= '<input type="checkbox" '.$no_marqueechecked.' value="1" name="no_marquee['.$i.']">'
            .  $plugin_tx['calendar']['event_not_on_marquee']
            .  ' &nbsp; ';
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['no_marquee'].'" name="no_marquee['.$i.']"');
+        $o .= '<input type="hidden" value="'.$entry['no_marquee'].'" name="no_marquee['.$i.']">';
     }
 
     // checkbox booked out
     if ($calendar_cf['show_field_booked_out']) {
         $o .= '<span class="nowrap">'
-           .  tag('input type="checkbox" '.$bookedoutchecked.' value="1" name="bookedout['.$i.']"')
+           .  '<input type="checkbox" '.$bookedoutchecked.' value="1" name="bookedout['.$i.']">'
            .  $plugin_tx['calendar']['event_booked_out']
            .  '</span>';
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['bookedout'].'" name="bookedout['.$i.']"');
+        $o .= '<input type="hidden" value="'.$entry['bookedout'].'" name="bookedout['.$i.']">';
     }
-    If ($calendar_cf['show_field_booked_out'] || $calendar_cf['show_field_no_marquee']) $o .= tag('br');
+    If ($calendar_cf['show_field_booked_out'] || $calendar_cf['show_field_no_marquee']) $o .= '<br>';
 
 
     // event yearly
     if ($calendar_cf['show_field_yearly']) {
-        $o .= tag('input type="checkbox" '.$yearly2checked.' value="1" name="yearly2['.$i.']"')
+        $o .= '<input type="checkbox" '.$yearly2checked.' value="1" name="yearly2['.$i.']">'
            .  $plugin_tx['calendar']['event_yearly'] . ' ';
-        $o .= tag('input type="checkbox" '.$yearlychecked.' value="1" name="yearly['.$i.']"')
+        $o .= '<input type="checkbox" '.$yearlychecked.' value="1" name="yearly['.$i.']">'
            .  $plugin_tx['calendar']['event_yearly_with_age_calculation']
-           .  tag('br');
+           .  '<br>';
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['yearly'].'" name="yearly['.$i.']"');
-        $o .= tag('input type="hidden" value="'.$entry['yearly2'].'" name="yearly2['.$i.']"');
+        $o .= '<input type="hidden" value="'.$entry['yearly'].'" name="yearly['.$i.']">';
+        $o .= '<input type="hidden" value="'.$entry['yearly2'].'" name="yearly2['.$i.']">';
     }
 
     // are times daily in long events?
     if ($calendar_cf['show_field_daily_times']) {
-        $o .= tag('input type="checkbox" '.$dailytimes_checked.' value="1" name="dailytimes['.$i.']"')
+        $o .= '<input type="checkbox" '.$dailytimes_checked.' value="1" name="dailytimes['.$i.']">'
            .  $plugin_tx['calendar']['event_times_are_daily'] . ' (' . $plugin_tx['calendar']['config_long_event'] . ')'
-           .  tag('br');
+           .  '<br>';
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['dailytimes'].'" name="dailytimes['.$i.']"');
+        $o .= '<input type="hidden" value="'.$entry['dailytimes'].'" name="dailytimes['.$i.']">';
     }
 
     // event weekly?
     if ($calendar_cf['show_field_weekly']) {
-        $o .= tag('input type="checkbox" '.$weeklychecked.' value="1" name="weekly['.$i.']"')
+        $o .= '<input type="checkbox" '.$weeklychecked.' value="1" name="weekly['.$i.']">'
            .  $plugin_tx['calendar']['event_weekly'] 
-           .  tag('br');
+           .  '<br>';
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['weekly'].'" name="weekly['.$i.']"');
+        $o .= '<input type="hidden" value="'.$entry['weekly'].'" name="weekly['.$i.']">';
     }
 
     // exceptions?
     if ($calendar_cf['show_field_exceptions']) {
         $o .= $plugin_tx['calendar']['event_exceptions'] . ':'
-           .  tag('br');
+           .  '<br>';
         // exceptions?
-        $o .= tag('input type="text"  class="moredates" value="'
-           .  $entry['exceptions']  . '" name="exceptions['.$i.']"')
-           .  tag('br');
+        $o .= '<input type="text"  class="moredates" value="'
+           .  $entry['exceptions']  . '" name="exceptions['.$i.']">'
+           .  '<br>';
     } else {
-        $o .=  tag('input type="hidden" value="'.$entry['exceptions'].'" name="exceptions['.$i.']"');
+        $o .=  '<input type="hidden" value="'.$entry['exceptions'].'" name="exceptions['.$i.']">';
     }
 
     // additional dates
     if ($calendar_cf['show_field_multievent']) {
         $o .= $plugin_tx['calendar']['event_additional_days'];
         if($calendar_cf['show_field_booked_out']) $o .= ' ' . $plugin_tx['calendar']['config_additional_dates_bookedout'];
-        $o .= ':' .  tag('br');
+        $o .= ':' .  '<br>';
         if($plugin_cf['calendar']['input-field_additional_days_as_textarea']) {
             $o .= '<textarea  class="moredates" rows="2" cols="20" style="height:'
                .  $plugin_cf['calendar']['input-field_additional_days_as_textarea']
                .  ';" name="additional['.$i.']">'
                .  $entry['additional'] . '</textarea>';
         } else {
-            $o .= tag('input type="text"  class="moredates"   value="'
-               .  $entry['additional']  . '" name="additional['.$i.']"');
+            $o .= '<input type="text"  class="moredates"   value="'
+               .  $entry['additional']  . '" name="additional['.$i.']">';
         }
-        $o .= tag('br');
+        $o .= '<br>';
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['additional'].'" name="additional['.$i.']"');
+        $o .= '<input type="hidden" value="'.$entry['additional'].'" name="additional['.$i.']">';
     }
 
 /*    // multiple event?
     if ($calendar_cf['show_field_multievent']) {
-        $o .= tag('input type="checkbox" '.$multichecked.' value="1" name="multievent['.$i.']"')
+        $o .= '<input type="checkbox" '.$multichecked.' value="1" name="multievent['.$i.']">'
            .  $plugin_tx['calendar']['event_same_on_other_days']
-           .  tag('br');
+           .  '<br>';
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['multievent'].'" name="multievent['.$i.']"');
+        $o .= '<input type="hidden" value="'.$entry['multievent'].'" name="multievent['.$i.']">';
     }
 */
 
@@ -848,12 +848,12 @@ foreach($events as $entry) {
                .  ';">'
                .  $entry['event_entry1'] . '</textarea>';
         } else {
-            $o .= tag('input type="text"  class="calendar_input_event" value="'
-               .  $entry['event_entry1']  . '" name="event_entry1['.$i.']"');
+            $o .= '<input type="text"  class="calendar_input_event" value="'
+               .  $entry['event_entry1']  . '" name="event_entry1['.$i.']">';
         }
         $o .= "</td>\n</tr>\n<tr>";
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['event_entry1'] . '" name="event_entry1[' . $i.']"');
+        $o .= '<input type="hidden" value="'.$entry['event_entry1'] . '" name="event_entry1[' . $i.']">';
     }
 
     // field entry3 (was location in former versions)
@@ -868,12 +868,12 @@ foreach($events as $entry) {
                .  ';">'
                .  $entry['event_entry3'] . '</textarea>';
         } else {
-            $o .= tag('input type="text"  class="calendar_input_event" value="'
-               .  $entry['event_entry3']  . '" name="event_entry3['.$i.']"');
+            $o .= '<input type="text"  class="calendar_input_event" value="'
+               .  $entry['event_entry3']  . '" name="event_entry3['.$i.']">';
         }
         $o .= "</td>\n</tr>\n<tr>";
     } else {
-        $o .= tag('input type="hidden" value="'.$entry['event_entry3'] . '" name="event_entry3[' . $i.']"');
+        $o .= '<input type="hidden" value="'.$entry['event_entry3'] . '" name="event_entry3[' . $i.']">';
     }
 
 
@@ -898,7 +898,7 @@ foreach($events as $entry) {
         //link icon checkbox
         $o .= '<td class="calendar_input_caption_rightaligned">'
            .  $plugin_tx['calendar']['event_icon']
-           .  tag('input type="checkbox" '.$linkiconchecked.' value="1" name="linkicon['.$i.']" style="vertical-align:middle"')
+           .  '<input type="checkbox" '.$linkiconchecked.' value="1" name="linkicon['.$i.']" style="vertical-align:middle">'
            .  "</td>\n";
 
         $pages_select = '';
@@ -922,8 +922,8 @@ foreach($events as $entry) {
            . $plugin_tx['calendar']['event_other_link'] ."</td>\n"
         // other link field
            .  "<td colspan='2'>";
-        $o .= tag('input type="text" class="calendar_input_event calendar_input_links" '.$link_error_marking.' value="'
-           .  $linkadr . '" name="linkadr['.$i.']"')
+        $o .= '<input type="text" class="calendar_input_event calendar_input_links" '.$link_error_marking.' value="'
+           .  $linkadr . '" name="linkadr['.$i.']">'
            .  "</td>\n</tr>\n";
 
         // "link-text" label
@@ -931,20 +931,20 @@ foreach($events as $entry) {
            .  $plugin_tx['calendar']['event_link_text'] . "</td>\n"
         // "link-text" field
            .  '<td colspan="2">'
-           .  tag('input type="text" class="calendar_input_event" value="'
-           .  $entry['linktxt'] . '" name="linktxt['.$i.']"')
+           .  '<input type="text" class="calendar_input_event" value="'
+           .  $entry['linktxt'] . '" name="linktxt['.$i.']">'
            .  "</td>\n</tr>\n";
 
         //checkbox info icon + info text label
         $o .= "<tr>\n"
            .  '<td class="calendar_input_caption_rightaligned" rowspan="2">'
            .  $plugin_tx['calendar']['event_info_text']
-           .  tag('br')
-           .  tag('input type="checkbox" '.$infoiconchecked.' value="1" name="infoicon['.$i.']"')
+           .  '<br>'
+           .  '<input type="checkbox" '.$infoiconchecked.' value="1" name="infoicon['.$i.']">'
            .  $plugin_tx['calendar']['event_icon']
-           .  tag('br')
-           .  tag('input type="checkbox" '.$widepopupchecked.' value="2" name="infoicon['.$i.']"')
-           .  $plugin_tx['calendar']['event_icon'] . tag('br') . $plugin_tx['calendar']['event_widepopup']
+           .  '<br>'
+           .  '<input type="checkbox" '.$widepopupchecked.' value="2" name="infoicon['.$i.']">'
+           .  $plugin_tx['calendar']['event_icon'] . '<br>' . $plugin_tx['calendar']['event_widepopup']
            .  "</td>\n";
         // info text field
         $o .= "<td rowspan='2' colspan='2'><textarea  class='calendar_input_event' rows='2' cols='20' name='infotxt[$i]'>"
@@ -952,12 +952,12 @@ foreach($events as $entry) {
            .  "</tr>\n";
     } else {
         //hidden fields to save link and info data
-        $o .= tag('input type="hidden" value="'.$entry['linkicon']   .'" name="linkicon['.$i.']"')
-           .  tag('input type="hidden" value="'.$entry['linkint']    .'" name="linkint['. $i.']"')
-           .  tag('input type="hidden" value="'.$linkadr             .'" name="linkadr['. $i.']"')
-           .  tag('input type="hidden" value="'.$entry['linktxt']    .'" name="linktxt['. $i.']"')
-           .  tag('input type="hidden" value="'.$entry['infoicon']   .'" name="infoicon['.$i.']"')
-           .  tag('input type="hidden" value="'.$entry['infotxt']    .'" name="infotxt['. $i.']"');
+        $o .= '<input type="hidden" value="'.$entry['linkicon']   .'" name="linkicon['.$i.']">'
+           .  '<input type="hidden" value="'.$entry['linkint']    .'" name="linkint['. $i.']">'
+           .  '<input type="hidden" value="'.$linkadr             .'" name="linkadr['. $i.']">'
+           .  '<input type="hidden" value="'.$entry['linktxt']    .'" name="linktxt['. $i.']">'
+           .  '<input type="hidden" value="'.$entry['infoicon']   .'" name="infoicon['.$i.']">'
+           .  '<input type="hidden" value="'.$entry['infotxt']    .'" name="infotxt['. $i.']">';
     }
 
     //make event description field
@@ -968,8 +968,8 @@ foreach($events as $entry) {
             $o .= "<tr class='calendar_input_caption'>\n"
                .  '<td colspan="3">'
                .  $plugin_tx['calendar']['event_description']
-               .  tag('input type="button" value="+" class="calendar_edit_off" style="margin:0;" id="button2'.$i.'"
-                  onclick=\'openedit("button2'.$i.'","description'.$i.'","&ndash;","+","block");\'')
+               .  '<input type="button" value="+" class="calendar_edit_off" style="margin:0;" id="button2'.$i.'"
+                  onclick=\'openedit("button2'.$i.'","description'.$i.'","&ndash;","+","block");\'>'
                .  "</td>\n</tr>\n<tr>\n"
                .  '<td colspan="6">'
                .  "<textarea class='description' rows='2' cols='20' style='display:none;height:"
@@ -981,8 +981,8 @@ foreach($events as $entry) {
             $o .= "<tr class='calendar_input_caption'>\n"
                .  '<td colspan="3">'
                .  $plugin_tx['calendar']['event_description'];
-            $o .= tag('input type="button" value="+" class="toggle" id="button2'.$i.'"
-                  onclick=\'openeditor("button2'.$i.'","description'.$i.'","&ndash;","+","button2'.$i.'");\'');
+            $o .= '<input type="button" value="+" class="toggle" id="button2'.$i.'"
+                  onclick=\'openeditor("button2'.$i.'","description'.$i.'","&ndash;","+","button2'.$i.'");\'>';
             $o .= "</td>\n</tr>\n<tr>\n"
                .  '<td colspan="6">'
                .  "<textarea class='description' rows='2' cols='20' style='display:none;height:"
@@ -997,8 +997,8 @@ foreach($events as $entry) {
                .  '<td colspan="3">'
                .  $plugin_tx['calendar']['event_description'];
 
-            $o .= tag('input type="button" value="+" class="calendar_edit_off" id="button2'.$i.'" style="margin-left:0;"
-                  onclick=\'openedit("button2'.$i.'","div'.$i.'","+","&ndash;","block");\'');
+            $o .= '<input type="button" value="+" class="calendar_edit_off" id="button2'.$i.'" style="margin-left:0;"
+                  onclick=\'openedit("button2'.$i.'","div'.$i.'","+","&ndash;","block");\'>';
 
             $o .= "</td>\n</tr>\n<tr>\n"
                .  "<td colspan='6'><div style='display:none' id='div$i'>\n";

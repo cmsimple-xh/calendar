@@ -474,7 +474,7 @@ if(!$tablestyle) {
         ),$template[1]);
 } elseif ($calendar_cf['show_period_of_events']){
     // spreadsheet table style
-    $o .="<p class='period_of_events'>$periodtext1 <span>$startperiod</span> $periodtext2 <span>$endperiod</span>".tag('br')."$gotopresentmonth</p>\n";
+    $o .="<p class='period_of_events'>$periodtext1 <span>$startperiod</span> $periodtext2 <span>$endperiod</span>".'<br>'."$gotopresentmonth</p>\n";
 } else $o .=$gotopresentmonth? '<p><small>'.$gotopresentmonth."</small></p>\n" : '';
 
 // the number of table columns is calculated
@@ -829,7 +829,7 @@ while($x<=$end_month){
 
     if($table && $tablestyle){
         $o .= "<tr>\n";
-        $o .= "<td class='event_monthyear' colspan='$tablecols'>$printtextmonth $printyear".tag('br')."</td>\n";
+        $o .= "<td class='event_monthyear' colspan='$tablecols'>$printtextmonth $printyear".'<br>'."</td>\n";
         $o .= "</tr>\n";
         $o .= $subhead;
         $extrasubhead = 0;
@@ -887,7 +887,7 @@ while($x<=$end_month){
                     $o .= $print_headline_singleevents==1? $headline_singleevents : '';
 
                     $o .= "<tr>\n";
-                    $o .= "<td class='event_monthyear' colspan='5'>$textmonth $year".tag('br')."</td>\n";
+                    $o .= "<td class='event_monthyear' colspan='5'>$textmonth $year".'<br>'."</td>\n";
                     $o .= "</tr>\n";
                     $o .= $subhead;
                     $extrasubhead = 0;
