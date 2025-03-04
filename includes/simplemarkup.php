@@ -19,10 +19,10 @@
 $formatting_hints = '<table><tr>'
 
                   . '<td>abc\-def</td>'
-                  . '<td>&rarr;' . tag('br')
+                  . '<td>&rarr;' . '<br>'
                   . '&rarr; </td>'
-                  . '<td>abcdef' . tag('br')
-                  . '&nbsp; &nbsp; &nbsp; abc-' . tag('br')
+                  . '<td>abcdef' . '<br>'
+                  . '&nbsp; &nbsp; &nbsp; abc-' . '<br>'
                   . 'def</td>'
                   . "</tr><tr>\n"
 
@@ -95,7 +95,7 @@ function simpleMarkupToHtml($text)
         '*',                           //7 - *
 
         '',                            //12- no empty lines at the end
-        tag('br')                      //13- replace line breaks by <br>
+        '<br>'                      //13- replace line breaks by <br>
     );
 
     $text = preg_replace($pattern, $replacement, $text);

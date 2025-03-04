@@ -332,7 +332,7 @@ if ($backup) {
 }
 
 $o .= '<form method="POST" style="float:left;padding:0 .5em .5em 0;" name"choosepresets" action="">' . "\n";
-$o .= tag('input type="hidden" value="preset" name="preset"') . "\n";
+$o .= '<input type="hidden" value="preset" name="preset">' . "\n";
 
 
 $handle=opendir($pth['folder']['plugins'].'/calendar/templates/');
@@ -359,7 +359,7 @@ $o .=  '<span class="title" title="'.$plugin_tx['calendar']['help_config_presets
 //==============
 // apply presets
 //==============
-//$o .= tag('input type="submit"   value="'.$plugin_tx['calendar']['menu_apply_preset'].'"');
+//$o .= '<input type="submit"   value="'.$plugin_tx['calendar']['menu_apply_preset'].'">';
 
 $o .=  "</form>";
 
@@ -368,10 +368,10 @@ $o .=  "</form>";
 // create settings back up
 //==========================
 $o .= '<form method="POST"  style="float:left;" action="">' . "\n";
-$o .= tag('input type="hidden" value="backup" name="backup"') . "\n";
+$o .= '<input type="hidden" value="backup" name="backup">' . "\n";
 
-$o .= tag('input type="submit"   value="'.$plugin_tx['calendar']['menu_preset_backup'].'"')
-   .  tag('input type="text"  value="'.$plugin_tx['calendar']['menu_settings_backupname'].'" name="settingsname" style="width:9em"');
+$o .= '<input type="submit"   value="'.$plugin_tx['calendar']['menu_preset_backup'].'">'
+   .  '<input type="text"  value="'.$plugin_tx['calendar']['menu_settings_backupname'].'" name="settingsname" style="width:9em">';
 
 //$o .=  "</div>\n";
 

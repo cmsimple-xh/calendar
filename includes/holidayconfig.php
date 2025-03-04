@@ -66,8 +66,8 @@ $o .= '<tr><td style="width:16px;"></td><th>'
    .  '</th>';
 
 $o .= '<td style="width:16px;">'
-   .  tag("input type='image' src='".$imageFolder
-   .  "/add.png' style='width:16;height:16' name='holiday_add[0]' value=TRUE alt='+'")
+   .  "<input type='image' src='".$imageFolder
+   .  "/add.png' style='width:16;height:16' name='holiday_add[0]' value=TRUE alt='+'>"
    .  "</td></tr>\n";
 
 $holidayarray = explode(';',$plugin_tx['calendar']['holydays']);
@@ -78,18 +78,18 @@ foreach ($holidayarray as $key=>$value) {
     $o .= "<tr>\n"
 
        // up-button
-       .  '<td>' . tag("input type='image' src='" . $imageFolder
-       .  "/up.gif' style='width:16;height:16' name='holiday_up[$key]' value=TRUE alt='^'")
+       .  '<td>' . "<input type='image' src='" . $imageFolder
+       .  "/up.gif' style='width:16;height:16' name='holiday_up[$key]' value=TRUE alt='^'>"
        .  '</td>'
 
        // Holiday name
-       .  '<td>' . tag("input type='text' style='width: 96%;' value='".$holiday_name."' name='holiday_name[$key]'") . '</td>'
+       .  '<td>' . "<input type='text' style='width: 96%;' value='".$holiday_name."' name='holiday_name[$key]'>" . '</td>'
        // Holiday date calculation
-       .  '<td>' . tag("input type='text' style='width: 96%;' value='".$holiday_date."' name='holiday_date[$key]'") . '</td>'
+       .  '<td>' . "<input type='text' style='width: 96%;' value='".$holiday_date."' name='holiday_date[$key]'>" . '</td>'
 
        // delete button
-       .  '<td>' . tag("input type='image' src='" . $imageFolder
-       .  "/delete.png' style='width:16;height:16' name='holiday_delete[$key]' value='delete' alt='-'")
+       .  '<td>' . "<input type='image' src='" . $imageFolder
+       .  "/delete.png' style='width:16;height:16' name='holiday_delete[$key]' value='delete' alt='-'>"
        .  '</td>'
 
        // end of line
@@ -98,8 +98,8 @@ foreach ($holidayarray as $key=>$value) {
 }
 
 $o .= "</table>\n"
-   .  tag("input type='hidden' value=TRUE name='holidaylist'")
-   .  tag('input type="submit" class="submit" value="'.ucfirst($tx['action']['save']).'"')
+   .  "<input type='hidden' value=TRUE name='holidaylist'>"
+   .  '<input type="submit" class="submit" value="'.ucfirst($tx['action']['save']).'">'
    .  "</form>\n";
 
 $o .= '<h4>'.$plugin_tx['calendar']['holiday_date_calculation'].'</h4>'

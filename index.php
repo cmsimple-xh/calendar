@@ -178,32 +178,32 @@ function icon($which_icon,$pale='')
         case 'inf':
             $fileextension = file_exists ("$iconFolder/info.gif") ? "gif" : "png";
             list($width, $height, $type, $attr) = getimagesize("$iconFolder/info.$fileextension");
-            $selected_icon = tag("img src='$iconFolder/info.$fileextension' $attr alt='Info'");
+            $selected_icon = "<img src='$iconFolder/info.$fileextension' $attr alt='Info'>";
             break;
         case 'ext':
             $fileextension = file_exists ("$iconFolder/external_link.gif") ? "gif" : "png";
             list($width, $height, $type, $attr) = getimagesize("$iconFolder/external_link.$fileextension");
-            $selected_icon = tag("img src='$iconFolder/external_link.$fileextension' $attr alt='external Link'");
+            $selected_icon = "<img src='$iconFolder/external_link.$fileextension' $attr alt='external Link'>";
             break;
         case 'int':
         case 'in?':
             $fileextension = file_exists ("$iconFolder/internal_link.gif") ? "gif" : "png";
             list($width, $height, $type, $attr) = getimagesize("$iconFolder/internal_link.$fileextension");
-            $selected_icon = tag("img src='$iconFolder/internal_link.$fileextension' $attr alt='internal Link'");
+            $selected_icon = "<img src='$iconFolder/internal_link.$fileextension' $attr alt='internal Link'>";
             break;
         case 'pdf':
         case 'pfx':
             if ($pale) {
-            $selected_icon = tag("img src='".$pth['folder']['plugins'] . $plugin . "/images/pdf_past.gif'  width='18' height='16' alt='PDF Document'");
+            $selected_icon = "<img src='".$pth['folder']['plugins'] . $plugin . "/images/pdf_past.gif'  width='18' height='16' alt='PDF Document'>";
             } else {
-            $selected_icon = tag("img src='".$pth['folder']['plugins'] . $plugin . "/images/pdf.gif'  width='18' height='16' alt='PDF Document'");
+            $selected_icon = "<img src='".$pth['folder']['plugins'] . $plugin . "/images/pdf.gif'  width='18' height='16' alt='PDF Document'>";
             }
             break;
         case 'doc':
             if ($pale) {
-            $selected_icon = tag("img src='".$pth['folder']['plugins'] . $plugin . "/images/word_past.gif'  width='18' height='16' alt='Word Document'");
+            $selected_icon = "<img src='".$pth['folder']['plugins'] . $plugin . "/images/word_past.gif'  width='18' height='16' alt='Word Document'>";
             } else {
-            $selected_icon = tag("img src='".$pth['folder']['plugins'] . $plugin . "/images/word.gif'  width='18' height='16' alt='Word Document'");
+            $selected_icon = "<img src='".$pth['folder']['plugins'] . $plugin . "/images/word.gif'  width='18' height='16' alt='Word Document'>";
             }
 
             break;

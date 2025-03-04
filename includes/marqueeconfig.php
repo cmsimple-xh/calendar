@@ -86,7 +86,7 @@ $o .= $notice;
 $marquee_jquerychecked  = $calendar_cf['marquee_in_jquery']  ?  'checked="checked"' : '';
 
 $o .= "<form class='calendar_config' style='margin:0' method='POST' action=''>\n";
-$o .= tag('input type="hidden" value="marquee_config" name="marquee_config"') . "\n";
+$o .= '<input type="hidden" value="marquee_config" name="marquee_config">' . "\n";
 
 
 $o .= '<table><tr>';
@@ -95,11 +95,11 @@ $o .= '<table><tr>';
 $o .= '<td>'
    .  $plugin_tx['calendar']['marquee_use_jquery'] . ': '
    .  '</td><td>'
-   .  tag('input type="checkbox" '.$marquee_jquerychecked.' value="1" name="marquee_jquery"')
+   .  '<input type="checkbox" '.$marquee_jquerychecked.' value="1" name="marquee_jquery">'
    .  '&nbsp; <a class="info_pop-up" href="#">'
-   .  tag('input type="image" src="'
+   .  '<input type="image" src="'
    .  $pth['folder']['plugins'] . $plugin . '/images'
-   .  '/help_icon.png" style="width:16;height:16;"') . '<span>'
+   .  '/help_icon.png" style="width:16;height:16;">' . '<span>'
    .  $plugin_tx['calendar']['help_config_jquery_marquee']
    .  '</span></a>'
    .  "</td>\n";
@@ -119,22 +119,22 @@ $age_not        = $calendar_cf['marquee_age']    =='not'?          ' selected':'
 
 $o .= '<td rowspan="6" style="padding-left:1em;vertical-align:top">'
 
-   .  $plugin_tx['calendar']['marquee_1stline'] . tag('br')
+   .  $plugin_tx['calendar']['marquee_1stline'] . '<br>'
    .  "\n" . '<select name="marquee_1stline">'
    .  "\n<option value='event'$event_1stline>".$plugin_tx['calendar']['event_main_entry'].'</option>'
    .  "\n<option value='event_entry1'$entry1_1stline>".$plugin_tx['calendar']['event_entry1'].'</option>'
    .  "\n<option value='event_entry3'$entry3_1stline>".$plugin_tx['calendar']['event_entry3'].'</option>'
-   .  "\n</select>". tag('br')
+   .  "\n</select>". '<br>'
 
-   .  $plugin_tx['calendar']['marquee_2ndline'] . tag('br')
+   .  $plugin_tx['calendar']['marquee_2ndline'] . '<br>'
    .  "\n" . '<select name="marquee_2ndline">'
    .  "\n<option value='event'$event_2ndline>".$plugin_tx['calendar']['event_main_entry'].'</option>'
    .  "\n<option value='event_entry1'$entry1_2ndline>".$plugin_tx['calendar']['event_entry1'].'</option>'
    .  "\n<option value='event_entry3'$entry3_2ndline>".$plugin_tx['calendar']['event_entry3'].'</option>'
    .  "\n<option value='empty'$empty_2ndline>".$plugin_tx['calendar']['marquee_emptyline'].'</option>'
-   .  "\n</select>". tag('br'). tag('br')
+   .  "\n</select>". '<br>'. '<br>'
 
-   .  $plugin_tx['calendar']['marquee_age'] . tag('br')
+   .  $plugin_tx['calendar']['marquee_age'] . '<br>'
    .  "\n" . '<select name="marquee_age">'
    .  "\n<option value='date'$age_date>".$plugin_tx['calendar']['marquee_dateline'].'</option>'
    .  "\n<option value='1'$age_1>".$plugin_tx['calendar']['marquee_1stline'].'</option>'
@@ -183,8 +183,8 @@ $o .= "\n" . '<tr><td>'
 $o .= "\n" . '<tr><td>'
    .  $plugin_tx['calendar']['marquee_height'] . ': &nbsp; '
    .  '</td><td>'
-   .  tag('input type="text"  value="'
-   .  $calendar_cf['marquee_height'] . '" name="marquee_height" style="width:3em"')
+   .  '<input type="text"  value="'
+   .  $calendar_cf['marquee_height'] . '" name="marquee_height" style="width:3em">'
    .  "</td></tr>\n";
 
 
@@ -192,8 +192,8 @@ $o .= "\n" . '<tr><td>'
 $o .= "\n" . '<tr><td>'
    .  $plugin_tx['calendar']['marquee_dateline_height'] . ': '
    .  '</td><td>'
-   .  tag('input type="text"  value="'
-   .  $calendar_cf['marquee_headline_height'] . '" name="marquee_headline_height" style="width:3em"')
+   .  '<input type="text"  value="'
+   .  $calendar_cf['marquee_headline_height'] . '" name="marquee_headline_height" style="width:3em">'
    .  "</td></tr>\n";
 
 
@@ -221,7 +221,7 @@ $o .= '</table>';
 // save
 //==============
 $o .= '<div style="text-align:right;">'
-   .  tag('input type="submit"   value="'.$plugin_tx['calendar']['menu_save_config'].'"')
+   .  '<input type="submit"   value="'.$plugin_tx['calendar']['menu_save_config'].'">'
    .  "</div>\n";
 
 $o .=  "</form>";

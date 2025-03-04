@@ -153,23 +153,23 @@ if(function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministrati
 
         $o .= $plugin_tx['calendar']['config_presets'];
         if(isset($_POST['preset']) || isset($_POST['backup'])) {
-            $o .=  tag('input type="button" value="&ndash;" class="calendar_edit_on" id="presets_button" style="margin-left:0;"
-                   onclick=\'openedit("presets_button","presets","&ndash;","+","block");\'');
+            $o .=  '<input type="button" value="&ndash;" class="calendar_edit_on" id="presets_button" style="margin-left:0;"
+                   onclick=\'openedit("presets_button","presets","&ndash;","+","block");\'>';
             $displaypresets = '';
         } else {
-            $o .=  tag('input type="button" value="+" class="calendar_edit_off" id="presets_button" style="margin-left:0;"
-                   onclick=\'openedit("presets_button","presets","&ndash;","+","block");\'');
+            $o .=  '<input type="button" value="+" class="calendar_edit_off" id="presets_button" style="margin-left:0;"
+                   onclick=\'openedit("presets_button","presets","&ndash;","+","block");\'>';
             $displaypresets = 'style="display:none;"';
         }
 
         $o .=  ' &nbsp; '. $plugin_tx['calendar']['menu_eventlistconfig'];
         if(isset($_POST['config'])) {
-            $o .=  tag('input type="button" value="&ndash;" class="calendar_edit_on" id="eventlistconfig_button" style="margin-left:0;"
-                   onclick=\'openedit("eventlistconfig_button","eventlistconfig","&ndash;","+","block");\'');
+            $o .=  '<input type="button" value="&ndash;" class="calendar_edit_on" id="eventlistconfig_button" style="margin-left:0;"
+                   onclick=\'openedit("eventlistconfig_button","eventlistconfig","&ndash;","+","block");\'>';
             $displayeventlistconfig = '';
         } else {
-            $o .=  tag('input type="button" value="+" class="calendar_edit_off" id="eventlistconfig_button" style="margin-left:0;"
-                   onclick=\'openedit("eventlistconfig_button","eventlistconfig","&ndash;","+","block");\'');
+            $o .=  '<input type="button" value="+" class="calendar_edit_off" id="eventlistconfig_button" style="margin-left:0;"
+                   onclick=\'openedit("eventlistconfig_button","eventlistconfig","&ndash;","+","block");\'>';
             $displayeventlistconfig = 'style="display:none;"';
         }
 
@@ -209,7 +209,7 @@ if(function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministrati
         $o .= '<h4>'.$plugin_tx['calendar']['menu_marquee'].'</h4>';
         $o .= marqueeConfig();
         $o .= nextevent();
-        $o .= tag('br') . '<p>'.$plugin_tx['calendar']['marquee_contents'].': </p>';
+        $o .= '<br>' . '<p>'.$plugin_tx['calendar']['marquee_contents'].': </p>';
         $o .= nextevent('','','',1);
     }
 
@@ -258,11 +258,11 @@ if(function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministrati
            .  "<li>mod 02/2008 by Bob (cmsimple.fr)</li>\n"
            .  "<li>versions 0.6&ndash;0.9 by Tory</li>\n"
            .  "<li>versions 0.1&ndash;0.5 by <a href='http://svarrer.dk' target='_blank'>Michael Svarrer</a>, who started the plugin in 2005.</li></ul>\n"
-           .  '<p><small><b>Acknowledgements:</b>' . tag('br')
-           .  'This version uses <a href="http://jscolor.com/" target="_blank">JSColor</a> by Jan Odvárko (CZ),'. tag('br')
-           .  '<a href="http://frequency-decoder.com/" target="_blank">datePicker</a> by Brian McAllister (IR/FR),'. tag('br')
+           .  '<p><small><b>Acknowledgements:</b>' . '<br>'
+           .  'This version uses <a href="http://jscolor.com/" target="_blank">JSColor</a> by Jan Odvárko (CZ),'. '<br>'
+           .  '<a href="http://frequency-decoder.com/" target="_blank">datePicker</a> by Brian McAllister (IR/FR),'. '<br>'
            .  'and was written using the <a href="http://www.pspad.com/en/" target="_blank">PSpad</a>-Editor of Jan Fiala (CZ).</small></p>'
-           .  '<p><small>A big thank you to <a href="3-magi.net" target="_blank">cmb</a> (D) for valuable coding hints,' . tag('br')
+           .  '<p><small>A big thank you to <a href="3-magi.net" target="_blank">cmb</a> (D) for valuable coding hints,' . '<br>'
            .  'and to oldnema (CZ) for repeated testing during development of the plugin.'
            .  '</small></p>'
            .  '<p>For bug reports and suggestions please use the <a href="http://www.cmsimpleforum.com/">CMSimple Forum</a></p>'
@@ -383,7 +383,7 @@ if(function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministrati
                         document.getElementById('notice').innerHTML = '';
                    \">";
 
-        $o .= tag('br') . $plugin_tx['calendar']['backup-admin_saving_hint'] . "\n</small></p>\n";
+        $o .= '<br>' . $plugin_tx['calendar']['backup-admin_saving_hint'] . "\n</small></p>\n";
 
         // this listing disappears after actions. The actions call listFiles again to get an updated file list
 
@@ -604,18 +604,18 @@ function calendarconfigmenu()
 
 
     $o .=  "<form method='POST' style='margin:0;'  action=''>\n";
-    $o .= tag('input type="hidden" value="1" name="hideconfig"') . "\n";
+    $o .= '<input type="hidden" value="1" name="hideconfig">' . "\n";
 
     $o .= '<p style="margin:0 0 6px;" >';
 
     $o .= $plugin_tx['calendar']['config_presets'];
     if(isset($_POST['preset']) || isset($_POST['backup'])) {
-        $o .=  tag('input type="button" value="&ndash;" class="calendar_edit_on" id="presets_button" style="margin-left:0;"
-               onclick=\'openedit("presets_button","presets","&ndash;","+","block");\'');
+        $o .=  '<input type="button" value="&ndash;" class="calendar_edit_on" id="presets_button" style="margin-left:0;"
+               onclick=\'openedit("presets_button","presets","&ndash;","+","block");\'>';
         $displaypresets = '';
     } else {
-        $o .=  tag('input type="button" value="+" class="calendar_edit_off" id="presets_button" style="margin-left:0;"
-               onclick=\'openedit("presets_button","presets","&ndash;","+","block");\'');
+        $o .=  '<input type="button" value="+" class="calendar_edit_off" id="presets_button" style="margin-left:0;"
+               onclick=\'openedit("presets_button","presets","&ndash;","+","block");\'>';
         $displaypresets = 'display:none;"';
     }
 
@@ -623,30 +623,30 @@ function calendarconfigmenu()
 
     $o .=  $plugin_tx['calendar']['config_bigcalendar'];
     if($calendar_cf['show_bigcalendar_config']) {
-        $o .=  tag('input type="submit" class="config_button_pressed" value="&ndash;" name="hidebigcalendar" ');
-    } else $o .=  tag('input type="submit" class="config_button" value="+" name="showbigcalendar" ');
+        $o .=  '<input type="submit" class="config_button_pressed" value="&ndash;" name="hidebigcalendar" >';
+    } else $o .=  '<input type="submit" class="config_button" value="+" name="showbigcalendar" >';
 
 
     $o .=  ' ';
 
     $o .=  $plugin_tx['calendar']['config_small_calendar'];
     if($calendar_cf['show_smallcalendar_config']) {
-        $o .=  tag('input type="submit" class="config_button_pressed" value="&ndash;" name="hidesmallcalendar" ');
-    } else $o .=  tag('input type="submit" class="config_button" value="+" name="showsmallcalendar" ');
+        $o .=  '<input type="submit" class="config_button_pressed" value="&ndash;" name="hidesmallcalendar" >';
+    } else $o .=  '<input type="submit" class="config_button" value="+" name="showsmallcalendar" >';
 
     $o .=  ' ';
 
     $o .=  '<span class="nowrap">' . $plugin_tx['calendar']['config_popup'];
     if($calendar_cf['show_popup_config']) {
-        $o .=  tag('input type="submit" class="config_button_pressed" value="&ndash;" name="hidepopupconfig" ');
-    } else $o .=  tag('input type="submit" class="config_button" value="+" name="showpopupconfig" ');
+        $o .=  '<input type="submit" class="config_button_pressed" value="&ndash;" name="hidepopupconfig" >';
+    } else $o .=  '<input type="submit" class="config_button" value="+" name="showpopupconfig" >';
     $o .= '</span>';
 
     $o .=  ' ';
 
     if($calendar_cf['show_year_in_backend']) {
-        $o .=  tag('input type="submit"  style="width:auto;" value="'.$plugin_tx['calendar']['config_year'].'" name="show_month" ');
-    } else $o .=  tag('input type="submit"  style="width:auto;" value="'.$plugin_tx['calendar']['config_month'].'" name="show_year_in_backend" ');
+        $o .=  '<input type="submit"  style="width:auto;" value="'.$plugin_tx['calendar']['config_year'].'" name="show_month" >';
+    } else $o .=  '<input type="submit"  style="width:auto;" value="'.$plugin_tx['calendar']['config_month'].'" name="show_year_in_backend" >';
 
 
     $o .= "</p>\n";
@@ -709,7 +709,7 @@ function eventlistconfigmenu()
     $standardselected = !$calendar_cf['show_eventlist_style']?  ' selected':'';
     $tableselected = $calendar_cf['show_eventlist_style'] == 1? ' selected':'';
 
-//      $o .= tag('input type="submit"   value="'.$plugin_tx['calendar']['menu_test'].'"');
+//      $o .= '<input type="submit"   value="'.$plugin_tx['calendar']['menu_test'].'">';
     $o .= "<select name='style' OnChange ='this.form.submit()'>"
        .  "\n" . "<option value=''$standardselected>" . $plugin_tx['calendar']['config_eventlist_standard'] . '</option>'
        .  "\n" . "<option value='1'$tableselected>" . $plugin_tx['calendar']['config_eventlist_table_selected'] . '</option>'
@@ -744,7 +744,7 @@ function showIcons()
             while (false !== ($icon = readdir ($handle2))) {
                 if ($icon != "." && $icon != "..") {
                     list($width, $height, $type, $attr) = getimagesize($path.$icon_folder."/".$icon);
-                    array_push($icon_array, tag('img src="'.$path.$icon_folder.'/'.$icon.'" '.$attr.'') ." \n");
+                    array_push($icon_array, '<img src="'.$path.$icon_folder.'/'.$icon.'" '.$attr.'>' ." \n");
                 }
             }
             closedir($handle2);
@@ -759,11 +759,11 @@ function showIcons()
     natsort($icon_set_array);
     foreach($icon_set_array as $key => $value){
         if (!strpos($value, "past")) {
-            $o .= "Icon set $value\n" . tag('br') . tag ('br');
+            $o .= "Icon set $value\n" . '<br>' . '<br>';
         } else {
             $o .= "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \n"
                .  preg_replace('!^.+(past:)!','',$value)
-               . "\n" . tag('br') . tag ('br');
+               . "\n" . '<br>' . '<br>';
         }
     }
     //$o .= "(&rarr; ".$plugin_tx['calendar']['menu_config'].")";
@@ -781,7 +781,7 @@ function closeFileViewButton($mode='')
     $o = '';
     $o .= '<input type="button" class="calendar_button" onclick="location.href=\'?&' . $plugin . '&admxx=backup'.$mode.'\'" value="'
     . $plugin_tx['calendar']['backup-admin_close_this_file_view'].'">';
-    $o .= tag('br');
+    $o .= '<br>';
     return $o;
 }
 
@@ -932,12 +932,12 @@ function sourceView($file,$template=0)
     //            displaying the source code
     //===================================================
     $o .= '<form method="POST" action="">';
-    $o .= tag('input type="hidden" value="savesource" name="action"');
+    $o .= '<input type="hidden" value="savesource" name="action">';
     $source_view_zindex = $plugin_cf['calendar']['z-index']? 2+$plugin_cf['calendar']['z-index']:2;
     $o .= '<table class="source_view" id="source_view" style="z-index:'.$source_view_zindex.'" >'."\n";
     $o .= '<tr>';
-    $o .= '<td>' . tag('input class="submit" type="submit" value="' . ucfirst($tx['action']['save']).'" name="send"');
-    $o .= tag('input type="text" value="'.$file.'" name="file" style="width:17em" class="filename"') . $notice;
+    $o .= '<td>' . '<input class="submit" type="submit" value="' . ucfirst($tx['action']['save']).'" name="send">';
+    $o .= '<input type="text" value="'.$file.'" name="file" style="width:17em" class="filename">' . $notice;
     $o .= '</td></tr>';
     if(substr($file,-3)!='php' && substr($file,-3)!='tpl') {
         $o .= '<tr>';
@@ -1020,16 +1020,16 @@ function deleteAndCombine()
         $datapath2 = $action == "delete2"? $pth['folder']['plugins'].'/calendar/templates/' : $datapath;
 
         if(is_file($datapath2.$file)) {
-            $notice .= "$file <i>".$plugin_tx['calendar']['backup-admin_found']."</i>" . tag('br');
+            $notice .= "$file <i>".$plugin_tx['calendar']['backup-admin_found']."</i>" . '<br>';
 
             chmod($datapath2.$file, 0666);
             $x = unlink($datapath2.$file);
             if($x===TRUE) {
-                $notice .= "<span class='success'>$file <i>".$plugin_tx['calendar']['backup-admin_deleted']."</i></span>" . tag('br');
+                $notice .= "<span class='success'>$file <i>".$plugin_tx['calendar']['backup-admin_deleted']."</i></span>" . '<br>';
 
-            } else $notice .= "<span class='error'>$file <i>".$plugin_tx['calendar']['backup-admin_not_deleted']."</i></span>" . tag('br');
+            } else $notice .= "<span class='error'>$file <i>".$plugin_tx['calendar']['backup-admin_not_deleted']."</i></span>" . '<br>';
 
-         } else $notice .= "<span class='error'>$file <i>".$plugin_tx['calendar']['backup-admin_not_found']."</i></span>" . tag('br');
+         } else $notice .= "<span class='error'>$file <i>".$plugin_tx['calendar']['backup-admin_not_found']."</i></span>" . '<br>';
 
     $o .= listFiles();
 
@@ -1056,9 +1056,9 @@ function deleteAndCombine()
                 $version1 = FALSE;
             }
             $notice .= "<b>$firstfile </b><i>".$plugin_tx['calendar']['backup-admin_found_with']." $f "
-                    . $plugin_tx['calendar']['backup-admin_events']."</i>" . tag('br');
+                    . $plugin_tx['calendar']['backup-admin_events']."</i>" . '<br>';
          } else $notice .= "<span class='error'>".$plugin_tx['calendar']['backup-admin_1st_file']
-                        .  " $firstfile <i>".$plugin_tx['calendar']['backup-admin_not_found']."</i></span>" . tag('br');
+                        .  " $firstfile <i>".$plugin_tx['calendar']['backup-admin_not_found']."</i></span>" . '<br>';
 
 
         if(is_file($datapath.$secondfile)) {
@@ -1074,9 +1074,9 @@ function deleteAndCombine()
                 $version2 = FALSE;
             }
             $notice .= "<b>$secondfile </b><i>".$plugin_tx['calendar']['backup-admin_found_with']." $s "
-                    . $plugin_tx['calendar']['backup-admin_events']."</i>" . tag('br');
+                    . $plugin_tx['calendar']['backup-admin_events']."</i>" . '<br>';
          } else $notice .= "<span class='error'>".$plugin_tx['calendar']['backup-admin_2nd_file']
-                        .  " $secondfile <i>".$plugin_tx['calendar']['backup-admin_not_found']."</i></span>" . tag('br');
+                        .  " $secondfile <i>".$plugin_tx['calendar']['backup-admin_not_found']."</i></span>" . '<br>';
 
         if($f && $s && $version1==$version2) {
             // merge the file arrays
@@ -1086,19 +1086,19 @@ function deleteAndCombine()
             // count number of events in resulting file
             $sf = count($secondfilearray);
             if($version2) $sf--;print_r($secondfilearray);
-            if (($f + $s) > $sf) $notice .= "<i>".(($f + $s) - $sf) . " ".$plugin_tx['calendar']['backup-admin_duplicates_deleted']."</i>". tag('br');
+            if (($f + $s) > $sf) $notice .= "<i>".(($f + $s) - $sf) . " ".$plugin_tx['calendar']['backup-admin_duplicates_deleted']."</i>". '<br>';
             // save the resulting file or give an error notice
             $success = file_put_contents($datapath.$secondfile,$secondfilearray);
             if ($success!==false) {
                 $notice .= "<span class='success'>$secondfile <i>". $plugin_tx['calendar']['backup-admin_saved_with']
-                        . "</i> $sf <i>".$plugin_tx['calendar']['backup-admin_events'].'</i></span>'. tag('br'). tag('br');
-            } else $notice .= "<span class='error'>ERROR: could not save $secondfile</span>". tag('br'). tag('br');
+                        . "</i> $sf <i>".$plugin_tx['calendar']['backup-admin_events'].'</i></span>'. '<br>'. '<br>';
+            } else $notice .= "<span class='error'>ERROR: could not save $secondfile</span>". '<br>'. '<br>';
         } elseif($f && $s && $version1!=$version2) {
             $notice .= '<span class="error">'
                     .  $plugin_tx['calendar']['error_cant_combine_eventfiles_of_different_versions']
                     .  '</span>'
-                    .  tag('br'). tag('br');
-        } else $notice .= '<span class="error">'.$plugin_tx['calendar']['backup-admin_no_merge'].'</span>'. tag('br'). tag('br');
+                    .  '<br>'. '<br>';
+        } else $notice .= '<span class="error">'.$plugin_tx['calendar']['backup-admin_no_merge'].'</span>'. '<br>'. '<br>';
 
     $o .= listFiles();
 
@@ -1134,7 +1134,7 @@ function deleteAndCombine()
            document.getElementById('hidden_preset_links').style.display = 'none';
 
            }\">"
-        . "<div id='hidden_merge_menu'><small>".$plugin_tx['calendar']['backup-admin_merge_instruction'] ."</small>". tag('br') ."\n"
+        . "<div id='hidden_merge_menu'><small>".$plugin_tx['calendar']['backup-admin_merge_instruction'] ."</small>". '<br>' ."\n"
         . "<form method='POST' action=''>"
         . "<table class='filelist'><tr><td>";
 
@@ -1143,7 +1143,7 @@ function deleteAndCombine()
     $handle=opendir ($datapath);
     while (false !== ($files = readdir ($handle))) {
         if ($files != "." && $files != ".." && substr($files,-3)!='php') {
-            $o .= "<input type='radio' style='vertical-align: bottom;' name='firstfile' value='$files'>$files" . tag('br') ."\n";
+            $o .= "<input type='radio' style='vertical-align: bottom;' name='firstfile' value='$files'>$files" . '<br>' ."\n";
         }
     }
     closedir($handle);
@@ -1154,7 +1154,7 @@ function deleteAndCombine()
     $handle=opendir ($datapath);
     while (false !== ($files = readdir ($handle))) {
         if ($files != "." && $files != ".." && substr($files,-3)!='php') {
-            $o .= "<input type='radio' style='vertical-align: bottom;' name='secondfile' value='$files'>$files" . tag('br') ."\n";
+            $o .= "<input type='radio' style='vertical-align: bottom;' name='secondfile' value='$files'>$files" . '<br>' ."\n";
         }
     }
     closedir($handle);
@@ -1163,7 +1163,7 @@ function deleteAndCombine()
         . "<input type='hidden' id='returnfrommerge' value='' name='returnview'>"
         . "<input type='submit' value='".$plugin_tx['calendar']['backup-admin_merge']
         . "' style='color:#060;font-weight:bold;' class='calendar_button' name='send'>"
-        . "</form>" . tag('br') . "\n</div>";
+        . "</form>" . '<br>' . "\n</div>";
     // end of merge dialogue
 
 
@@ -1216,7 +1216,7 @@ function deleteAndCombine()
     }
 
     //div controlled by delete button (edit mode)
-    $o .= "<div id='hidden_delete_menu'><small>".$plugin_tx['calendar']['backup-admin_delete_instruction'] ."</small>". tag('br') ."\n"
+    $o .= "<div id='hidden_delete_menu'><small>".$plugin_tx['calendar']['backup-admin_delete_instruction'] ."</small>". '<br>' ."\n"
         . "<form method='POST' action=''>";
     $o .= '<div>'
        .  "<select name='file'>"
@@ -1230,7 +1230,7 @@ function deleteAndCombine()
         . "</form>\n</div>\n\n";
 
     //div controlled by delete button (source mode)
-    $o .= "<div id='hidden_delete1_menu' style='display:none'><small>".$plugin_tx['calendar']['backup-admin_delete_instruction'] ."</small>". tag('br') ."\n"
+    $o .= "<div id='hidden_delete1_menu' style='display:none'><small>".$plugin_tx['calendar']['backup-admin_delete_instruction'] ."</small>". '<br>' ."\n"
         . "<form method='POST' action=''>\n";
     $o .= '<div>'
        .  "<select name='file'>"
@@ -1260,7 +1260,7 @@ function deleteAndCombine()
            document.getElementById('hidden_delete2_menu').style.display = 'none';
 
            }\">"
-        . "<div id='hidden_delete2_menu' style='display:none'><small>".$plugin_tx['calendar']['backup-admin_delete_instruction'] ."</small>". tag('br') ."\n"
+        . "<div id='hidden_delete2_menu' style='display:none'><small>".$plugin_tx['calendar']['backup-admin_delete_instruction'] ."</small>". '<br>' ."\n"
         . "<form method='POST' action=''>\n";
 
     $handle=opendir ($pth['folder']['plugins'].'/calendar/templates/');
